@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6361BC6A1F8037B900E542F4 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361BC691F8037B900E542F4 /* test.swift */; };
 		63CFD51E1F80135200A95068 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFD51D1F80135200A95068 /* AppDelegate.swift */; };
 		63CFD5201F80135200A95068 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63CFD51F1F80135200A95068 /* GameScene.sks */; };
 		63CFD5221F80135200A95068 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63CFD5211F80135200A95068 /* Actions.sks */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6361BC691F8037B900E542F4 /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		63CFD51A1F80135200A95068 /* KrazyKeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KrazyKeys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63CFD51D1F80135200A95068 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63CFD51F1F80135200A95068 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				63CFD51F1F80135200A95068 /* GameScene.sks */,
 				63CFD5211F80135200A95068 /* Actions.sks */,
 				63CFD5231F80135200A95068 /* GameScene.swift */,
+				6361BC691F8037B900E542F4 /* test.swift */,
 				63CFD5351F80149A00A95068 /* MenuScene.swift */,
 				63CFD5371F8014AA00A95068 /* OptionsScene.swift */,
 				63CFD5251F80135200A95068 /* GameViewController.swift */,
@@ -155,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63CFD5241F80135200A95068 /* GameScene.swift in Sources */,
+				6361BC6A1F8037B900E542F4 /* test.swift in Sources */,
 				63CFD5361F80149A00A95068 /* MenuScene.swift in Sources */,
 				63CFD5261F80135200A95068 /* GameViewController.swift in Sources */,
 				63CFD5381F8014AA00A95068 /* OptionsScene.swift in Sources */,
@@ -322,6 +326,7 @@
 				63CFD5341F80135200A95068 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
