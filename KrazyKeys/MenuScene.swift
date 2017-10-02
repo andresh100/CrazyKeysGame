@@ -53,31 +53,37 @@ class MenuScene: SKScene {
         playLabel.fontColor = UIColor.white
         highScoresLabel.fontColor = UIColor.white
         
-        cLabel.fontSize = 35
-        rLabel.fontSize = 35
-        aLabel.fontSize = 35
-        zLabel.fontSize = 35
-        yLabel.fontSize = 35
-        kLabel.fontSize = 35
-        eLabel.fontSize = 35
-        y2Label.fontSize = 35
-        sLabel.fontSize = 35
+        cLabel.fontSize = 50
+        rLabel.fontSize = 50
+        aLabel.fontSize = 50
+        zLabel.fontSize = 50
+        yLabel.fontSize = 50
+        kLabel.fontSize = 50
+        eLabel.fontSize = 50
+        y2Label.fontSize = 50
+        sLabel.fontSize = 50
         
         playLabel.fontSize = 20
         highScoresLabel.fontSize = 20
         
-        cLabel.position = CGPoint(x: frame.midX-170, y: frame.midY+60)
-        rLabel.position = CGPoint(x: frame.midX-130, y: frame.midY+60)
-        aLabel.position = CGPoint(x: frame.midX-90, y: frame.midY+60)
-        zLabel.position = CGPoint(x: frame.midX-50, y: frame.midY+60)
-        yLabel.position = CGPoint(x: frame.midX-10, y: frame.midY+60)
-        kLabel.position = CGPoint(x: frame.midX+50, y: frame.midY+60)
-        eLabel.position = CGPoint(x: frame.midX+90, y: frame.midY+60)
-        y2Label.position = CGPoint(x: frame.midX+130, y: frame.midY+60)
-        sLabel.position = CGPoint(x: frame.midX+170, y: frame.midY+60)
+        //cLabel.horizontalAlignmentMode = .center
+        //cLabel.position = CGPoint(x: frame.midX-170, y: frame.midY+60)
+        //rLabel.position = CGPoint(x: frame.midX-130, y: frame.midY+60)
+        //aLabel.position = CGPoint(x: frame.midX-90, y: frame.midY+60)
+        //zLabel.position = CGPoint(x: frame.midX-50, y: frame.midY+60)
+        //yLabel.position = CGPoint(x: frame.midX-10, y: frame.midY+60)
+        cLabel.position = CGPoint(x: frame.midX-115, y: self.size.height-120)
+        rLabel.position = CGPoint(x: frame.midX-60, y: self.size.height-120)
+        aLabel.position = CGPoint(x: frame.midX-5, y: self.size.height-120)
+        zLabel.position = CGPoint(x: frame.midX+50, y: self.size.height-120)
+        yLabel.position = CGPoint(x: frame.midX+105, y: self.size.height-120)
+        kLabel.position = CGPoint(x: frame.midX-85, y: self.size.height-195)
+        eLabel.position = CGPoint(x: frame.midX-30, y: self.size.height-195)
+        y2Label.position = CGPoint(x: frame.midX+25, y: self.size.height-195)
+        sLabel.position = CGPoint(x: frame.midX+80, y: self.size.height-195)
         
-        playLabel.position = CGPoint(x: frame.midX, y: frame.midY-75)
-        highScoresLabel.position = CGPoint(x: frame.midX, y: frame.midY-150)
+        playLabel.position = CGPoint(x: frame.midX, y: frame.midY)
+        highScoresLabel.position = CGPoint(x: frame.midX, y: frame.midY-60)
         
         cLabel.text = "C"
         rLabel.text = "R"
@@ -116,7 +122,7 @@ class MenuScene: SKScene {
             case playLabel :
                 if let view = view {
                     let transition:SKTransition = SKTransition.fade(withDuration: 1)
-                    let scene:SKScene = GameScene(size: self.size)
+                    let scene:SKScene = DifficultyScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
                 }
             case highScoresLabel:
