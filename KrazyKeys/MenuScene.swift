@@ -111,6 +111,9 @@ class MenuScene: SKScene {
         self.addChild(playLabel)
         self.addChild(highScoresLabel)
         
+        let allLetters : [SKNode] = [cLabel, rLabel, aLabel, zLabel, yLabel, kLabel, eLabel, y2Label, sLabel]
+        animateNodes(allLetters)
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -134,6 +137,27 @@ class MenuScene: SKScene {
             default:
                 return
             }
+        }
+    }
+    
+/* func animateNodes source credit: https://www.swiftbysundell.com/posts/using-spritekit-to-create-animations-in-swift */
+    func animateNodes(_ nodes: [SKNode]) {
+        for (index, node) in nodes.enumerated() {
+            node.run(.sequence([
+                .wait(forDuration: TimeInterval(index) * 0.2),
+                .repeatForever(.sequence([
+                    // A group of actions get performed simultaneously
+                    .group([
+                        .sequence([
+                            .scale(to: 1.5, duration: 0.3),
+                            .scale(to: 1, duration: 0.3)
+                            ]),
+                        // Rotate by 360 degrees (pi * 2 in radians)
+                        .rotate(byAngle: .pi * 2, duration: 0.6)
+                        ]),
+                    .wait(forDuration: 5)
+                    ]))
+                ]))
         }
     }
  
