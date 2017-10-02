@@ -11,10 +11,22 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    var backLabel : SKLabelNode!
+    
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
     override func didMove(to view: SKView) {
+        
+        backgroundColor = SKColor.black
+        
+        backLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        backLabel.fontColor = UIColor.white
+        backLabel.fontSize = 20
+        backLabel.horizontalAlignmentMode = .left
+        backLabel.position = CGPoint(x: 0.0, y: self.size.height-40)
+        backLabel.text = "BACK"
+        self.addChild(backLabel)
         
         // Get label node from scene and store it for use later
         self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
@@ -62,6 +74,21 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        if let touch = touches.first {
+            let pos = touch.location(in: self)
+            let node = self.atPoint(pos)
+            
+            if node == backLabel {
+                if let view = view {
+                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                    //let scene:SKScene = GameScene(size: self.size)
+                    let scene:SKScene = MenuScene(size: self.size)
+                    self.view?.presentScene(scene, transition: transition)
+                }
+            }
+        }
+        
         if let label = self.label {
             label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
         }

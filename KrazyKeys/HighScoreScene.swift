@@ -100,7 +100,7 @@ class HighScoreScene: SKScene {
         
         backLabel.fontColor = UIColor.white
         
-        highScoresLabel.fontColor = UIColor.cyan
+        highScoresLabel.fontColor = UIColor.white
         rankLabel.fontColor = UIColor.magenta
         scoreLabel.fontColor = UIColor.magenta
         nameLabel.fontColor = UIColor.magenta
