@@ -11,8 +11,6 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    
-    
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
@@ -38,7 +36,6 @@ class GameScene: SKScene {
                                               SKAction.removeFromParent()]))
         }
     }
-    
     
     func touchDown(atPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
@@ -83,7 +80,6 @@ class GameScene: SKScene {
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
-    
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered

@@ -30,6 +30,7 @@ class MenuScene: SKScene {
                 if let view = view {
                     let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     let scene:SKScene = GameScene(size: self.size)
+                    //let scene:SKScene = HighScoreScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
                 }
             }
