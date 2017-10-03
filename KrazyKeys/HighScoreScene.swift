@@ -202,6 +202,8 @@ class HighScoreScene: SKScene {
         name4Label.text = String(describing: data[1][1])
         name5Label.text = String(describing: data[0][1])
         
+        //AnimationHelper.animateLabel(highScoresLabel, 1.1)
+        
         self.addChild(backLabel)
         
         self.addChild(highScoresLabel)
