@@ -23,7 +23,6 @@ class MediumGameScene: SKScene {
         welcomeLabel.position = CGPoint(x: frame.midX, y: frame.midY)
         welcomeLabel.text = "MEDIUM GAME SCENE"
         self.addChild(welcomeLabel)
-        
     }
     
 }
