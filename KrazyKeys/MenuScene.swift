@@ -114,6 +114,9 @@ class MenuScene: SKScene {
         let allLetters : [SKNode] = [cLabel, rLabel, aLabel, zLabel, yLabel, kLabel, eLabel, y2Label, sLabel]
         animateNodes(allLetters)
         
+        let playArray : [SKNode] = [playLabel]
+        animateLabels(playArray)
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -140,25 +143,48 @@ class MenuScene: SKScene {
         }
     }
     
-/* func animateNodes source credit: https://www.swiftbysundell.com/posts/using-spritekit-to-create-animations-in-swift */
+    /* func animateNodes source credit: https://www.swiftbysundell.com/posts/using-spritekit-to-create-animations-in-swift */
     func animateNodes(_ nodes: [SKNode]) {
         for (index, node) in nodes.enumerated() {
             node.run(.sequence([
                 .wait(forDuration: TimeInterval(index) * 0.2),
+                // A group of actions get performed simultaneously
+                // Rotate by 360 degrees (pi * 2 in radians) and then wait
                 .repeatForever(.sequence([
-                    // A group of actions get performed simultaneously
-                    .group([
-                        .sequence([
-                            .scale(to: 1.5, duration: 0.3),
-                            .scale(to: 1, duration: 0.3)
-                            ]),
-                        // Rotate by 360 degrees (pi * 2 in radians)
-                        .rotate(byAngle: .pi * 2, duration: 0.6)
-                        ]),
-                    .wait(forDuration: 5)
+                        .rotate(byAngle: .pi * 2, duration: 0.6), .wait(forDuration: 5)
                     ]))
                 ]))
         }
     }
- 
+    
+    /* func animateLabels source credit: https://www.swiftbysundell.com/posts/using-spritekit-to-create-animations-in-swift */
+    func animateLabels(_ nodes: [SKNode]) {
+        
+        for (index, node) in nodes.enumerated() {
+            
+            // Offset each node with a slight delay depending on the index
+            let delayAction = SKAction.wait(forDuration: 0.2)
+            
+            // Scale up and then back down
+            let scaleUpAction = SKAction.scale(to: 1.2, duration: 0.3)
+            let scaleDownAction = SKAction.scale(to: 1, duration: 0.3)
+            
+            // Wait for 2 seconds before repeating the action
+            //let waitAction = SKAction.wait(forDuration: 2)
+            
+            // Form a sequence with the scale actions, as well as the wait action
+            //let scaleActionSequence = SKAction.sequence([scaleUpAction, scaleDownAction, waitAction])
+            let scaleActionSequence = SKAction.sequence([scaleUpAction, scaleDownAction])
+            
+            // Form a repeat action with the sequence
+            let repeatAction = SKAction.repeatForever(scaleActionSequence)
+            
+            // Combine the delay and the repeat actions into another sequence
+            let actionSequence = SKAction.sequence([delayAction, repeatAction])
+            
+            // Run the action
+            node.run(actionSequence)
+        }
+    }
+    
 }
