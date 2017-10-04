@@ -41,14 +41,14 @@ class MenuScene: SKScene {
         highScoresLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         
         cLabel.fontColor = UIColor.cyan
-        rLabel.fontColor = UIColor.magenta
-        aLabel.fontColor = UIColor.red
-        zLabel.fontColor = UIColor.orange
-        yLabel.fontColor = UIColor.yellow
-        kLabel.fontColor = UIColor(red: 25/255, green: 255/255, blue: 0/255, alpha: 1.0)
-        eLabel.fontColor = UIColor.blue
+        rLabel.fontColor = UIColor.cyan
+        aLabel.fontColor = UIColor.cyan
+        zLabel.fontColor = UIColor.cyan
+        yLabel.fontColor = UIColor.cyan
+        kLabel.fontColor = UIColor.cyan
+        eLabel.fontColor = UIColor.cyan
         y2Label.fontColor = UIColor.cyan
-        sLabel.fontColor = UIColor.magenta
+        sLabel.fontColor = UIColor.cyan
         
         playLabel.fontColor = UIColor.white
         highScoresLabel.fontColor = UIColor.white
