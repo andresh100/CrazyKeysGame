@@ -24,6 +24,7 @@
 		63CFD52E1F80135200A95068 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63CFD52C1F80135200A95068 /* LaunchScreen.storyboard */; };
 		63CFD5361F80149A00A95068 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFD5351F80149A00A95068 /* MenuScene.swift */; };
 		63CFD5381F8014AA00A95068 /* OptionsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFD5371F8014AA00A95068 /* OptionsScene.swift */; };
+		C6562A041F85EAE100103CB7 /* lel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6562A031F85EAE100103CB7 /* lel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		63CFD52F1F80135200A95068 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63CFD5351F80149A00A95068 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		63CFD5371F8014AA00A95068 /* OptionsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsScene.swift; sourceTree = "<group>"; };
+		C6562A031F85EAE100103CB7 /* lel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				63CFD52C1F80135200A95068 /* LaunchScreen.storyboard */,
 				63CFD52F1F80135200A95068 /* Info.plist */,
 				5B0D300F1F852F0E001801DC /* words.txt */,
+				C6562A031F85EAE100103CB7 /* lel.swift */,
 			);
 			path = KrazyKeys;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				5B5B6DEF1F82B3D700277538 /* DifficultyScene.swift in Sources */,
 				5BCCE9581F83DEE2007EFD86 /* AnimationHelper.swift in Sources */,
 				5B5B6DF11F82B5D400277538 /* EasyGameScene.swift in Sources */,
+				C6562A041F85EAE100103CB7 /* lel.swift in Sources */,
 				5BB0060F1F81789A0053FC9B /* HighScoreScene.swift in Sources */,
 				63CFD5361F80149A00A95068 /* MenuScene.swift in Sources */,
 				63CFD5261F80135200A95068 /* GameViewController.swift in Sources */,
