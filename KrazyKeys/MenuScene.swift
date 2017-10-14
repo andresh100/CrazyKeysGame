@@ -29,7 +29,7 @@ class MenuScene: SKScene {
         for i in 0..<char.count {
             let newLabel = SKLabelNode(fontNamed: "Fipps-Regular")
             
-            newLabel.fontColor = UIColor.red;
+            newLabel.fontColor = UIColor.green;
             newLabel.fontSize = 50
             newLabel.text = String(char[i])
             labelTitle.append(newLabel)
@@ -57,6 +57,10 @@ class MenuScene: SKScene {
         label[0].position = CGPoint(x: frame.midX, y: frame.midY)
         label[1].position = CGPoint(x: frame.midX, y: frame.midY-60)
         label[2].position = CGPoint(x: frame.midX, y: frame.midY-120)
+        
+//        label[0].fontColor = UIColor.green
+//        label[1].fontColor = UIColor.white
+//        label[2].fontColor = UIColor.white
         
         label[0].text = "PLAY"
         label[1].text = "HIGH SCORES"
