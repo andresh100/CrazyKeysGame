@@ -10,9 +10,9 @@ import GameplayKit
 
 class MenuScene: SKScene {
     
+    var labelTitle = [SKLabelNode]()
     var label = [SKLabelNode]()
     var gameName = "CRAZYKEYS"
-    
     var char = [Character]()
     
     var playLabel : SKLabelNode!
@@ -32,54 +32,53 @@ class MenuScene: SKScene {
             newLabel.fontColor = UIColor.red;
             newLabel.fontSize = 50
             newLabel.text = String(char[i])
-            label.append(newLabel)
+            labelTitle.append(newLabel)
         }
         
-        playLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        highScoresLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-    
-        
-        playLabel.fontColor = UIColor.white
-        highScoresLabel.fontColor = UIColor.white
-        
-        
-        playLabel.fontSize = 20
-        highScoresLabel.fontSize = 20
+        for i in 0..<3{
+            let newLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+            newLabel.fontColor = UIColor.white
+            newLabel.fontSize = 20
+            label.append(newLabel)
+            
+        }
         
         
-        label[0].position = CGPoint(x: frame.midX-115, y: self.size.height-120)
-        label[1].position = CGPoint(x: frame.midX-60, y: self.size.height-120)
-        label[2].position = CGPoint(x: frame.midX-5, y: self.size.height-120)
-        label[3].position = CGPoint(x: frame.midX+50, y: self.size.height-120)
-        label[4].position = CGPoint(x: frame.midX+105, y: self.size.height-120)
-        label[5].position = CGPoint(x: frame.midX-85, y: self.size.height-195)
-        label[6].position = CGPoint(x: frame.midX-30, y: self.size.height-195)
-        label[7].position = CGPoint(x: frame.midX+25, y: self.size.height-195)
-        label[8].position = CGPoint(x: frame.midX+80, y: self.size.height-195)
+        labelTitle[0].position = CGPoint(x: frame.midX-115, y: self.size.height-120)
+        labelTitle[1].position = CGPoint(x: frame.midX-60, y: self.size.height-120)
+        labelTitle[2].position = CGPoint(x: frame.midX-5, y: self.size.height-120)
+        labelTitle[3].position = CGPoint(x: frame.midX+50, y: self.size.height-120)
+        labelTitle[4].position = CGPoint(x: frame.midX+105, y: self.size.height-120)
+        labelTitle[5].position = CGPoint(x: frame.midX-85, y: self.size.height-195)
+        labelTitle[6].position = CGPoint(x: frame.midX-30, y: self.size.height-195)
+        labelTitle[7].position = CGPoint(x: frame.midX+25, y: self.size.height-195)
+        labelTitle[8].position = CGPoint(x: frame.midX+80, y: self.size.height-195)
         
-        playLabel.position = CGPoint(x: frame.midX, y: frame.midY)
-        highScoresLabel.position = CGPoint(x: frame.midX, y: frame.midY-60)
+        label[0].position = CGPoint(x: frame.midX, y: frame.midY)
+        label[1].position = CGPoint(x: frame.midX, y: frame.midY-60)
+        label[2].position = CGPoint(x: frame.midX, y: frame.midY-120)
         
+        label[0].text = "PLAY"
+        label[1].text = "HIGH SCORES"
+        label[2].text = "SETTING"
         
-        playLabel.text = "PLAY"
-        highScoresLabel.text = "HIGH SCORES"
-        
-        let allLabels : [SKLabelNode] = [label[0], label[1], label[2], label[3], label[4], label[5], label[6], label[7], label[8], playLabel, highScoresLabel]
+        let allLabels : [SKLabelNode] = [labelTitle[0], labelTitle[1], labelTitle[2], labelTitle[3], labelTitle[4], labelTitle[5], labelTitle[6], labelTitle[7], labelTitle[8], label[0], label[1], label[2]]
         for label in allLabels {
             AnimationHelper.adjustLabelFontSizeToFitScreen(labelNode: label)
         }
         
         for i in 0..<char.count{
-            self.addChild(label[i]);
+            self.addChild(labelTitle[i]);
             }
         
-        self.addChild(playLabel)
-        self.addChild(highScoresLabel)
+        for i in 0..<3{
+            self.addChild(label[i]);
+        }
         
-        let allLetters : [SKNode] = [label[0], label[1], label[2], label[3], label[4], label[5], label[6], label[7], label[8]]
+        let allLetters : [SKNode] = [labelTitle[0], labelTitle[1], labelTitle[2], labelTitle[3], labelTitle[4], labelTitle[5], labelTitle[6], labelTitle[7], labelTitle[8]]
         
         AnimationHelper.animateNodes(allLetters)
-        AnimationHelper.animateLabel(playLabel, 1.2)
+        AnimationHelper.animateLabel(label[0], 1.2)
         
     }
     
@@ -89,16 +88,22 @@ class MenuScene: SKScene {
             let node = self.atPoint(pos)
             
             switch node {
-            case playLabel :
+            case label[0] :
                 if let view = view {
                     let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     let scene:SKScene = DifficultyScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
                 }
-            case highScoresLabel:
+            case label[1]:
                 if let view = view {
                     let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     let scene:SKScene = HighScoreScene(size: self.size)
+                    self.view?.presentScene(scene, transition: transition)
+                }
+            case label[2]:
+                if let view = view{
+                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                    let scene:SKScene = SettingScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
                 }
             default:
