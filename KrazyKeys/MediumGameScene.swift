@@ -16,8 +16,11 @@ class MediumGameScene: SKScene {
     var timerLabel : SKLabelNode!
     var wordsData = [String]()
     
+    override func sceneDidLoad() {
+
+    }
+    
     override func didMove(to view: SKView) {
-        
         previousScene = "MediumGameScene"
         
         backgroundColor = SKColor.black
@@ -36,14 +39,14 @@ class MediumGameScene: SKScene {
         scoreLabel.fontColor = UIColor.yellow
         scoreLabel.fontSize = 20
         scoreLabel.horizontalAlignmentMode = .right
-        scoreLabel.position = CGPoint(x: self.size.width, y: self.size.height-40)
+        scoreLabel.position = CGPoint(x: self.size.width-10, y: self.size.height-40)
         scoreLabel.text = "Score: 0"
         
         pauseLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         pauseLabel.fontColor = UIColor.yellow
         pauseLabel.fontSize = 20
         pauseLabel.horizontalAlignmentMode = .left
-        pauseLabel.position = CGPoint(x: 0.0, y: self.size.height-40)
+        pauseLabel.position = CGPoint(x: 10.0, y: self.size.height-40)
         pauseLabel.text = "II"
         
         timerLabel = SKLabelNode(fontNamed: "Fipps-Regular")
@@ -56,7 +59,6 @@ class MediumGameScene: SKScene {
         self.addChild(pauseLabel)
         self.addChild(wordLabel)
         self.addChild(timerLabel)
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
