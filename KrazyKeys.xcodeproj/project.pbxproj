@@ -11,6 +11,7 @@
 		5B5B6DEF1F82B3D700277538 /* DifficultyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5B6DEE1F82B3D700277538 /* DifficultyScene.swift */; };
 		5B5B6DF11F82B5D400277538 /* EasyGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5B6DF01F82B5D400277538 /* EasyGameScene.swift */; };
 		5B5B6DF31F82B5E000277538 /* MediumGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5B6DF21F82B5E000277538 /* MediumGameScene.swift */; };
+		5BA71BC41F92A256009E1E0F /* words.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BA71BC31F92A256009E1E0F /* words.plist */; };
 		5BB0060F1F81789A0053FC9B /* HighScoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB0060E1F81789A0053FC9B /* HighScoreScene.swift */; };
 		5BCCE9581F83DEE2007EFD86 /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCCE9571F83DEE2007EFD86 /* AnimationHelper.swift */; };
 		5BF5D0F01F81A30700BCD04A /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5BF5D0EF1F81A2E000BCD04A /* Fipps-Regular.otf */; };
@@ -27,11 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5B0D300F1F852F0E001801DC /* words.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
 		5B28DC611F8545C80008304B /* PauseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseScene.swift; sourceTree = "<group>"; };
 		5B5B6DEE1F82B3D700277538 /* DifficultyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyScene.swift; sourceTree = "<group>"; };
 		5B5B6DF01F82B5D400277538 /* EasyGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyGameScene.swift; sourceTree = "<group>"; };
 		5B5B6DF21F82B5E000277538 /* MediumGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumGameScene.swift; sourceTree = "<group>"; };
+		5BA71BC31F92A256009E1E0F /* words.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = words.plist; sourceTree = "<group>"; };
 		5BB0060E1F81789A0053FC9B /* HighScoreScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreScene.swift; sourceTree = "<group>"; };
 		5BCCE9571F83DEE2007EFD86 /* AnimationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationHelper.swift; sourceTree = "<group>"; };
 		5BF5D0EF1F81A2E000BCD04A /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
@@ -97,7 +98,7 @@
 				5BF5D0EF1F81A2E000BCD04A /* Fipps-Regular.otf */,
 				63CFD52C1F80135200A95068 /* LaunchScreen.storyboard */,
 				63CFD52F1F80135200A95068 /* Info.plist */,
-				5B0D300F1F852F0E001801DC /* words.txt */,
+				5BA71BC31F92A256009E1E0F /* words.plist */,
 			);
 			path = KrazyKeys;
 			sourceTree = "<group>";
@@ -167,6 +168,7 @@
 				63CFD52B1F80135200A95068 /* Assets.xcassets in Resources */,
 				5BF5D0F01F81A30700BCD04A /* Fipps-Regular.otf in Resources */,
 				63CFD52E1F80135200A95068 /* LaunchScreen.storyboard in Resources */,
+				5BA71BC41F92A256009E1E0F /* words.plist in Resources */,
 				63CFD5221F80135200A95068 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

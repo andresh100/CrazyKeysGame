@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   words.plist
-   KrazyKeys
-
-   Created by Alissa Chiu on 10/14/17.
-   Copyright (c) 2017 nedink. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    
-    </dict>
+<dict>
+	<key>Words</key>
+	<array>
+		<string>SADDLE</string>
+		<string>SKATEBOARD</string>
+		<string>TWIST</string>
+		<string>HORSE</string>
+		<string>LIMBO</string>
+		<string>NEWSPAPER</string>
+		<string>TRUMPET</string>
+		<string>VIOLIN</string>
+		<string>DARTH</string>
+		<string>VADER</string>
+		<string>PIED</string>
+		<string>PIPER</string>
+		<string>CHEERLEADER</string>
+		<string>POPSICKLE</string>
+		<string>SALUTE</string>
+		<string>PUPPET</string>
+		<string>BICYCLE</string>
+		<string>LIPSTICK</string>
+		<string>PENGUIN</string>
+		<string>QUICKSAND</string>
+		<string>PRESIDENT</string>
+		<string>ERASER</string>
+		<string>MIRROR</string>
+		<string>SWORDFISH</string>
+		<string>CRAMP</string>
+	</array>
+</dict>
 </plist>

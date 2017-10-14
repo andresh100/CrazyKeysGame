@@ -9,6 +9,8 @@
 import SpriteKit
 import GameplayKit
 
+var previousScene = ""
+
 class PauseScene: SKScene {
     
     var welcomeLabel : SKLabelNode!
@@ -21,20 +23,20 @@ class PauseScene: SKScene {
         
         welcomeLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         welcomeLabel.fontColor = UIColor.white
-        welcomeLabel.fontSize = 14
+        welcomeLabel.fontSize = 20
         welcomeLabel.position = CGPoint(x: frame.midX, y: frame.midY+90)
         welcomeLabel.text = "GAME PAUSED"
         
         resumeLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         resumeLabel.fontColor = UIColor.yellow
-        resumeLabel.fontSize = 14
+        resumeLabel.fontSize = 20
         resumeLabel.position = CGPoint(x: frame.midX, y: frame.midY)
         resumeLabel.text = "RESUME"
         
         quitLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         quitLabel.fontColor = UIColor.red
-        quitLabel.fontSize = 14
-        quitLabel.position = CGPoint(x: frame.midX, y: frame.midY-20)
+        quitLabel.fontSize = 20
+        quitLabel.position = CGPoint(x: frame.midX, y: frame.midY-60)
         quitLabel.text = "QUIT"
         
         self.addChild(welcomeLabel)
@@ -50,9 +52,15 @@ class PauseScene: SKScene {
             switch node {
             case resumeLabel:
                 if let view = view {
-                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
-                    let scene:SKScene = EasyGameScene(size: self.size)
-                    self.view?.presentScene(scene, transition: transition)
+                    if previousScene == "EasyGameScene" {
+                        let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                        let scene:SKScene = EasyGameScene(size: self.size)
+                        self.view?.presentScene(scene, transition: transition)
+                    } else if previousScene == "MediumGameScene" {
+                        let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                        let scene:SKScene = MediumGameScene(size: self.size)
+                        self.view?.presentScene(scene, transition: transition)
+                    }
                 }
             case quitLabel:
                 if let view = view {
