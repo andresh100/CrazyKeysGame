@@ -13,7 +13,7 @@ import SpriteKit.SKShapeNode
 class Keyboard: SKShapeNode {
     
     // 10, 9, 7 keys in rows
-    let keyPositions : [[CGPoint]] = [
+    let initPositionVals : [[CGPoint]] = [
         // x * frame.width/10, y * frame.height/3
         [CGPoint(x: 0, y: 2.8),
         CGPoint(x: 1, y: 2.8),
@@ -45,65 +45,54 @@ class Keyboard: SKShapeNode {
         CGPoint(x: 6, y: 0.4)]
     ]
     
-    // + "_key"
-    let keyLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m",
-                      "n","o","p","q","r","s","t","u","v","w","x","y","z"]
+    // how the names should appear in Assets
+    let keyNames = ["a","b","c","d","e","f","g","h","i","j","k","l","m",
+                    "n","o","p","q","r","s","t","u","v","w","x","y","z"]
+    // array to hold the keys
     var keys : [SKSpriteNode] = []
-//    var a_key = SKSpriteNode(imageNamed: "a_key")
     
     func initKeys() {
         
-//        var actualPositions : [CGPoint] = []
-//        for point in keyPositions {
-//            actualPositions.append(CGPoint(x:point.x, y:point.y))
-//        }
-        let firstRow = keyPositions[0].map {
-            CGPoint(x: $0.x*frame.width/10, y: $0.y*frame.height/4)
-        }
-        let secondRow = keyPositions[1].map {
-            CGPoint(x: $0.x*frame.width/10 + frame.width/20, y: $0.y*frame.height/4)
-        }
-        let thirdRow = keyPositions[2].map {
-            CGPoint(x: $0.x*frame.width/10 + 3*frame.width/20, y: $0.y*frame.height/4)
-        }
-        let finalPositions : [CGPoint] = firstRow + secondRow + thirdRow
-        
-        
-        // use this one in the final version
-        let keyNames = keyLetters.map {$0 + "_key"}
+        // turn initPositionVals into real screen positions
+        let screenPositions : [CGPoint] = getScreenPositions()
         
         // use the following in the final version
 //        keys = keyNames.map {
 //            SKSpriteNode(imageNamed: $0)
 //        }
         for _ in 0..<keyNames.count {
-            keys.append(SKSpriteNode(imageNamed: "a_key"))
+            keys.append(SKSpriteNode(imageNamed: "a"))
         }
         
         for i in 0..<keys.count {
             keys[i].anchorPoint = CGPoint(x: 0, y: 0)
-            keys[i].position = finalPositions[i]
+            keys[i].position = screenPositions[i]
             print(keys[i].position)
             addChild(keys[i])
             print(i)
         }
         
-        
-        print(finalPositions)
-        
-        // a key
-//        a_key.anchorPoint = actualPositions[0][0]
-//        a_key.anchorPoint = CGPoint(x:0,y:0)
-//        a_key.position = a_key.anchorPoint
-//        print(a_key.position)
-//        print(a_key.isHidden)
-        
-//        a_key.position = CGPoint(x:frame.width/10, y:frame.height/3)
-//        a_key.xScale = frame.width/a_key.frame.width
-//        a_key.yScale = frame.height/a_key.frame.height
-//        addChild(a_key)
-        
-        
-//        print(a_key.position)
+        print(screenPositions)
     }
+    
+    func scrambleKeys() {
+        // assign members of 'keys' to new members of 'screenPositions'
+        let screenPositions = getScreenPositions()
+    }
+    
+    func getScreenPositions() -> [CGPoint] {
+        let firstRow = initPositionVals[0].map {
+            CGPoint(x: $0.x*frame.width/10, y: $0.y*frame.height/4)
+        }
+        let secondRow = initPositionVals[1].map {
+            CGPoint(x: $0.x*frame.width/10 + frame.width/20, y: $0.y*frame.height/4)
+        }
+        let thirdRow = initPositionVals[2].map {
+            CGPoint(x: $0.x*frame.width/10 + 3*frame.width/20, y: $0.y*frame.height/4)
+        }
+        return firstRow + secondRow + thirdRow
+    }
+    
+    
+    
 }
