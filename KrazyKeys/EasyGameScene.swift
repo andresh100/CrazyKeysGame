@@ -18,7 +18,7 @@ class EasyGameScene: SKScene {
     
     //    var keyboard = Keyboard(rect: frame)
     var keyboard : Keyboard!
-    var wordsData = [String]()
+    
     
     override func sceneDidLoad() {
         print(frame)
@@ -37,15 +37,14 @@ class EasyGameScene: SKScene {
         
         previousScene = "EasyGameScene"
         backgroundColor = SKColor.black
-        let path = Bundle.main.path(forResource: "words", ofType: "plist")
-        let dict = NSDictionary(contentsOfFile: path!)
-        wordsData = dict!.object(forKey: "Words") as! [String]
+
+        
         
         wordLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         wordLabel.fontColor = UIColor.white
         wordLabel.fontSize = 20
         wordLabel.position = CGPoint(x: frame.midX, y: self.size.height-180)
-        wordLabel.text = wordsData[Int(arc4random_uniform(UInt32(wordsData.count)))]
+        wordLabel.text = wordTest
         
         
         welcomeLabel = SKLabelNode(fontNamed: "Fipps-Regular")
@@ -97,4 +96,5 @@ class EasyGameScene: SKScene {
             }
         }
     }
+
 }
