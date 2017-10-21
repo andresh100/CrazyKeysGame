@@ -11,8 +11,6 @@ import GameplayKit
 
 class EasyGameScene: SKScene {
     
-    
-    
     var wordLabel : SKLabelNode!
     var welcomeLabel : SKLabelNode!
     var scoreLabel : SKLabelNode!
@@ -25,7 +23,6 @@ class EasyGameScene: SKScene {
     override func sceneDidLoad() {
         print(frame)
         //        print(keyboard.frame)
-        
         //        print(keyboard.frame)
         //        print(keyboard.isHidden)
     }
