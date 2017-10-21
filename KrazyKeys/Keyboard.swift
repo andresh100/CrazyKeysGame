@@ -15,48 +15,12 @@ class Keyboard: SKShapeNode {
     let keyNames = ["q","w","e","r","t","y","u","i","o","p",
                     "a","s","d","f","g","h","j","k","l",
                     "z","x","c","v","b","n","m"]
-    //    let keyNames = ["a","b","c","d","e","f","g","h","i","j","k","l","m",
-    //                    "n","o","p","q","r","s","t","u","v","w","x","y","z"]
     
     var screenPositions : [CGPoint] = []
-    /*
-     // 10, 9, 7 keys in rows
-     let initPositionVals : [[CGPoint]] = [
-     // x * frame.width/10, y * frame.height/3
-     [CGPoint(x: 0, y: 2.8),
-     CGPoint(x: 1, y: 2.8),
-     CGPoint(x: 2, y: 2.8),
-     CGPoint(x: 3, y: 2.8),
-     CGPoint(x: 4, y: 2.8),
-     CGPoint(x: 5, y: 2.8),
-     CGPoint(x: 6, y: 2.8),
-     CGPoint(x: 7, y: 2.8),
-     CGPoint(x: 8, y: 2.8),
-     CGPoint(x: 9, y: 2.8)],
-     // x * frame.width/10 + frame.width/20, y * frame.height/3
-     [CGPoint(x: 0, y: 1.6),
-     CGPoint(x: 1, y: 1.6),
-     CGPoint(x: 2, y: 1.6),
-     CGPoint(x: 3, y: 1.6),
-     CGPoint(x: 4, y: 1.6),
-     CGPoint(x: 5, y: 1.6),
-     CGPoint(x: 6, y: 1.6),
-     CGPoint(x: 7, y: 1.6),
-     CGPoint(x: 8, y: 1.6)],
-     // x * frame.width/10 + 3*frame.width/20, y * frame.height/3
-     [CGPoint(x: 0, y: 0.4),
-     CGPoint(x: 1, y: 0.4),
-     CGPoint(x: 2, y: 0.4),
-     CGPoint(x: 3, y: 0.4),
-     CGPoint(x: 4, y: 0.4),
-     CGPoint(x: 5, y: 0.4),
-     CGPoint(x: 6, y: 0.4)]
-     ]
-     */
-    
     
     // array to hold the keys
     var keys : [KeyboardKey] = []
+    var keyIndexesAlreadySwapped : [Int] = []
     
     func initKeys() {
         // 10, 9, 7 keys in rows
@@ -110,6 +74,7 @@ class Keyboard: SKShapeNode {
 // key index/scrambling/swapping functionality
 extension Keyboard
 {
+    
     func keyboardIndex(of key: KeyboardKey) -> Int {
         guard let index = keys.index(of: key) else {
             print("error: line \(#line)"); return -1
@@ -117,6 +82,7 @@ extension Keyboard
         return index
     }
     
+    // not in use?
     func scrambleKeys(swaps numberOfSwaps: Int) {
         for _ in 0..<numberOfSwaps {
             swapKeysRandom()
@@ -141,10 +107,6 @@ extension Keyboard
         keys[index2].run(SKAction.move(to: index1Position, duration: 0.2)) {
             self.keys[index2].isUserInteractionEnabled = true
         }
-        
-        
-        //        keys[index1].position = keys[index2].position
-        //        keys[index2].position = tempKeyPosition
         
         print("1st key: \(keys[index1].name!)")
         print("2nd key: \(keys[index2].name!)")
@@ -218,7 +180,4 @@ class KeyboardKey: SKSpriteNode
         //        return SKAction.move(by: dxdy, duration: duration)
     }
     
-    //    func glide(to destination: CGPoint, _ duration: TimeInterval) -> SKAction {
-    //        return SKAction.move(to: destination, duration: duration)
-    //    }
 }
