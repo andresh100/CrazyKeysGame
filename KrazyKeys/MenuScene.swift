@@ -26,6 +26,9 @@ class MenuScene: SKScene {
         
         backgroundColor = SKColor.black
         
+        wordsData = gettingRandomWords()
+        wordTest = wordsData[Int(arc4random_uniform(UInt32(wordsData.count)))]
+        
         for i in 0..<char.count {
             let newLabel = SKLabelNode(fontNamed: "Fipps-Regular")
             
@@ -120,6 +123,14 @@ class MenuScene: SKScene {
         let char = Array(n)
         
         return char
+    }
+    
+    func gettingRandomWords()-> [String]{
+        var words = [String]()
+        let path = Bundle.main.path(forResource: "words", ofType: "plist")
+        let dict = NSDictionary(contentsOfFile: path!)
+        words = dict!.object(forKey: "Words") as! [String]
+        return words
     }
 
     

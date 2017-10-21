@@ -9,6 +9,11 @@
 import SpriteKit
 import GameplayKit
 
+var checkInitEasy = false
+var checkInitMedium = false
+var wordsData = [String]()
+var wordTest = ""
+
 class GameScene: SKScene {
     
     var backLabel : SKLabelNode!
