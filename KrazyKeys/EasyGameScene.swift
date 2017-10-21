@@ -15,6 +15,17 @@ class EasyGameScene: SKScene {
     var scoreLabel : SKLabelNode!
     var pauseLabel : SKLabelNode!
     
+    //    var keyboard = Keyboard(rect: frame)
+    var keyboard : Keyboard!
+    
+    override func sceneDidLoad() {
+        print(frame)
+        //        print(keyboard.frame)
+        
+        //        print(keyboard.frame)
+        //        print(keyboard.isHidden)
+    }
+    
     override func didMove(to view: SKView) {
         //Add Pause (Resume, Quit)
         //Add Score ()
@@ -45,9 +56,15 @@ class EasyGameScene: SKScene {
         pauseLabel.position = CGPoint(x: 0.0, y: self.size.height-40)
         pauseLabel.text = "II"
         
+        //        print(frame.height)
+        keyboard = Keyboard(rect: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height/3))
+        keyboard.initKeys()
+        //        print(keyboard.frame.height)
+        
         self.addChild(scoreLabel)
         self.addChild(welcomeLabel)
         self.addChild(pauseLabel)
+        self.addChild(keyboard)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
