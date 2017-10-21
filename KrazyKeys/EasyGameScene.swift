@@ -11,12 +11,16 @@ import GameplayKit
 
 class EasyGameScene: SKScene {
     
+    
+    
+    var wordLabel : SKLabelNode!
     var welcomeLabel : SKLabelNode!
     var scoreLabel : SKLabelNode!
     var pauseLabel : SKLabelNode!
     
     //    var keyboard = Keyboard(rect: frame)
     var keyboard : Keyboard!
+    var wordsData = [String]()
     
     override func sceneDidLoad() {
         print(frame)
@@ -34,7 +38,18 @@ class EasyGameScene: SKScene {
         //Add Text input (Location where each letter will be shown when user inputs from keyboard)
         //Add random keyboard letters Locations ()
         
+        previousScene = "EasyGameScene"
         backgroundColor = SKColor.black
+        let path = Bundle.main.path(forResource: "words", ofType: "plist")
+        let dict = NSDictionary(contentsOfFile: path!)
+        wordsData = dict!.object(forKey: "Words") as! [String]
+        
+        wordLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        wordLabel.fontColor = UIColor.white
+        wordLabel.fontSize = 20
+        wordLabel.position = CGPoint(x: frame.midX, y: self.size.height-180)
+        wordLabel.text = wordsData[Int(arc4random_uniform(UInt32(wordsData.count)))]
+        
         
         welcomeLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         welcomeLabel.fontColor = UIColor.white
@@ -64,6 +79,7 @@ class EasyGameScene: SKScene {
         self.addChild(scoreLabel)
         self.addChild(welcomeLabel)
         self.addChild(pauseLabel)
+        self.addChild(wordLabel)
         self.addChild(keyboard)
     }
     
