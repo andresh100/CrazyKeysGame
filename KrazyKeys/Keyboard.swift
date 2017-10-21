@@ -20,6 +20,7 @@ class Keyboard: SKShapeNode {
     
     // array to hold the keys
     var keys : [KeyboardKey] = []
+    // memory of swapped keys
     var keyIndexesAlreadySwapped : [Int] = []
     
     func initKeys() {
