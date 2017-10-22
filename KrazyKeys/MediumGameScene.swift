@@ -9,18 +9,13 @@ import SpriteKit
 import GameplayKit
 
 class MediumGameScene: SKScene {
-    
+
     var wordLabel : SKLabelNode!
     var scoreLabel : SKLabelNode!
     var pauseLabel : SKLabelNode!
     //var timerLabel : SKLabelNode!
     var timerLabel : CountdownLabel!
     var wordsData = [String]()
-    
-    
-    
-    
-    
     
     
     //    previousWord = wordsData[Int(arc4random_uniform(UInt32(wordsData.count)))]
@@ -45,8 +40,9 @@ class MediumGameScene: SKScene {
         wordLabel.fontColor = UIColor.white
         wordLabel.fontSize = 20
         wordLabel.position = CGPoint(x: frame.midX, y: self.size.height-180)
-        previousWord = wordsData[Int(arc4random_uniform(UInt32(wordsData.count)))]
-        wordLabel.text = previousWord
+//        previousWord = wordsData[Int(arc4random_uniform(UInt32(wordsData.count)))]
+//        wordLabel.text = previousWord
+        wordLabel.text = wordTest
         
         scoreLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         scoreLabel.fontColor = UIColor.yellow
@@ -67,7 +63,7 @@ class MediumGameScene: SKScene {
         timerLabel.fontSize = 20
         timerLabel.position = CGPoint(x: frame.midX, y: self.size.height-120)
         //timerLabel.text = "Time: 0s"
-        timerLabel.startWithDuration(duration: 50)
+        timerLabel.startWithDuration(duration: 61)
         
         self.addChild(scoreLabel)
         self.addChild(pauseLabel)
@@ -97,14 +93,14 @@ class MediumGameScene: SKScene {
                     let skView = self.view as! SKView
                     if skView.scene?.isPaused == false {
                         skView.scene?.isPaused = true
-                        let transition:SKTransition = SKTransition.fade(withDuration: 1)
-                        let scene:SKScene = PauseScene(size: self.size)
-                        self.view?.presentScene(scene, transition: transition)
-//                        elapsed = Int(NSDate.timeIntervalSinceReferenceDate - 50)
+                        //let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                        //let scene:SKScene = PauseScene(size: self.size)
+                        //self.view?.presentScene(scene, transition: transition)
+                        //                        elapsed = Int(NSDate.timeIntervalSinceReferenceDate - 50)
                     } else {
                         skView.scene?.isPaused = false
                         timerLabel.startWithDuration(duration: Double(elapsed))
-//                        timerLabel.startWithDuration(duration: TimeInterval(100-elapsed))
+                        //                        timerLabel.startWithDuration(duration: TimeInterval(100-elapsed))
                     }
                 }
             default:
@@ -118,3 +114,4 @@ class MediumGameScene: SKScene {
     }
     
 }
+

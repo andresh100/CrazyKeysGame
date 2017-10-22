@@ -24,6 +24,7 @@
 		63CFD52E1F80135200A95068 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63CFD52C1F80135200A95068 /* LaunchScreen.storyboard */; };
 		63CFD5361F80149A00A95068 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFD5351F80149A00A95068 /* MenuScene.swift */; };
 		63CFD5381F8014AA00A95068 /* OptionsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFD5371F8014AA00A95068 /* OptionsScene.swift */; };
+		A58EAE4B1F9C256900CACCD7 /* CountdownLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58EAE4A1F9C256800CACCD7 /* CountdownLabel.swift */; };
 		A5A304051F92B7D600A8D393 /* SettingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A304041F92B7D600A8D393 /* SettingScene.swift */; };
 		A5A304071F92B8B000A8D393 /* words.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5A304061F92B8B000A8D393 /* words.plist */; };
 		A5E3593B1F9BCF630092C9E2 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E3593A1F9BCF630092C9E2 /* Keyboard.swift */; };
@@ -50,6 +51,7 @@
 		63CFD52F1F80135200A95068 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63CFD5351F80149A00A95068 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		63CFD5371F8014AA00A95068 /* OptionsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsScene.swift; sourceTree = "<group>"; };
+		A58EAE4A1F9C256800CACCD7 /* CountdownLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownLabel.swift; sourceTree = "<group>"; };
 		A5A304041F92B7D600A8D393 /* SettingScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingScene.swift; sourceTree = "<group>"; };
 		A5A304061F92B8B000A8D393 /* words.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = words.plist; sourceTree = "<group>"; };
 		A5E3593A1F9BCF630092C9E2 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				5BCCE9571F83DEE2007EFD86 /* AnimationHelper.swift */,
 				5B28DC611F8545C80008304B /* PauseScene.swift */,
 				5B5B6DF01F82B5D400277538 /* EasyGameScene.swift */,
+				A58EAE4A1F9C256800CACCD7 /* CountdownLabel.swift */,
 				A5E3593A1F9BCF630092C9E2 /* Keyboard.swift */,
 				5B5B6DF21F82B5E000277538 /* MediumGameScene.swift */,
 				5B5B6DEE1F82B3D700277538 /* DifficultyScene.swift */,
@@ -193,6 +196,7 @@
 				63CFD5241F80135200A95068 /* GameScene.swift in Sources */,
 				A5E3593B1F9BCF630092C9E2 /* Keyboard.swift in Sources */,
 				5B5B6DEF1F82B3D700277538 /* DifficultyScene.swift in Sources */,
+				A58EAE4B1F9C256900CACCD7 /* CountdownLabel.swift in Sources */,
 				5BCCE9581F83DEE2007EFD86 /* AnimationHelper.swift in Sources */,
 				5B5B6DF11F82B5D400277538 /* EasyGameScene.swift in Sources */,
 				C6562A041F85EAE100103CB7 /* lel.swift in Sources */,
