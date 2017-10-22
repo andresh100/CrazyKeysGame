@@ -20,8 +20,7 @@ class Keyboard: SKShapeNode {
     
     // array to hold the keys
     var keys : [KeyboardKey] = []
-    // memory of swapped keys
-    var keyIndexesAlreadySwapped : [Int] = []
+    
     
     func initKeys() {
         // 10, 9, 7 keys in rows
@@ -53,6 +52,7 @@ class Keyboard: SKShapeNode {
          }
          */
         
+        // ignore the following...lol
         // TODO: use the following in final version
         //        keys = keyNames.map {
         //            SKSpriteNode(imageNamed: $0)
@@ -75,7 +75,6 @@ class Keyboard: SKShapeNode {
 // key index/scrambling/swapping functionality
 extension Keyboard
 {
-    
     func keyboardIndex(of key: KeyboardKey) -> Int {
         guard let index = keys.index(of: key) else {
             print("error: line \(#line)"); return -1
@@ -83,11 +82,8 @@ extension Keyboard
         return index
     }
     
-    // not in use?
-    func scrambleKeys(swaps numberOfSwaps: Int) {
-        for _ in 0..<numberOfSwaps {
-            swapKeysRandom()
-        }
+    func scrambleKeys(swaps: Int) {
+        swapKeysRandom(swaps: swaps)
     }
     
     func swapKeys(at index1: Int, _ index2: Int) {
@@ -113,11 +109,49 @@ extension Keyboard
         print("2nd key: \(keys[index2].name!)")
     }
     
-    func swapKeysRandom() {
-        let index1 = Int(arc4random_uniform(UInt32(keys.count)))
-        let index2 = Int(arc4random_uniform(UInt32(keys.count)))
+    func swapKeysRandom(swaps: Int) {
         
-        swapKeys(at: index1, index2)
+        // memory of swapped keys
+        var keysAlreadySwapped : [Int] = []
+        
+//        guard keyIndexesAlreadySwapped.count < keys.count else {
+//            print("all keys swapped")
+//            return
+//        }
+        
+        var keysToSwap: [(Int, Int)] = []
+        var swappableKeys: [Int] = []
+        
+        for i in 0..<keys.count {
+            swappableKeys.append(i)
+//            if !keyIndexesAlreadySwapped.contains(i) {
+//                swappableKeyIndexes.append(i)
+//            }
+        }
+        
+        for _ in 0..<swaps {
+            
+//            keysToSwap.append((0,0))
+            
+            let indexForKey1 = Int(arc4random_uniform(UInt32(swappableKeys.count)))
+            let key1 = swappableKeys[indexForKey1]
+            keysAlreadySwapped.append(key1)
+//            keysToSwap[keysToSwap.count-1].0 = key1
+            swappableKeys.remove(at: swappableKeys.index(of: key1)!)
+            
+            let indexForKey2 = Int(arc4random_uniform(UInt32(swappableKeys.count)))
+            let key2 = swappableKeys[indexForKey2]
+            keysAlreadySwapped.append(key2)
+//            keysToSwap[keysToSwap.count-1].1 = key2
+            swappableKeys.remove(at: swappableKeys.index(of: key2)!)
+            
+            keysToSwap.append((key1,key2))
+        }
+        
+        for i in keysToSwap {
+            swapKeys(at: i.0, i.1)
+        }
+//        swapKeys(at: index1, index2)
     }
 }
 
@@ -138,13 +172,16 @@ class KeyboardKey: SKSpriteNode
         
         // swapping this key's position with random other
         if let parent = parent as? Keyboard {
-            let index1 = parent.keyboardIndex(of: self)
-            let index2 = Int(arc4random() % UInt32(parent.keys.count))
-            parent.swapKeys(at: index1, index2)
+            parent.scrambleKeys(swaps: 13)
+//            let index1 = parent.keyboardIndex(of: self)
+//            let index2 = Int(arc4random() % UInt32(parent.keys.count))
+//            parent.swapKeys(at: index1, index2)
         }
     }
     
     // Effects
+    
+    // not in use?
     func wiggle(repititions: Int, duration: TimeInterval) -> SKAction {
         let startPosition = position
         var wiggleReps: [SKAction] = []
