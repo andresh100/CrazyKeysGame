@@ -83,6 +83,11 @@ class DifficultyScene: SKScene {
                 if let view = view {
                     let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     let scene:SKScene = EasyGameScene(size: self.size)
+                    // start game in easy mode
+                    game = Game(difficulty: 1, secondsAllowed: 10, word: "testword")
+                    if let game = game {
+                        game.startTimer()
+                    }
                     self.view?.presentScene(scene, transition: transition)
                 }
             case mediumLabel:

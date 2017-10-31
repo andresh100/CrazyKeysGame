@@ -19,8 +19,10 @@ class EasyGameScene: SKScene {
     //    var keyboard = Keyboard(rect: frame)
     var keyboard : Keyboard!
     
-    
     override func sceneDidLoad() {
+        
+        
+        
         print(frame)
         //        print(keyboard.frame)
         //        print(keyboard.frame)
@@ -37,9 +39,7 @@ class EasyGameScene: SKScene {
         
         previousScene = "EasyGameScene"
         backgroundColor = SKColor.black
-
-        
-        
+		
         wordLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         wordLabel.fontColor = UIColor.white
         wordLabel.fontSize = 20
@@ -77,6 +77,13 @@ class EasyGameScene: SKScene {
         self.addChild(pauseLabel)
         self.addChild(wordLabel)
         self.addChild(keyboard)
+        
+        // un-pause game
+        if let game = game {
+            game.resume()
+        } else {
+            print("ERROR: game could not be reset \(#line)")
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -89,6 +96,14 @@ class EasyGameScene: SKScene {
                 if let view = view {
                     let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     let scene:SKScene = PauseScene(size: self.size)
+                    
+                    // pause game
+                    if let game = game {
+                        game.pause()
+                    } else {
+                        print("ERROR: game could not be reset")
+                    }
+                    
                     self.view?.presentScene(scene, transition: transition)
                 }
             default:
