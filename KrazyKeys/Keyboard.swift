@@ -114,7 +114,7 @@ extension Keyboard
         
 //            self.keys[index2].isUserInteractionEnabled = true
         
-        run(SKAction.wait(forDuration: 0.4)) {
+        run(SKAction.wait(forDuration: 0.2)) {
             for key in self.keys {
                 key.isUserInteractionEnabled = true
             }

@@ -38,6 +38,9 @@ class GameScene: SKScene {
         //Add Text input (Location where each letter will be shown when user inputs from keyboard)
         //Add random keyboard letters Locations ()
         
+        // one-touch
+        self.view!.isMultipleTouchEnabled = false;
+        
         previousScene = "GameScene"
         backgroundColor = SKColor.black
         
