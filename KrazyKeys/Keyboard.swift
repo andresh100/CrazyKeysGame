@@ -52,7 +52,7 @@ class Keyboard: SKShapeNode {
          }
          */
         
-        // ignore the following...lol
+        // too slow at compile time
         // TODO: use the following in final version
         //        keys = keyNames.map {
         //            SKSpriteNode(imageNamed: $0)
