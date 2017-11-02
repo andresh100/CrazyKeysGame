@@ -51,15 +51,16 @@ class PauseScene: SKScene {
             switch node {
             case resumeLabel:
                 if let view = view {
-                    if previousScene == "EasyGameScene" {
+                    if previousScene == "GameScene" {
                         let transition:SKTransition = SKTransition.fade(withDuration: 1)
-                        let scene:SKScene = EasyGameScene(size: self.size)
-                        self.view?.presentScene(scene, transition: transition)
-                    } else if previousScene == "MediumGameScene" {
-                        let transition:SKTransition = SKTransition.fade(withDuration: 1)
-                        let scene:SKScene = MediumGameScene(size: self.size)
+                        let scene:SKScene = GameScene(size: self.size)
                         self.view?.presentScene(scene, transition: transition)
                     }
+//                    else if previousScene == "MediumGameScene" {
+//                        let transition:SKTransition = SKTransition.fade(withDuration: 1)
+//                        let scene:SKScene = MediumGameScene(size: self.size)
+//                        self.view?.presentScene(scene, transition: transition)
+//                    }
                 }
             case quitLabel:
                 if let view = view {

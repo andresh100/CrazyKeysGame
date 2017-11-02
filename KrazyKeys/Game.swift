@@ -14,6 +14,8 @@ var game: Game?
 class Game {
     
     var word: String?
+    var wordTest: String?
+    var wordsData: [String]?
     var isPaused: Bool = true
     var difficulty: Int?
     var score: Int = 0
@@ -23,10 +25,19 @@ class Game {
     var timeAllowed: TimeInterval = 60
     var timeElapsed: TimeInterval = 0
     
+    
+    
     init(difficulty: Int, secondsAllowed: TimeInterval, word: String) {
         self.timeAllowed = secondsAllowed
         self.difficulty = difficulty
         self.word = word
+        
+        wordsData = gettingRandomWords()
+        if let wordsData = wordsData {
+            wordTest = wordsData[Int(arc4random_uniform(UInt32(wordsData.count)))]
+        } else {
+            print("failed to unwrap wordsData \(#line)")
+        }
         
         // we will need to set word
         
@@ -45,7 +56,7 @@ class Game {
     {
         if !isPaused {
             timeElapsed += 1
-            print("time elapsed: \(timeElapsed)")
+            
             if timeElapsed >= timeAllowed
             {
                 // time up!
@@ -71,6 +82,20 @@ class Game {
     func reset()
     {
         timeElapsed = 0
+    }
+    
+    func wordSplitting(n : String)-> Array<Character>{
+        let char = Array(n)
+        
+        return char
+    }
+    
+    func gettingRandomWords()-> [String]{
+        var words = [String]()
+        let path = Bundle.main.path(forResource: "words", ofType: "plist")
+        let dict = NSDictionary(contentsOfFile: path!)
+        words = dict!.object(forKey: "Words") as! [String]
+        return words
     }
     
 }
