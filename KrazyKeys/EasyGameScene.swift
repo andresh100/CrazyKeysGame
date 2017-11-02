@@ -44,7 +44,7 @@ class EasyGameScene: SKScene {
         wordLabel.fontColor = UIColor.white
         wordLabel.fontSize = 20
         wordLabel.position = CGPoint(x: frame.midX, y: self.size.height-180)
-        wordLabel.text = wordTest
+//        wordLabel.text = wordTest
         
         
         welcomeLabel = SKLabelNode(fontNamed: "Fipps-Regular")

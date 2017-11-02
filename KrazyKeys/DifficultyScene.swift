@@ -82,9 +82,9 @@ class DifficultyScene: SKScene {
             case easyLabel:
                 if let view = view {
                     let transition:SKTransition = SKTransition.fade(withDuration: 1)
-                    let scene:SKScene = EasyGameScene(size: self.size)
+                    let scene:SKScene = GameScene(size: self.size)
                     // start game in easy mode
-                    game = Game(difficulty: 1, secondsAllowed: 10, word: "testword")
+                    game = Game(difficulty: 1, secondsAllowed: 61, word: "testword")
                     if let game = game {
                         game.startTimer()
                     }
@@ -93,7 +93,12 @@ class DifficultyScene: SKScene {
             case mediumLabel:
                 if let view = view {
                     let transition:SKTransition = SKTransition.fade(withDuration: 1)
-                    let scene:SKScene = MediumGameScene(size: self.size)
+                    let scene:SKScene = GameScene(size: self.size)
+                    // start game in easy mode
+                    game = Game(difficulty: 2, secondsAllowed: 61, word: "testword")
+                    if let game = game {
+                        game.startTimer()
+                    }
                     self.view?.presentScene(scene, transition: transition)
                 }
             default:
