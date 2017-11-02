@@ -99,16 +99,23 @@ extension Keyboard
         //        keys[index1].position = index2Position
         //        keys[index2].position = index1Position
         
-        
-        
         keys[index1].isUserInteractionEnabled = false
         keys[index1].run(SKAction.move(to: index2Position, duration: 0.2))
+        
+        
+        
 //        {
 //            self.keys[index1].isUserInteractionEnabled = true
 //        }
         keys[index2].isUserInteractionEnabled = false
-        keys[index2].run(SKAction.move(to: index1Position, duration: 0.2)) {
-            self.keys[index2].isUserInteractionEnabled = true
+        keys[index2].run(SKAction.move(to: index1Position, duration: 0.2))
+//            self.keys[index2].isUserInteractionEnabled = true
+        
+        run(SKAction.wait(forDuration: 0.4))
+        {
+            for key in self.keys {
+                key.isUserInteractionEnabled = true
+            }
         }
         
         print("1st key: \(keys[index1].name!)")

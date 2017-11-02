@@ -25,8 +25,6 @@ class Game {
     var timeAllowed: TimeInterval = 60
     var timeElapsed: TimeInterval = 0
     
-    
-    
     init(difficulty: Int, secondsAllowed: TimeInterval, word: String) {
         self.timeAllowed = secondsAllowed
         self.difficulty = difficulty
