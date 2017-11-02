@@ -2,118 +2,156 @@
 //  GameScene.swift
 //  KrazyKeys
 //
-//  Created by David Bryant on 9/30/17.
+//  Created by Alissa Chiu on 10/2/17.
 //  Copyright © 2017 nedink. All rights reserved.
 //
 
 import SpriteKit
 import GameplayKit
 
-var checkInitEasy = false
-var checkInitMedium = false
-var wordsData = [String]()
-var wordTest = ""
-
 class GameScene: SKScene {
     
-    var backLabel : SKLabelNode!
+    var wordLabel : SKLabelNode!
+    var welcomeLabel : SKLabelNode!
+    var scoreLabel : SKLabelNode!
+    var pauseLabel : SKLabelNode!
+    var timerLabel : CountdownLabel!
     
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
+    //    var keyboard = Keyboard(rect: frame)
+    var keyboard : Keyboard!
+    
+    override func sceneDidLoad() {
+        
+        
+        
+        print(frame)
+        //        print(keyboard.frame)
+        //        print(keyboard.frame)
+        //        print(keyboard.isHidden)
+    }
     
     override func didMove(to view: SKView) {
+        //Add Pause (Resume, Quit)
+        //Add Score ()
+        //Add Timer (Countdown 30 seg)
+        //Add Random Word Label (Choose from a pool of random words)
+        //Add Text input (Location where each letter will be shown when user inputs from keyboard)
+        //Add random keyboard letters Locations ()
         
+        previousScene = "GameScene"
         backgroundColor = SKColor.black
         
-        backLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        backLabel.fontColor = UIColor.white
-        backLabel.fontSize = 20
-        backLabel.horizontalAlignmentMode = .left
-        backLabel.position = CGPoint(x: 0.0, y: self.size.height-40)
-        backLabel.text = "BACK"
-        self.addChild(backLabel)
+        wordLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        wordLabel.fontColor = UIColor.white
+        wordLabel.fontSize = 20
+        wordLabel.position = CGPoint(x: frame.midX, y: self.size.height-180)
+        wordLabel.text = game!.wordTest
         
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
+        
+        welcomeLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        welcomeLabel.fontColor = UIColor.white
+        welcomeLabel.fontSize = 14
+        welcomeLabel.position = CGPoint(x: frame.midX, y: frame.midY)
+        switch (game!.difficulty!)
+        {
+        case 1:
+            welcomeLabel.text = "EASY"
+        case 2:
+            welcomeLabel.text = "MEDIUM"
+        default:
+            welcomeLabel.text = "DEFAULT"
         }
         
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
+        scoreLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        scoreLabel.fontColor = UIColor.yellow
+        scoreLabel.fontSize = 20
+        scoreLabel.horizontalAlignmentMode = .right
+        scoreLabel.position = CGPoint(x: self.size.width-10, y: self.size.height-40)
+        scoreLabel.text = "Score: 0"
         
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
-    }
-    
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
+        pauseLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        pauseLabel.fontColor = UIColor.yellow
+        pauseLabel.fontSize = 20
+        pauseLabel.horizontalAlignmentMode = .left
+        pauseLabel.position = CGPoint(x: 10.0, y: self.size.height-40)
+        pauseLabel.text = "II"
+        
+        
+        timerLabel = CountdownLabel(fontNamed: "Fipps-Regular")
+        timerLabel.fontColor = UIColor.green
+        timerLabel.fontSize = 20
+        timerLabel.position = CGPoint(x: frame.midX, y: self.size.height-120)
+        //timerLabel.text = "Time: 0s"
+        timerLabel.startWithDuration(duration: (game!.timeAllowed-game!.timeElapsed))
+        
+        
+        
+//        timerLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+//        timerLabel.fontColor = UIColor.green
+//        timerLabel.fontSize = 20
+////        timerLabel.position = CGPoint(x: 10.0, y: self.size.height-40)
+//        timerLabel.position = CGPoint(x: frame.midX, y: self.size.height-120)
+////        timerLabel.text = "time left: 60"
+//
+//        timerLabel.text = "Time: \(game!.timeAllowed - game!.timeElapsed)"
+////        timerLabel.text = "Time: 0s"
+////        timerLabel.startWithDuration(duration: game!.timeAllowed!)
+        
+        //        print(frame.height)
+        keyboard = Keyboard(rect: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height/3))
+        keyboard.initKeys()
+        //        print(keyboard.frame.height)
+        
+        self.addChild(scoreLabel)
+        self.addChild(welcomeLabel)
+        self.addChild(pauseLabel)
+        self.addChild(wordLabel)
+        self.addChild(keyboard)
+        self.addChild(timerLabel)
+        
+        // un-pause game
+        if let game = game {
+            game.resume()
+        } else {
+            print("ERROR: game could not be reset \(#line)")
         }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         if let touch = touches.first {
             let pos = touch.location(in: self)
             let node = self.atPoint(pos)
             
-            if node == backLabel {
+            switch node {
+            case pauseLabel:
                 if let view = view {
                     let transition:SKTransition = SKTransition.fade(withDuration: 1)
-                    //let scene:SKScene = GameScene(size: self.size)
-                    let scene:SKScene = MenuScene(size: self.size)
+                    let scene:SKScene = PauseScene(size: self.size)
+                    
+                    // pause game
+                    if let game = game {
+                        game.pause()
+                    } else {
+                        print("ERROR: game could not be reset")
+                    }
+                    
                     self.view?.presentScene(scene, transition: transition)
                 }
+            default:
+                return
             }
         }
-        
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        }
-        
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
+    override func update(_ currentTime: CFTimeInterval) {
+        timerLabel.update()
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
+//    func update()
+//    {
+//        timerLabel.text = "time left: \(game!.timeAllowed - game!.timeElapsed)"
+////        if ()
+//    }
     
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-    }
 }
+

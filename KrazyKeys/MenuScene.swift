@@ -26,8 +26,9 @@ class MenuScene: SKScene {
         
         backgroundColor = SKColor.black
         
-        wordsData = gettingRandomWords()
-        wordTest = wordsData[Int(arc4random_uniform(UInt32(wordsData.count)))]
+        
+//        wordsData = gettingRandomWords()
+//        wordTest = wordsData[Int(arc4random_uniform(UInt32(wordsData.count)))]
         
         for i in 0..<char.count {
             let newLabel = SKLabelNode(fontNamed: "Fipps-Regular")

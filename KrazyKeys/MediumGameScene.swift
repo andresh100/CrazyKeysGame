@@ -42,7 +42,7 @@ class MediumGameScene: SKScene {
         wordLabel.position = CGPoint(x: frame.midX, y: self.size.height-180)
 //        previousWord = wordsData[Int(arc4random_uniform(UInt32(wordsData.count)))]
 //        wordLabel.text = previousWord
-        wordLabel.text = wordTest
+//        wordLabel.text = wordTest
         
         scoreLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         scoreLabel.fontColor = UIColor.yellow
@@ -114,4 +114,5 @@ class MediumGameScene: SKScene {
     }
     
 }
+
 
