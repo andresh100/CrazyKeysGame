@@ -22,8 +22,6 @@ class GameScene: SKScene {
     
     override func sceneDidLoad() {
         
-        
-        
         print(frame)
         //        print(keyboard.frame)
         //        print(keyboard.frame)

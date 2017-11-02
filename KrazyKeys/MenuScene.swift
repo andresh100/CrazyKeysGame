@@ -39,7 +39,7 @@ class MenuScene: SKScene {
             labelTitle.append(newLabel)
         }
         
-        for i in 0..<3{
+        for i in 0..<3 {
             let newLabel = SKLabelNode(fontNamed: "Fipps-Regular")
             newLabel.fontColor = UIColor.white
             newLabel.fontSize = 20
