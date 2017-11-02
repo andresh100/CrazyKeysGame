@@ -87,9 +87,11 @@ extension Keyboard
     }
     
     func swapKeys(at index1: Int, _ index2: Int) {
+        // should set all keys to interactive
         for key in keys {
             key.isUserInteractionEnabled = false
         }
+        
         guard (index1 < keys.count && index2 < keys.count) else {
             print("Keyboard error: swapKeys() line \(#line)"); return
         }
@@ -99,7 +101,7 @@ extension Keyboard
         //        keys[index1].position = index2Position
         //        keys[index2].position = index1Position
         
-        keys[index1].isUserInteractionEnabled = false
+//        keys[index1].isUserInteractionEnabled = false
         keys[index1].run(SKAction.move(to: index2Position, duration: 0.2))
         
         
@@ -107,12 +109,12 @@ extension Keyboard
 //        {
 //            self.keys[index1].isUserInteractionEnabled = true
 //        }
-        keys[index2].isUserInteractionEnabled = false
+//        keys[index2].isUserInteractionEnabled = false
         keys[index2].run(SKAction.move(to: index1Position, duration: 0.2))
+        
 //            self.keys[index2].isUserInteractionEnabled = true
         
-        run(SKAction.wait(forDuration: 0.4))
-        {
+        run(SKAction.wait(forDuration: 0.4)) {
             for key in self.keys {
                 key.isUserInteractionEnabled = true
             }
