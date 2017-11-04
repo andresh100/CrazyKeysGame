@@ -22,8 +22,6 @@ class GameScene: SKScene {
     
     override func sceneDidLoad() {
         
-        
-        
         print(frame)
         //        print(keyboard.frame)
         //        print(keyboard.frame)
@@ -37,6 +35,9 @@ class GameScene: SKScene {
         //Add Random Word Label (Choose from a pool of random words)
         //Add Text input (Location where each letter will be shown when user inputs from keyboard)
         //Add random keyboard letters Locations ()
+        
+        // one-touch
+        self.view!.isMultipleTouchEnabled = false;
         
         previousScene = "GameScene"
         backgroundColor = SKColor.black
