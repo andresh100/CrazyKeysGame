@@ -14,6 +14,7 @@ var game: Game?
 class Game {
     
     var word: String?
+    var wordProgress = ""
     var wordTest: String?
     var wordsData: [String]?
     var isPaused: Bool = true
@@ -30,15 +31,14 @@ class Game {
         self.difficulty = difficulty
         self.word = word
         
+        // randomizing the word
         wordsData = gettingRandomWords()
         if let wordsData = wordsData {
             wordTest = wordsData[Int(arc4random_uniform(UInt32(wordsData.count)))]
+            self.word = wordTest
         } else {
             print("failed to unwrap wordsData \(#line)")
         }
-        
-        // we will need to set word
-        
     }
     
     // called at game start and resume from pause screen
@@ -82,13 +82,15 @@ class Game {
         timeElapsed = 0
     }
     
-    func wordSplitting(n : String)-> Array<Character>{
+    func wordSplitting(n : String) -> Array<Character>
+    {
         let char = Array(n)
         
         return char
     }
     
-    func gettingRandomWords()-> [String]{
+    func gettingRandomWords() -> [String]
+    {
         var words = [String]()
         let path = Bundle.main.path(forResource: "words", ofType: "plist")
         let dict = NSDictionary(contentsOfFile: path!)
@@ -96,4 +98,18 @@ class Game {
         return words
     }
     
+    func tryInput(letter: String)
+    {
+        // resolve letter tried
+        print("tried letter \(letter)")
+        if let word = word {
+            
+            if Array(word)[wordProgress.count] == Array(letter.uppercased())[0]
+            {
+                wordProgress.append(letter)
+            }
+        } else { print("no word: line \(#line)") }
+        
+        print("wordProgress: \(wordProgress)")
+    }
 }
