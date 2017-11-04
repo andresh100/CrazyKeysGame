@@ -11,7 +11,7 @@ import SpriteKit
 
 class Keyboard: SKShapeNode {
     
-    let swapAnimationTime = TimeInterval(0.1)
+    let swapAnimationTime = TimeInterval(0.2)
     
     // how the names should appear in Assets
     let keyNames = ["q","w","e","r","t","y","u","i","o","p",
@@ -94,27 +94,17 @@ extension Keyboard
             key.isUserInteractionEnabled = false
         }
         
+        // TODO: pause game timer?
+        
         guard (index1 < keys.count && index2 < keys.count) else {
             print("Keyboard error: swapKeys() line \(#line)"); return
         }
         let index1Position = keys[index1].position
         let index2Position = keys[index2].position
         
-        //        keys[index1].position = index2Position
-        //        keys[index2].position = index1Position
-        
-//        keys[index1].isUserInteractionEnabled = false
         keys[index1].run(SKAction.move(to: index2Position, duration: swapAnimationTime))
         
-        
-        
-//        {
-//            self.keys[index1].isUserInteractionEnabled = true
-//        }
-//        keys[index2].isUserInteractionEnabled = false
         keys[index2].run(SKAction.move(to: index1Position, duration: swapAnimationTime))
-        
-//            self.keys[index2].isUserInteractionEnabled = true
         
         run(SKAction.wait(forDuration: swapAnimationTime)) {
             for key in self.keys {
@@ -122,8 +112,8 @@ extension Keyboard
             }
         }
         
-        print("1st key: \(keys[index1].name!)")
-        print("2nd key: \(keys[index2].name!)")
+//        print("1st key: \(keys[index1].name!)")
+//        print("2nd key: \(keys[index2].name!)")
     }
     
     func swapKeysRandom(swaps: Int) {
@@ -180,6 +170,14 @@ class KeyboardKey: SKSpriteNode
             print(name + " pressed")
         }
         
+        if let game = game {
+            if let name = name {
+                game.tryInput(letter: name)
+            }
+            else { print("no name: line \(#line)") }
+        }
+        else { print("no game: line \(#line)") }
+        
         //        let wiggleAction = wiggle(repititions: 1, duration: 1/10)
         //        isUserInteractionEnabled = false
         //        run(SKAction.wait(forDuration: wiggleAction.duration)) {
@@ -198,7 +196,7 @@ class KeyboardKey: SKSpriteNode
     
     // Effects
     
-    // not in use?
+    // NOT IN USE
     func wiggle(repititions: Int, duration: TimeInterval) -> SKAction {
         let startPosition = position
         var wiggleReps: [SKAction] = []
