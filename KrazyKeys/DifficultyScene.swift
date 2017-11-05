@@ -16,10 +16,12 @@ class DifficultyScene: SKScene {
     var difficultyLabel : SKLabelNode!
     var easyLabel : SKLabelNode!
     var mediumLabel : SKLabelNode!
+    var scrollBg: ScrollBackground?
     
     override func didMove(to view: SKView) {
         
-        backgroundColor = SKColor.black
+//        backgroundColor = SKColor.black
+        scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
         
         backLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         backLabel.fontColor = UIColor.white
@@ -75,16 +77,18 @@ class DifficultyScene: SKScene {
             switch node {
             case backLabel:
                 if let view = view {
-                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                    let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.right, duration: 1)
+//                    let transition:SKTransition = SKTransition.reveal(with: SKTransitionDirection.right, duration: 1)
                     let scene:SKScene = MenuScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
                 }
             case easyLabel:
                 if let view = view {
-                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                    let transition:SKTransition = SKTransition.doorsOpenVertical(withDuration: 1)
+//                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     let scene:SKScene = GameScene(size: self.size)
                     // start game in easy mode
-                    game = Game(difficulty: 1, secondsAllowed: 61, word: "testword")
+                    game = Game(scene: scene, difficulty: 1, secondsAllowed: 61, word: "testword")
                     if let game = game {
                         game.startTimer()
                     }
@@ -92,10 +96,11 @@ class DifficultyScene: SKScene {
                 }
             case mediumLabel:
                 if let view = view {
-                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                    let transition:SKTransition = SKTransition.doorsOpenVertical(withDuration: 1)
+//                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     let scene:SKScene = GameScene(size: self.size)
                     // start game in easy mode
-                    game = Game(difficulty: 2, secondsAllowed: 61, word: "testword")
+                    game = Game(scene: scene, difficulty: 2, secondsAllowed: 61, word: "testword")
                     if let game = game {
                         game.startTimer()
                     }

@@ -9,6 +9,7 @@ import SpriteKit
 import GameplayKit
 
 class MenuScene: SKScene {
+    var scrollBg: ScrollBackground?
     
     var labelTitle = [SKLabelNode]()
     var label = [SKLabelNode]()
@@ -18,17 +19,19 @@ class MenuScene: SKScene {
     var playLabel : SKLabelNode!
     var highScoresLabel : SKLabelNode!
     
+    
+//    background.run()
+    
+    
     override func sceneDidLoad() {
+        
         char = wordSplitting(n: gameName)
     }
     
+    
     override func didMove(to view: SKView) {
         
-        backgroundColor = SKColor.black
-        
-        
-//        wordsData = gettingRandomWords()
-//        wordTest = wordsData[Int(arc4random_uniform(UInt32(wordsData.count)))]
+        scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
         
         for i in 0..<char.count {
             let newLabel = SKLabelNode(fontNamed: "Fipps-Regular")
@@ -38,7 +41,6 @@ class MenuScene: SKScene {
             newLabel.text = String(char[i])
             labelTitle.append(newLabel)
         }
-        
         for i in 0..<3 {
             let newLabel = SKLabelNode(fontNamed: "Fipps-Regular")
             newLabel.fontColor = UIColor.white
@@ -66,6 +68,7 @@ class MenuScene: SKScene {
 //        label[1].fontColor = UIColor.white
 //        label[2].fontColor = UIColor.white
         
+        label[0].fontSize = 30
         label[0].text = "PLAY"
         label[1].text = "HIGH SCORES"
         label[2].text = "SETTING"
@@ -83,10 +86,12 @@ class MenuScene: SKScene {
             self.addChild(label[i]);
         }
         
+        
         let allLetters : [SKNode] = [labelTitle[0], labelTitle[1], labelTitle[2], labelTitle[3], labelTitle[4], labelTitle[5], labelTitle[6], labelTitle[7], labelTitle[8]]
         
         AnimationHelper.animateNodes(allLetters)
         AnimationHelper.animateLabel(label[0], 1.2)
+        AnimationHelper.animateMultipleLabels(allLetters)
         
     }
     
@@ -98,19 +103,22 @@ class MenuScene: SKScene {
             switch node {
             case label[0] :
                 if let view = view {
-                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                    let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.left, duration: 1)
+//                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     let scene:SKScene = DifficultyScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
                 }
             case label[1]:
                 if let view = view {
-                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                    let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.up, duration: 1)
+//                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     let scene:SKScene = HighScoreScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
                 }
             case label[2]:
                 if let view = view{
-                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                    let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.right, duration: 1)
+//                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     let scene:SKScene = SettingScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
                 }
