@@ -186,8 +186,12 @@ class KeyboardKey: SKSpriteNode
         //        run(wiggleAction)
         
         // swapping this key's position with random other
+        
+        
+        
+        
         if let parent = parent as? Keyboard {
-            parent.scrambleKeys(swaps: 13)
+//            parent.scrambleKeys(swaps: 13)
 //            let index1 = parent.keyboardIndex(of: self)
 //            let index2 = Int(arc4random() % UInt32(parent.keys.count))
 //            parent.swapKeys(at: index1, index2)

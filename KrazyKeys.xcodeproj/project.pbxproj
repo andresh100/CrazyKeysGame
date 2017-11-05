@@ -28,6 +28,8 @@
 		A58EAE4B1F9C256900CACCD7 /* CountdownLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58EAE4A1F9C256800CACCD7 /* CountdownLabel.swift */; };
 		A5A304051F92B7D600A8D393 /* SettingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A304041F92B7D600A8D393 /* SettingScene.swift */; };
 		A5A304071F92B8B000A8D393 /* words.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5A304061F92B8B000A8D393 /* words.plist */; };
+		A5AB4F6C1FAE650E00E55650 /* ScrollBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AB4F6B1FAE650E00E55650 /* ScrollBackground.swift */; };
+		A5AB4F6E1FAE6DC300E55650 /* EndScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AB4F6D1FAE6DC300E55650 /* EndScene.swift */; };
 		A5E3593B1F9BCF630092C9E2 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E3593A1F9BCF630092C9E2 /* Keyboard.swift */; };
 		C6562A041F85EAE100103CB7 /* lel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6562A031F85EAE100103CB7 /* lel.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +58,8 @@
 		A58EAE4A1F9C256800CACCD7 /* CountdownLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownLabel.swift; sourceTree = "<group>"; };
 		A5A304041F92B7D600A8D393 /* SettingScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingScene.swift; sourceTree = "<group>"; };
 		A5A304061F92B8B000A8D393 /* words.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = words.plist; sourceTree = "<group>"; };
+		A5AB4F6B1FAE650E00E55650 /* ScrollBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBackground.swift; sourceTree = "<group>"; };
+		A5AB4F6D1FAE6DC300E55650 /* EndScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScene.swift; sourceTree = "<group>"; };
 		A5E3593A1F9BCF630092C9E2 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		C6562A031F85EAE100103CB7 /* lel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,7 +99,9 @@
 				63CFD5211F80135200A95068 /* Actions.sks */,
 				63CFD5231F80135200A95068 /* GameScene.swift */,
 				6301B8281FA525E900F2C2E4 /* Game.swift */,
+				A5AB4F6D1FAE6DC300E55650 /* EndScene.swift */,
 				63CFD5351F80149A00A95068 /* MenuScene.swift */,
+				A5AB4F6B1FAE650E00E55650 /* ScrollBackground.swift */,
 				5BCCE9571F83DEE2007EFD86 /* AnimationHelper.swift */,
 				5B28DC611F8545C80008304B /* PauseScene.swift */,
 				5B5B6DF01F82B5D400277538 /* EasyGameScene.swift */,
@@ -201,11 +207,13 @@
 				5B5B6DEF1F82B3D700277538 /* DifficultyScene.swift in Sources */,
 				A58EAE4B1F9C256900CACCD7 /* CountdownLabel.swift in Sources */,
 				5BCCE9581F83DEE2007EFD86 /* AnimationHelper.swift in Sources */,
+				A5AB4F6C1FAE650E00E55650 /* ScrollBackground.swift in Sources */,
 				5B5B6DF11F82B5D400277538 /* EasyGameScene.swift in Sources */,
 				C6562A041F85EAE100103CB7 /* lel.swift in Sources */,
 				5BB0060F1F81789A0053FC9B /* HighScoreScene.swift in Sources */,
 				63CFD5361F80149A00A95068 /* MenuScene.swift in Sources */,
 				63CFD5261F80135200A95068 /* GameViewController.swift in Sources */,
+				A5AB4F6E1FAE6DC300E55650 /* EndScene.swift in Sources */,
 				5B5B6DF31F82B5E000277538 /* MediumGameScene.swift in Sources */,
 				63CFD5381F8014AA00A95068 /* OptionsScene.swift in Sources */,
 				63CFD51E1F80135200A95068 /* AppDelegate.swift in Sources */,
@@ -339,6 +347,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nedink.crazyKeys;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -352,6 +361,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nedink.crazyKeys;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -30,7 +30,7 @@ class MediumGameScene: SKScene {
     override func didMove(to view: SKView) {
         previousScene = "MediumGameScene"
         
-        backgroundColor = SKColor.black
+//        backgroundColor = SKColor.black
         
         let path = Bundle.main.path(forResource: "words", ofType: "plist")
         let dict = NSDictionary(contentsOfFile: path!)

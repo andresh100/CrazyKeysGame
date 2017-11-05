@@ -1,10 +1,5 @@
-//
 //  GameScene.swift
 //  KrazyKeys
-//
-//  Created by Alissa Chiu on 10/2/17.
-//  Copyright © 2017 nedink. All rights reserved.
-//
 
 import SpriteKit
 import GameplayKit
@@ -12,6 +7,7 @@ import GameplayKit
 class GameScene: SKScene {
     
     var wordLabel : SKLabelNode!
+    var wordProgressLabel : SKLabelNode!
     var welcomeLabel : SKLabelNode!
     var scoreLabel : SKLabelNode!
     var pauseLabel : SKLabelNode!
@@ -23,18 +19,9 @@ class GameScene: SKScene {
     override func sceneDidLoad() {
         
         print(frame)
-        //        print(keyboard.frame)
-        //        print(keyboard.frame)
-        //        print(keyboard.isHidden)
     }
     
     override func didMove(to view: SKView) {
-        //Add Pause (Resume, Quit)
-        //Add Score ()
-        //Add Timer (Countdown 30 seg)
-        //Add Random Word Label (Choose from a pool of random words)
-        //Add Text input (Location where each letter will be shown when user inputs from keyboard)
-        //Add random keyboard letters Locations ()
         
         // one-touch
         self.view!.isMultipleTouchEnabled = false;
@@ -47,6 +34,12 @@ class GameScene: SKScene {
         wordLabel.fontSize = 20
         wordLabel.position = CGPoint(x: frame.midX, y: self.size.height-180)
         wordLabel.text = game!.wordTest
+        
+        wordProgressLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        wordProgressLabel.fontColor = UIColor.green
+        wordProgressLabel.fontSize = 20
+        wordProgressLabel.position = CGPoint(x: frame.midX, y: self.size.height-220)
+        wordProgressLabel.text = game!.wordProgress.uppercased()
         
         
         welcomeLabel = SKLabelNode(fontNamed: "Fipps-Regular")
@@ -68,7 +61,7 @@ class GameScene: SKScene {
         scoreLabel.fontSize = 20
         scoreLabel.horizontalAlignmentMode = .right
         scoreLabel.position = CGPoint(x: self.size.width-10, y: self.size.height-40)
-        scoreLabel.text = "Score: 0"
+        scoreLabel.text = "Score: \(game!.score)"
         
         pauseLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         pauseLabel.fontColor = UIColor.yellow
@@ -82,31 +75,16 @@ class GameScene: SKScene {
         timerLabel.fontColor = UIColor.green
         timerLabel.fontSize = 20
         timerLabel.position = CGPoint(x: frame.midX, y: self.size.height-120)
-        //timerLabel.text = "Time: 0s"
         timerLabel.startWithDuration(duration: (game!.timeAllowed-game!.timeElapsed))
-        
-        
-        
-//        timerLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-//        timerLabel.fontColor = UIColor.green
-//        timerLabel.fontSize = 20
-////        timerLabel.position = CGPoint(x: 10.0, y: self.size.height-40)
-//        timerLabel.position = CGPoint(x: frame.midX, y: self.size.height-120)
-////        timerLabel.text = "time left: 60"
-//
-//        timerLabel.text = "Time: \(game!.timeAllowed - game!.timeElapsed)"
-////        timerLabel.text = "Time: 0s"
-////        timerLabel.startWithDuration(duration: game!.timeAllowed!)
-        
-        //        print(frame.height)
+
         keyboard = Keyboard(rect: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height/3))
         keyboard.initKeys()
-        //        print(keyboard.frame.height)
         
         self.addChild(scoreLabel)
         self.addChild(welcomeLabel)
         self.addChild(pauseLabel)
         self.addChild(wordLabel)
+        self.addChild(wordProgressLabel)
         self.addChild(keyboard)
         self.addChild(timerLabel)
         
@@ -148,11 +126,16 @@ class GameScene: SKScene {
         timerLabel.update()
     }
     
-//    func update()
-//    {
-//        timerLabel.text = "time left: \(game!.timeAllowed - game!.timeElapsed)"
-////        if ()
-//    }
+    func updateScore() {
+        scoreLabel.text = "Score: \(game!.score)"
+    }
     
+    func updateProgressLabel() {
+        wordProgressLabel.text = game!.wordProgress.uppercased()
+    }
+    
+    func updateLabel() {
+        wordLabel.text = game!.wordTest
+    }
 }
 

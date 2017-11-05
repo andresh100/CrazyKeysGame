@@ -1,5 +1,5 @@
 //
-//  PauseScene.swift
+//  EndScene.swift
 //  KrazyKeys
 //
 //  Created by Alissa Chiu on 10/2/17.
@@ -8,31 +8,27 @@
 import SpriteKit
 import GameplayKit
 
-var previousScene = ""
-var scrollBg: ScrollBackground?
 
-class PauseScene: SKScene {
+class EndScene: SKScene {
     
     var welcomeLabel : SKLabelNode!
-    var resumeLabel : SKLabelNode!
+    var scoreLabel : SKLabelNode!
     var quitLabel : SKLabelNode!
     
     override func didMove(to view: SKView) {
-        
-//        backgroundColor = SKColor.black
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
         
         welcomeLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         welcomeLabel.fontColor = UIColor.white
         welcomeLabel.fontSize = 20
         welcomeLabel.position = CGPoint(x: frame.midX, y: frame.midY+90)
-        welcomeLabel.text = "GAME PAUSED"
+        welcomeLabel.text = "GAME OVER"
         
-        resumeLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        resumeLabel.fontColor = UIColor.yellow
-        resumeLabel.fontSize = 20
-        resumeLabel.position = CGPoint(x: frame.midX, y: frame.midY)
-        resumeLabel.text = "RESUME"
+        scoreLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        scoreLabel.fontColor = UIColor.yellow
+        scoreLabel.fontSize = 20
+        scoreLabel.position = CGPoint(x: frame.midX, y: frame.midY)
+        scoreLabel.text = "Score: \(game!.score)"
         
         quitLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         quitLabel.fontColor = UIColor.red
@@ -41,7 +37,7 @@ class PauseScene: SKScene {
         quitLabel.text = "QUIT"
         
         self.addChild(welcomeLabel)
-        self.addChild(resumeLabel)
+        self.addChild(scoreLabel)
         self.addChild(quitLabel)
     }
     
@@ -51,23 +47,10 @@ class PauseScene: SKScene {
             let node = self.atPoint(pos)
             
             switch node {
-            case resumeLabel:
-                if let view = view {
-                    if previousScene == "GameScene" {
-                        let transition:SKTransition = SKTransition.fade(withDuration: 1)
-                        let scene:SKScene = GameScene(size: self.size)
-                        self.view?.presentScene(scene, transition: transition)
-                    }
-//                    else if previousScene == "MediumGameScene" {
-//                        let transition:SKTransition = SKTransition.fade(withDuration: 1)
-//                        let scene:SKScene = MediumGameScene(size: self.size)
-//                        self.view?.presentScene(scene, transition: transition)
-//                    }
-                }
             case quitLabel:
                 if let view = view {
-                    let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
-//                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                    let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.right, duration: 1)
+                    //                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     let scene:SKScene = MenuScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
                 }
@@ -78,3 +61,4 @@ class PauseScene: SKScene {
     }
     
 }
+
