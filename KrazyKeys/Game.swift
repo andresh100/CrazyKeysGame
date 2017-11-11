@@ -118,6 +118,7 @@ class Game {
     func updateScore() {
         if let scene = scene as? GameScene {
             scene.updateScore()
+//            print("score updated")
         }
     }
     
