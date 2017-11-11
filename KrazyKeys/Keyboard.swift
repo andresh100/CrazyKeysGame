@@ -12,6 +12,7 @@ import SpriteKit
 class Keyboard: SKShapeNode {
     
     let swapAnimationTime = TimeInterval(0.2)
+//    let keyDownAnimationTime = TimeInterval(0.2)
     
     // how the names should appear in Assets
     let keyNames = ["q","w","e","r","t","y","u","i","o","p",
@@ -60,7 +61,7 @@ class Keyboard: SKShapeNode {
         //            SKSpriteNode(imageNamed: $0)
         //        }
         for name in keyNames {
-            keys.append(KeyboardKey(imageNamed: name))
+            keys.append(KeyboardKey(imageNamed: name + "_up"))
         }
         
         for i in 0..<keys.count {
@@ -165,7 +166,13 @@ extension Keyboard
 
 class KeyboardKey: SKSpriteNode
 {
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        texture = SKTexture.init(imageNamed: name! + "_down")
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        texture = SKTexture.init(imageNamed: name! + "_up")
         if let name = name {
             print(name + " pressed")
         }
@@ -191,10 +198,7 @@ class KeyboardKey: SKSpriteNode
         
         
         if let parent = parent as? Keyboard {
-//            parent.scrambleKeys(swaps: 13)
-//            let index1 = parent.keyboardIndex(of: self)
-//            let index2 = Int(arc4random() % UInt32(parent.keys.count))
-//            parent.swapKeys(at: index1, index2)
+            
         }
     }
     
