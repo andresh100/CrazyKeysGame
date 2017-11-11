@@ -39,6 +39,29 @@ class EndScene: SKScene {
         self.addChild(welcomeLabel)
         self.addChild(scoreLabel)
         self.addChild(quitLabel)
+        
+        //Saving score
+        let score = game!.score
+        let userDefaults = Foundation.UserDefaults.standard
+        //userDefaults.set(score, forKey: "Key")
+        let highScore1 = userDefaults.integer(forKey: "highScore1")
+        let highScore2 = userDefaults.integer(forKey: "highScore2")
+        let highScore3 = userDefaults.integer(forKey: "highScore3")
+        let highScore4 = userDefaults.integer(forKey: "highScore4")
+        let highScore5 = userDefaults.integer(forKey: "highScore5")
+        
+        if score > highScore1 {
+            userDefaults.set(score, forKey: "highScore1")
+        } else if score == highScore1 || score > highScore2 {
+            userDefaults.set(score, forKey: "highScore2")
+        } else if score == highScore2 || score > highScore3 {
+            userDefaults.set(score, forKey: "highScore3")
+        } else if score == highScore3 || score > highScore4 {
+            userDefaults.set(score, forKey: "highScore4")
+        } else if score == highScore4 || score > highScore5 {
+            userDefaults.set(score, forKey: "highScore5")
+        }
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -13,11 +13,11 @@ class HighScoreScene: SKScene {
     
     var data = [[Any]]()
     
-    var highScore1 = 300
-    var highScore2 = 500
-    var highScore3 = 100
-    var highScore4 = 400
-    var highScore5 = 200
+    //var highScore1 = 300
+    //var highScore2 = 500
+    //var highScore3 = 100
+    //var highScore4 = 400
+    //var highScore5 = 200
     
     var name1 = "ABC"
     var name2 = "DEF"
@@ -52,6 +52,14 @@ class HighScoreScene: SKScene {
     var scrollBg: ScrollBackground?
     
     override func didMove(to view: SKView) {
+        
+        //High scores
+        let userDefaults = Foundation.UserDefaults.standard
+        let highScore1 = userDefaults.integer(forKey: "highScore1")
+        let highScore2 = userDefaults.integer(forKey: "highScore2")
+        let highScore3 = userDefaults.integer(forKey: "highScore3")
+        let highScore4 = userDefaults.integer(forKey: "highScore4")
+        let highScore5 = userDefaults.integer(forKey: "highScore5")
         
 //        backgroundColor = SKColor.black
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
