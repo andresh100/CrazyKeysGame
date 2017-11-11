@@ -11,7 +11,8 @@ class GameScene: SKScene {
     var welcomeLabel : SKLabelNode!
     var scoreLabel : SKLabelNode!
     var pauseLabel : SKLabelNode!
-    var timerLabel : CountdownLabel!
+//    var timerLabel : CountdownLabel!
+    var timerLabel : SKLabelNode!
     
     //    var keyboard = Keyboard(rect: frame)
     var keyboard : Keyboard!
@@ -27,7 +28,7 @@ class GameScene: SKScene {
         self.view!.isMultipleTouchEnabled = false;
         
         previousScene = "GameScene"
-        backgroundColor = SKColor.black
+        backgroundColor = UIColor.init(red: 0.15, green: 0.15, blue: 0.15, alpha: 1)
         
         wordLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         wordLabel.fontColor = UIColor.white
@@ -75,7 +76,7 @@ class GameScene: SKScene {
         timerLabel.fontColor = UIColor.green
         timerLabel.fontSize = 20
         timerLabel.position = CGPoint(x: frame.midX, y: self.size.height-120)
-        timerLabel.startWithDuration(duration: (game!.timeAllowed-game!.timeElapsed))
+        timerLabel.text = "TIME LEFT: \(Int(game!.timerInterval))"
 
         keyboard = Keyboard(rect: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height/3))
         keyboard.initKeys()
@@ -123,13 +124,15 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: CFTimeInterval) {
-        timerLabel.update()
-        
+//        timerLabel.update()
+
+    }
+    func updateTimerLabel() {
+        timerLabel.text = "TIME LEFT: \(Int(game!.timerInterval))"
     }
     
     func updateScore() {
         scoreLabel.text = "Score: \(game!.score)"
-//        print(scoreLabel.text)
     }
     
     func updateProgressLabel() {
