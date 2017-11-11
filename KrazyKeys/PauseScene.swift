@@ -57,6 +57,7 @@ class PauseScene: SKScene {
                         let transition:SKTransition = SKTransition.fade(withDuration: 1)
                         let scene:SKScene = GameScene(size: self.size)
                         self.view?.presentScene(scene, transition: transition)
+                        game?.scene = scene
                     }
 //                    else if previousScene == "MediumGameScene" {
 //                        let transition:SKTransition = SKTransition.fade(withDuration: 1)

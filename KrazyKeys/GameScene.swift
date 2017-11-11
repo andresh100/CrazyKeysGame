@@ -61,7 +61,7 @@ class GameScene: SKScene {
         scoreLabel.fontSize = 20
         scoreLabel.horizontalAlignmentMode = .right
         scoreLabel.position = CGPoint(x: self.size.width-10, y: self.size.height-40)
-        scoreLabel.text = "Score: \(game!.score)"
+        scoreLabel.text = "SCORE: \(game!.score)"
         
         pauseLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         pauseLabel.fontColor = UIColor.yellow
@@ -124,10 +124,12 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: CFTimeInterval) {
         timerLabel.update()
+        
     }
     
     func updateScore() {
         scoreLabel.text = "Score: \(game!.score)"
+//        print(scoreLabel.text)
     }
     
     func updateProgressLabel() {
