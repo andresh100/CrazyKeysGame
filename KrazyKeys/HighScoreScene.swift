@@ -61,7 +61,7 @@ class HighScoreScene: SKScene {
         let highScore4 = userDefaults.integer(forKey: "highScore4")
         let highScore5 = userDefaults.integer(forKey: "highScore5")
         
-//        backgroundColor = SKColor.black
+        //        backgroundColor = SKColor.black
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
         
         //var highScores = [highScore1, highScore2, highScore3, highScore4, highScore5]
@@ -240,7 +240,7 @@ class HighScoreScene: SKScene {
         self.addChild(name5Label)
         
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let pos = touch.location(in: self)
@@ -249,7 +249,7 @@ class HighScoreScene: SKScene {
             if node == backLabel {
                 if let view = view {
                     let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.down, duration: 1)
-//                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                    //                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     //let scene:SKScene = GameScene(size: self.size)
                     let scene:SKScene = MenuScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
@@ -259,3 +259,4 @@ class HighScoreScene: SKScene {
     }
     
 }
+
