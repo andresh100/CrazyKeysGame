@@ -21,7 +21,7 @@ class Game {
     var difficulty: Int?
     var score: Int = 0
     var scene: SKScene?
-//    var countDown: CountdownLabel?
+    //    var countDown: CountdownLabel?
     
     var timer = Timer()
     var timerInterval: TimeInterval = 0
@@ -69,12 +69,108 @@ class Game {
             if timeElapsed >= timeAllowed
             {
                 // time up!
-//                print("Time's up!")
+                //                print("Time's up!")
+                
+                
+                //Saving score
+                let score = game!.score
+                
+                let userDefaults = Foundation.UserDefaults.standard
+                
+                //let highScore1 = userDefaults.integer(forKey: "highScore1")
+                //let highScore2 = userDefaults.integer(forKey: "highScore2")
+                //let highScore3 = userDefaults.integer(forKey: "highScore3")
+                //let highScore4 = userDefaults.integer(forKey: "highScore4")
+                let highScore5 = userDefaults.integer(forKey: "highScore5")
+                
+                /*
+                var finalHighScore1: Int
+                var finalHighScore2: Int
+                var finalHighScore3: Int
+                var finalHighScore4: Int
+                var finalHighScore5: Int
+                
+                if highScore1 != 0 {
+                    finalHighScore1 = highScore1
+                } else {
+                    finalHighScore1 = 0
+                }
+                
+                if highScore2 != 0 {
+                    finalHighScore2 = highScore2
+                } else {
+                    finalHighScore2 = 0
+                }
+                
+                if highScore3 != 0 {
+                    finalHighScore3 = highScore3
+                } else {
+                    finalHighScore3 = 0
+                }
+                
+                if highScore4 != 0 {
+                    finalHighScore4 = highScore4
+                } else {
+                    finalHighScore4 = 0
+                }
+                
+                if highScore5 != 0 {
+                    finalHighScore5 = highScore5
+                } else {
+                    finalHighScore5 = 0
+                }
+                
+                if score > finalHighScore1 {
+                    finalHighScore5 = finalHighScore4
+                    finalHighScore4 = finalHighScore3
+                    finalHighScore3 = finalHighScore2
+                    finalHighScore2 = finalHighScore1
+                    finalHighScore1 = score
+                } else if score > finalHighScore2 {
+                    finalHighScore5 = finalHighScore4
+                    finalHighScore4 = finalHighScore3
+                    finalHighScore3 = finalHighScore2
+                    finalHighScore2 = score
+                } else if score > finalHighScore3 {
+                    finalHighScore5 = finalHighScore4
+                    finalHighScore4 = finalHighScore3
+                    finalHighScore3 = score
+                } else if score > finalHighScore4 {
+                    finalHighScore5 = finalHighScore4
+                    finalHighScore4 = score
+                } else if score > finalHighScore5 {
+                    finalHighScore5 = score
+                }
+                
+                userDefaults.set(finalHighScore1, forKey: "highScore1")
+                userDefaults.set(finalHighScore2, forKey: "highScore2")
+                userDefaults.set(finalHighScore3, forKey: "highScore3")
+                userDefaults.set(finalHighScore4, forKey: "highScore4")
+                userDefaults.set(finalHighScore5, forKey: "highScore5")
+                print("High score 1: \(highScore1)")
+                print("High score 2: \(highScore2)")
+                print("High score 3: \(highScore3)")
+                print("High score 4: \(highScore4)")
+                print("High score 5: \(highScore5)")
+ 
+ */
+ 
+                
+                
                 if let scene = scene {
-                    if let view = scene.view {
-                        let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
-                        let scene:SKScene = EndScene(size: scene.frame.size)
-                        view.presentScene(scene, transition: transition)
+                    //Choose which EndScene to present
+                    if score >= highScore5 {
+                        if let view = scene.view {
+                            let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
+                            let scene:SKScene = EndScene2(size: scene.frame.size)
+                            view.presentScene(scene, transition: transition)
+                        }
+                    } else {
+                        if let view = scene.view {
+                            let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
+                            let scene:SKScene = EndScene(size: scene.frame.size)
+                            view.presentScene(scene, transition: transition)
+                        }
                     }
                 }
             }
@@ -128,7 +224,7 @@ class Game {
     func updateScore() {
         if let scene = scene as? GameScene {
             scene.updateScore()
-//            print("score updated")
+            //            print("score updated")
         }
     }
     
