@@ -4,6 +4,9 @@
 import SpriteKit
 import GameplayKit
 
+var musicCheck = false
+var soundCheck = false
+
 class GameScene: SKScene {
     
     var wordLabel : SKLabelNode!

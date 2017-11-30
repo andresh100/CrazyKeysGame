@@ -32,6 +32,18 @@ class MenuScene: SKScene {
     override func didMove(to view: SKView) {
         
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
+        let music = SKAudioNode(fileNamed: "m.mp3")
+        self.addChild(music)
+        
+       music.isPositional = true
+        music.position = CGPoint(x: -1024, y: 0)
+        
+        let moveForward = SKAction.moveTo(x: 1024, duration: 2)
+        let moveBack = SKAction.moveTo(x: -1024, duration: 2)
+        let sequence = SKAction.sequence([moveForward, moveBack])
+        let repeatForever = SKAction.repeatForever(sequence)
+        
+        music.run(repeatForever)
         
         for i in 0..<char.count {
             let newLabel = SKLabelNode(fontNamed: "Fipps-Regular")
