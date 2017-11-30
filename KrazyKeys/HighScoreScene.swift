@@ -53,6 +53,7 @@ class HighScoreScene: SKScene {
     
     override func didMove(to view: SKView) {
         
+        /*
         //High scores
         let userDefaults = Foundation.UserDefaults.standard
         let highScore1 = userDefaults.integer(forKey: "highScore1")
@@ -60,17 +61,85 @@ class HighScoreScene: SKScene {
         let highScore3 = userDefaults.integer(forKey: "highScore3")
         let highScore4 = userDefaults.integer(forKey: "highScore4")
         let highScore5 = userDefaults.integer(forKey: "highScore5")
+ */
+        
+        //Saving score
+        let score: Int?
+        let userDefaults = Foundation.UserDefaults.standard
+        
+        var highScore1: Int? = userDefaults.integer(forKey: "highScore1")
+        var highScore2: Int? = userDefaults.integer(forKey: "highScore2")
+        var highScore3: Int? = userDefaults.integer(forKey: "highScore3")
+        var highScore4: Int? = userDefaults.integer(forKey: "highScore4")
+        var highScore5: Int? = userDefaults.integer(forKey: "highScore5")
+        
+        if game?.score == nil {
+            score = 0
+        } else {
+            score = game?.score
+        }
+        
+        if highScore1 == nil {
+            highScore1 = 0
+        }
+        if highScore2 == nil {
+            highScore2 = 0
+        }
+        if highScore3 == nil {
+            highScore3 = 0
+        }
+        if highScore4 == nil {
+            highScore4 = 0
+        }
+        if highScore5 == nil {
+            highScore5 = 0
+        }
+        
+        if score! > highScore1! {
+            highScore5 = highScore4
+            highScore4 = highScore3
+            highScore3 = highScore2
+            highScore2 = highScore1
+            highScore1 = score
+        } else if score! > highScore2! {
+            highScore5 = highScore4
+            highScore4 = highScore3
+            highScore3 = highScore2
+            highScore2 = score
+        } else if score! > highScore3! {
+            highScore5 = highScore4
+            highScore4 = highScore3
+            highScore3 = score
+        } else if score! > highScore4! {
+            highScore5 = highScore4
+            highScore4 = score
+        } else if score! > highScore5! {
+            highScore5 = score
+        }
+        
+        userDefaults.set(highScore1, forKey: "highScore1")
+        userDefaults.set(highScore2, forKey: "highScore2")
+        userDefaults.set(highScore3, forKey: "highScore3")
+        userDefaults.set(highScore4, forKey: "highScore4")
+        userDefaults.set(highScore5, forKey: "highScore5")
+        
+        print("HighScoreScene high scores:")
+        print("High score 1: \(highScore1!)")
+        print("High score 2: \(highScore2!)")
+        print("High score 3: \(highScore3!)")
+        print("High score 4: \(highScore4!)")
+        print("High score 5: \(highScore5!)")
         
         //        backgroundColor = SKColor.black
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
         
         //var highScores = [highScore1, highScore2, highScore3, highScore4, highScore5]
         //highScores = highScores.sorted()
-        var first = [highScore1, name1] as [Any]
-        var second = [highScore2, name2] as [Any]
-        var third = [highScore3, name3] as [Any]
-        var fourth = [highScore4, name4] as [Any]
-        var fifth = [highScore5, name5] as [Any]
+        var first = [highScore1!, name1] as [Any]
+        var second = [highScore2!, name2] as [Any]
+        var third = [highScore3!, name3] as [Any]
+        var fourth = [highScore4!, name4] as [Any]
+        var fifth = [highScore5!, name5] as [Any]
         
         data.append(first)
         data.append(second)
