@@ -15,6 +15,7 @@ class SettingScene: SKScene{
     var musicOffLabel : SKLabelNode!
     var soundOnLabel : SKLabelNode!
     var soundOffLabel : SKLabelNode!
+    var musicPlaying = true
     
     var scrollBg: ScrollBackground?
     
@@ -100,10 +101,15 @@ class SettingScene: SKScene{
         if(musicCheck == false){
             musicOnLabel.isHidden = true
             musicOffLabel.isHidden = false
+            MusicHelper.sharedHelper.stopBackgroundMusic()
+            musicPlaying = false
         } else{
             musicOffLabel.isHidden = true
             musicOnLabel.isHidden = false
-            
+            if(musicPlaying == false){
+                MusicHelper.sharedHelper.playBackgroundMusic()
+                musicPlaying = true
+            }
         }
     }
     
