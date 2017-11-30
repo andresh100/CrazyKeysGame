@@ -23,10 +23,11 @@
 		A58EAE4B1F9C256900CACCD7 /* CountdownLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58EAE4A1F9C256800CACCD7 /* CountdownLabel.swift */; };
 		A5A304051F92B7D600A8D393 /* SettingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A304041F92B7D600A8D393 /* SettingScene.swift */; };
 		A5A304071F92B8B000A8D393 /* words.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5A304061F92B8B000A8D393 /* words.plist */; };
+		A5AA551B1FD08A190053C05D /* MusicHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AA551A1FD08A190053C05D /* MusicHelper.swift */; };
+		A5AA551D1FD08A540053C05D /* EndScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AA551C1FD08A540053C05D /* EndScene2.swift */; };
 		A5AB4F6C1FAE650E00E55650 /* ScrollBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AB4F6B1FAE650E00E55650 /* ScrollBackground.swift */; };
 		A5AB4F6E1FAE6DC300E55650 /* EndScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AB4F6D1FAE6DC300E55650 /* EndScene.swift */; };
 		A5B1B8E51FD083A800100521 /* m.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A5B1B8E41FD083A800100521 /* m.mp3 */; };
-		A5B1B8E71FD084B300100521 /* MusicHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B1B8E61FD084B200100521 /* MusicHelper.swift */; };
 		A5E3593B1F9BCF630092C9E2 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E3593A1F9BCF630092C9E2 /* Keyboard.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,10 +50,11 @@
 		A58EAE4A1F9C256800CACCD7 /* CountdownLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownLabel.swift; sourceTree = "<group>"; };
 		A5A304041F92B7D600A8D393 /* SettingScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingScene.swift; sourceTree = "<group>"; };
 		A5A304061F92B8B000A8D393 /* words.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = words.plist; sourceTree = "<group>"; };
+		A5AA551A1FD08A190053C05D /* MusicHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHelper.swift; sourceTree = "<group>"; };
+		A5AA551C1FD08A540053C05D /* EndScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndScene2.swift; sourceTree = "<group>"; };
 		A5AB4F6B1FAE650E00E55650 /* ScrollBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBackground.swift; sourceTree = "<group>"; };
 		A5AB4F6D1FAE6DC300E55650 /* EndScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScene.swift; sourceTree = "<group>"; };
 		A5B1B8E41FD083A800100521 /* m.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = m.mp3; sourceTree = "<group>"; };
-		A5B1B8E61FD084B200100521 /* MusicHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicHelper.swift; sourceTree = "<group>"; };
 		A5E3593A1F9BCF630092C9E2 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,7 +98,8 @@
 				5BB0060E1F81789A0053FC9B /* HighScoreScene.swift */,
 				A5A304041F92B7D600A8D393 /* SettingScene.swift */,
 				A5AB4F6D1FAE6DC300E55650 /* EndScene.swift */,
-				A5B1B8E61FD084B200100521 /* MusicHelper.swift */,
+				A5AA551C1FD08A540053C05D /* EndScene2.swift */,
+				A5AA551A1FD08A190053C05D /* MusicHelper.swift */,
 				5BCCE9571F83DEE2007EFD86 /* AnimationHelper.swift */,
 				A58EAE4A1F9C256800CACCD7 /* CountdownLabel.swift */,
 				63CFD5251F80135200A95068 /* GameViewController.swift */,
@@ -188,7 +191,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5B1B8E71FD084B300100521 /* MusicHelper.swift in Sources */,
+				A5AA551B1FD08A190053C05D /* MusicHelper.swift in Sources */,
+				A5AA551D1FD08A540053C05D /* EndScene2.swift in Sources */,
 				5B28DC621F8545C80008304B /* PauseScene.swift in Sources */,
 				63CFD5241F80135200A95068 /* GameScene.swift in Sources */,
 				A5E3593B1F9BCF630092C9E2 /* Keyboard.swift in Sources */,
