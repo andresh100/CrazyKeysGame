@@ -24,6 +24,7 @@ class Game {
 //    var countDown: CountdownLabel?
     
     var timer = Timer()
+    var timerInterval: TimeInterval = 0
     var timeAllowed: TimeInterval = 60
     var timeElapsed: TimeInterval = 0
     
@@ -78,6 +79,15 @@ class Game {
                 }
             }
         }
+        
+        timerInterval = timeAllowed - timeElapsed
+        if (timerInterval < 0)
+        {
+            // time's up?
+            timerInterval = 0
+        }
+        
+        updateTimerLabel()
         
     }
     
@@ -134,6 +144,12 @@ class Game {
         }
     }
     
+    func updateTimerLabel() {
+        if let scene = scene as? GameScene {
+            scene.updateTimerLabel()
+        }
+    }
+    
     func tryInput(letter: String) {
         // resolve letter tried
         print("tried letter \(letter)")
@@ -152,16 +168,13 @@ class Game {
                 
             } else {
                 print("wrong letter \(letter)")
+                timeElapsed += 6
+                updateTimerLabel()
                 if(score - 50 >= 0){
                     score -= 50
                 } else if (score - 50 < 0){
                     score = 0
-//                    make time left decrease as a penalty
-//                    timeElapsed += 5
                 }
-                
-//                let generator = UIImpactFeedbackGenerator(style: .heavy)
-//                generator.impactOccurred()
                 let feedbackGenerator = UINotificationFeedbackGenerator()
                 feedbackGenerator.notificationOccurred(.error)
                 
@@ -181,6 +194,8 @@ class Game {
                 wordProgress = ""
                 chooseNewWord()
                 score += 200
+                timeAllowed += 6
+                updateTimerLabel()
                 guard let difficulty = difficulty else {
                     print("no difficulty?")
                     return
