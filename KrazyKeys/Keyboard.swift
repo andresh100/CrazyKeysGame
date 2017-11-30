@@ -173,33 +173,32 @@ class KeyboardKey: SKSpriteNode
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         texture = SKTexture.init(imageNamed: name! + "_up")
-        if let name = name {
-            print(name + " pressed")
+        guard let name = name else {
+            print("error with name, line: \(#line)")
+            return
         }
+        print(name + " pressed")
         
-        if let game = game {
-            if let name = name {
+        if scene?.name == "game"
+        {
+            if let game = game {
                 game.tryInput(letter: name)
+                
             }
-            else { print("no name: line \(#line)") }
+            else { print("no game: line \(#line)") }
         }
-        else { print("no game: line \(#line)") }
         
-        //        let wiggleAction = wiggle(repititions: 1, duration: 1/10)
-        //        isUserInteractionEnabled = false
-        //        run(SKAction.wait(forDuration: wiggleAction.duration)) {
-        //            self.isUserInteractionEnabled = true
-        //        }
-        //        run(wiggleAction)
-        
-        // swapping this key's position with random other
-        
-        
-        
-        
-        if let parent = parent as? Keyboard {
-            
+        if scene?.name == "endScene"
+        {
+            if let scene = scene as? EndScene2
+            {
+//                scene.nameLabel.text?.append(name)
+                // add 'name' to label that is being filled in for high score name
+                // 'scene'
+            }
+            print(name + " pressed (ENDSCENE)")
         }
+        
     }
     
     // Effects

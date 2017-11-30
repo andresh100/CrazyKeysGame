@@ -27,6 +27,8 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         
+        name = "game"
+        
         // one-touch
         self.view!.isMultipleTouchEnabled = false;
         
@@ -79,7 +81,7 @@ class GameScene: SKScene {
         timerLabel.fontColor = UIColor.green
         timerLabel.fontSize = 20
         timerLabel.position = CGPoint(x: frame.midX, y: self.size.height-120)
-        timerLabel.text = "TIME LEFT: \(Int(game!.timerInterval))"
+        timerLabel.text = "TIME LEFT: 60"
 
         keyboard = Keyboard(rect: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height/3))
         keyboard.initKeys()
