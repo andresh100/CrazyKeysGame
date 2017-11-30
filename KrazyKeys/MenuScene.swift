@@ -27,13 +27,13 @@ class MenuScene: SKScene {
         
         char = wordSplitting(n: gameName)
         
-        do{
-            let audioPath = Bundle.main.path(forResource: "m", ofType: "mp3")
-            try player = AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: audioPath!) as URL)
-        }
-        catch{
-            
-        }
+//        do{
+//            let audioPath = Bundle.main.path(forResource: "m", ofType: "mp3")
+//            try player = AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: audioPath!) as URL)
+//        }
+//        catch{
+//
+//        }
 //        player.play()
         //player.stop()
 //        MusicHelper.sharedHelper.playBackgroundMusic()

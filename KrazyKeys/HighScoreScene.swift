@@ -19,11 +19,11 @@ class HighScoreScene: SKScene {
     //var highScore4 = 400
     //var highScore5 = 200
     
-    var name1 = "ABC"
-    var name2 = "DEF"
-    var name3 = "GHI"
-    var name4 = "JKL"
-    var name5 = "MNO"
+    var name1 = "DRE"
+    var name2 = "DRE"
+    var name3 = "DRE"
+    var name4 = "DRE"
+    var name5 = "DRE"
     
     var highScoresLabel : SKLabelNode!
     
@@ -49,6 +49,9 @@ class HighScoreScene: SKScene {
     var name5Label : SKLabelNode!
     
     var backLabel : SKLabelNode!
+    var resetLabel : SKLabelNode!
+//    var reset = false
+    
     var scrollBg: ScrollBackground?
     
     override func didMove(to view: SKView) {
@@ -79,19 +82,19 @@ class HighScoreScene: SKScene {
             score = game?.score
         }
         
-        if highScore1 == nil {
+        if highScore1 == nil{
             highScore1 = 0
         }
-        if highScore2 == nil {
+        if highScore2 == nil{
             highScore2 = 0
         }
-        if highScore3 == nil {
+        if highScore3 == nil{
             highScore3 = 0
         }
-        if highScore4 == nil {
+        if highScore4 == nil{
             highScore4 = 0
         }
-        if highScore5 == nil {
+        if highScore5 == nil{
             highScore5 = 0
         }
         
@@ -154,6 +157,8 @@ class HighScoreScene: SKScene {
         
         backLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         
+        resetLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        
         highScoresLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         
         scoreLabel = SKLabelNode(fontNamed: "Fipps-Regular")
@@ -178,6 +183,8 @@ class HighScoreScene: SKScene {
         name5Label = SKLabelNode(fontNamed: "Fipps-Regular")
         
         backLabel.fontColor = UIColor.white
+        
+        resetLabel.fontColor = UIColor.white
         
         highScoresLabel.fontColor = UIColor.white
         rankLabel.fontColor = UIColor.magenta
@@ -206,6 +213,8 @@ class HighScoreScene: SKScene {
         
         backLabel.fontSize = 20
         
+        resetLabel.fontSize = 20
+        
         highScoresLabel.fontSize = 20
         
         scoreLabel.fontSize = 14
@@ -233,6 +242,8 @@ class HighScoreScene: SKScene {
         backLabel.horizontalAlignmentMode = .left
         backLabel.position = CGPoint(x: 0.0, y: self.size.height-40)
         
+        resetLabel.position = CGPoint(x: frame.midX, y: frame.midY-170)
+        
         highScoresLabel.position = CGPoint(x: frame.midX, y: frame.midY+100)
         
         scoreLabel.position = CGPoint(x: frame.midX, y: frame.midY+50)
@@ -257,6 +268,8 @@ class HighScoreScene: SKScene {
         name5Label.position = CGPoint(x: frame.midX+100, y: frame.midY-100)
         
         backLabel.text = "BACK"
+        
+        resetLabel.text = "RESET"
         
         highScoresLabel.text = "HIGH SCORES"
         
@@ -285,6 +298,8 @@ class HighScoreScene: SKScene {
         
         self.addChild(backLabel)
         
+        self.addChild(resetLabel)
+        
         self.addChild(highScoresLabel)
         
         self.addChild(scoreLabel)
@@ -309,6 +324,13 @@ class HighScoreScene: SKScene {
         self.addChild(name5Label)
         
     }
+//    func updateHightScoreLabels() {
+//        highScore1Label.text = String(describing: data[4][0])
+//        highScore2Label.text = String(describing: data[3][0])
+//        highScore3Label.text = String(describing: data[2][0])
+//        highScore4Label.text = String(describing: data[1][0])
+//        highScore5Label.text = String(describing: data[0][0])
+//    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
@@ -323,6 +345,18 @@ class HighScoreScene: SKScene {
                     let scene:SKScene = MenuScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
                 }
+            }
+            if node == resetLabel {
+                print("Reset")
+                //doesnt work
+                
+//                reset = true
+//                updateHightScoreLabels()
+//                highScore1 = 0
+//                highScore2 = 0
+//                highScore3 = 0
+//                highScore4 = 0
+//                highScore5 = 0
             }
         }
     }
