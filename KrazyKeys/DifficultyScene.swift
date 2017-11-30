@@ -88,7 +88,7 @@ class DifficultyScene: SKScene {
 //                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     let scene:SKScene = GameScene(size: self.size)
                     // start game in easy mode
-                    game = Game(scene: scene, difficulty: 1, secondsAllowed: 61, word: "testword")
+                    game = Game(scene: scene, difficulty: 1, secondsAllowed: 60, word: "testword")
                     if let game = game {
                         game.startTimer()
                     }
@@ -100,7 +100,7 @@ class DifficultyScene: SKScene {
 //                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     let scene:SKScene = GameScene(size: self.size)
                     // start game in easy mode
-                    game = Game(scene: scene, difficulty: 2, secondsAllowed: 61, word: "testword")
+                    game = Game(scene: scene, difficulty: 2, secondsAllowed: 60, word: "testword")
                     if let game = game {
                         game.startTimer()
                     }

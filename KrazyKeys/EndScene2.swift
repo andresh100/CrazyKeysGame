@@ -13,11 +13,17 @@ class EndScene2: SKScene {
     
     var welcomeLabel : SKLabelNode!
     var scoreLabel : SKLabelNode!
-    var hsLabel : SKLabelNode!
-    var quitLabel : SKLabelNode!
-    //var nameLabel : SKLabelNode!
+    //var hsLabel : SKLabelNode!
+    //var quitLabel : SKLabelNode!
+    var nameLabel : SKLabelNode!
+    var nameProgress = ""
+    
+    var keyboard : Keyboard!
     
     override func didMove(to view: SKView) {
+        
+        name = "endScene"
+        
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
         
         welcomeLabel = SKLabelNode(fontNamed: "Fipps-Regular")
@@ -32,25 +38,29 @@ class EndScene2: SKScene {
         scoreLabel.position = CGPoint(x: frame.midX, y: frame.midY+60)
         scoreLabel.text = "SCORE: \(game!.score)"
         
-        hsLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        hsLabel.fontColor = UIColor.white
-        hsLabel.fontSize = 20
-        hsLabel.position = CGPoint(x: frame.midX, y: frame.midY-60)
-        hsLabel.text = "HIGH SCORES"
+        //hsLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        //hsLabel.fontColor = UIColor.white
+        //hsLabel.fontSize = 20
+        //hsLabel.position = CGPoint(x: frame.midX, y: frame.midY-60)
+        //hsLabel.text = "HIGH SCORES"
         
-        quitLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        quitLabel.fontColor = UIColor.white
-        quitLabel.fontSize = 20
-        quitLabel.position = CGPoint(x: frame.midX, y: frame.midY-120)
-        quitLabel.text = "QUIT"
+        //quitLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        //quitLabel.fontColor = UIColor.white
+        //quitLabel.fontSize = 20
+        //quitLabel.position = CGPoint(x: frame.midX, y: frame.midY-120)
+        //quitLabel.text = "QUIT"
         
         //Still need to implement nameLabel
         //nameLabel.text = ""
         
+        keyboard = Keyboard(rect: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height/3))
+        keyboard.initKeys()
+        
+        self.addChild(keyboard)
         self.addChild(welcomeLabel)
         self.addChild(scoreLabel)
-        self.addChild(hsLabel)
-        self.addChild(quitLabel)
+        //self.addChild(hsLabel)
+        //self.addChild(quitLabel)
         //self.addChild(nameLabel)
         
     }
@@ -61,6 +71,7 @@ class EndScene2: SKScene {
             let node = self.atPoint(pos)
             
             switch node {
+                /*
             case hsLabel:
                 if let view = view {
                     let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.right, duration: 1)
@@ -73,6 +84,7 @@ class EndScene2: SKScene {
                     let scene:SKScene = MenuScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
                 }
+ */
             default:
                 return
             }
