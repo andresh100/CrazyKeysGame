@@ -35,12 +35,12 @@ class Keyboard: SKShapeNode {
         for i in 0..<9 {
             screenPositions.append(
                 CGPoint(x: CGFloat(i) * frame.width / 10 + frame.width / 20,
-                        y: 1.6 * frame.height / 4))
+                        y: 1.8 * frame.height / 4))
         }
         for i in 0..<7 {
             screenPositions.append(
                 CGPoint(x: CGFloat(i) * frame.width / 10 + 3 * frame.width / 20,
-                        y: 0.4 * frame.height / 4))
+                        y: 0.8 * frame.height / 4))
         }
         // mapping was really slow to compile
         /*
@@ -195,6 +195,7 @@ class KeyboardKey: SKSpriteNode
 //                scene.nameLabel.text?.append(name)
                 // add 'name' to label that is being filled in for high score name
                 // 'scene'
+                
             }
             print(name + " pressed (ENDSCENE)")
         }

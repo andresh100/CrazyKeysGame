@@ -9,6 +9,8 @@ var soundCheck = false
 
 class GameScene: SKScene {
     
+    var bannerLower : SKShapeNode!
+    
     var wordLabel : SKLabelNode!
     var wordProgressLabel : SKLabelNode!
     var welcomeLabel : SKLabelNode!
@@ -28,6 +30,9 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         
         name = "game"
+        let bannerLower_offsetY = 40
+        let bannerLowerRect = CGRect.init(x: frame.minX, y: frame.maxY - CGFloat(bannerLower_offsetY), width: frame.width, height: CGFloat(bannerLower_offsetY))
+        var bannerLower = SKShapeNode.init(rect: bannerLowerRect)
         
         // one-touch
         self.view!.isMultipleTouchEnabled = false;
