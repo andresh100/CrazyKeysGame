@@ -1,11 +1,17 @@
 import AVFoundation
 
+var keyboardSound = false;
+
 class MusicHelper {
     static let sharedHelper = MusicHelper()
     var audioPlayer: AVAudioPlayer?
+    let aSound = NSURL(fileURLWithPath: (Bundle.main.path(forResource: "m2", ofType: "mp3"))!)
+    
+    
+    
     
     func playBackgroundMusic() {
-        let aSound = NSURL(fileURLWithPath: (Bundle.main.path(forResource: "m", ofType: "mp3"))!)
+        
         do {
             audioPlayer = try AVAudioPlayer(contentsOf:aSound as URL)
             audioPlayer!.numberOfLoops = -1
@@ -16,12 +22,11 @@ class MusicHelper {
         }
     }
     func stopBackgroundMusic(){
-        let aSound = NSURL(fileURLWithPath: (Bundle.main.path(forResource: "m", ofType: "mp3"))!)
         do {
             audioPlayer = try AVAudioPlayer(contentsOf:aSound as URL)
             audioPlayer!.numberOfLoops = -1
             audioPlayer!.prepareToPlay()
-            audioPlayer!.play()
+//            audioPlayer!.play()
             audioPlayer!.stop()
         } catch {
             print("Cannot play the file")

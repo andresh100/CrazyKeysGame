@@ -130,10 +130,11 @@ class SettingScene: SKScene{
         if(soundCheck == false){
             soundOnLabel.isHidden = true
             soundOffLabel.isHidden = false
+            keyboardSound = false
         } else{
             soundOffLabel.isHidden = true
             soundOnLabel.isHidden = false
-            
+            keyboardSound = true
         }
     }
 }
