@@ -13,6 +13,7 @@
 		5BCCE9581F83DEE2007EFD86 /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCCE9571F83DEE2007EFD86 /* AnimationHelper.swift */; };
 		5BF5D0F01F81A30700BCD04A /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5BF5D0EF1F81A2E000BCD04A /* Fipps-Regular.otf */; };
 		6301B8291FA525EA00F2C2E4 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6301B8281FA525E900F2C2E4 /* Game.swift */; };
+		636ADC371FD4A2070058F39B /* keyPress.wav in Resources */ = {isa = PBXBuildFile; fileRef = 636ADC361FD4A2070058F39B /* keyPress.wav */; };
 		63CFD51E1F80135200A95068 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFD51D1F80135200A95068 /* AppDelegate.swift */; };
 		63CFD5241F80135200A95068 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFD5231F80135200A95068 /* GameScene.swift */; };
 		63CFD5261F80135200A95068 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFD5251F80135200A95068 /* GameViewController.swift */; };
@@ -39,6 +40,7 @@
 		5BCCE9571F83DEE2007EFD86 /* AnimationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationHelper.swift; sourceTree = "<group>"; };
 		5BF5D0EF1F81A2E000BCD04A /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
 		6301B8281FA525E900F2C2E4 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		636ADC361FD4A2070058F39B /* keyPress.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = keyPress.wav; sourceTree = "<group>"; };
 		63CFD51A1F80135200A95068 /* KrazyKeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KrazyKeys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63CFD51D1F80135200A95068 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63CFD5231F80135200A95068 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				A5E3593A1F9BCF630092C9E2 /* Keyboard.swift */,
 				63CFD5271F80135200A95068 /* Main.storyboard */,
 				63CFD52A1F80135200A95068 /* Assets.xcassets */,
+				636ADC361FD4A2070058F39B /* keyPress.wav */,
 				A5B1B8E41FD083A800100521 /* m.mp3 */,
 				5BF5D0EF1F81A2E000BCD04A /* Fipps-Regular.otf */,
 				63CFD52C1F80135200A95068 /* LaunchScreen.storyboard */,
@@ -183,6 +186,7 @@
 				63CFD52B1F80135200A95068 /* Assets.xcassets in Resources */,
 				5BF5D0F01F81A30700BCD04A /* Fipps-Regular.otf in Resources */,
 				63CFD52E1F80135200A95068 /* LaunchScreen.storyboard in Resources */,
+				636ADC371FD4A2070058F39B /* keyPress.wav in Resources */,
 				A5A304071F92B8B000A8D393 /* words.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
