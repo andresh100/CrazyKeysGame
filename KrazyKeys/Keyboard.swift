@@ -8,6 +8,10 @@
 
 import Foundation
 import SpriteKit
+import AVFoundation
+
+let keySound = NSURL(fileURLWithPath: (Bundle.main.path(forResource: "keypress", ofType: "wav"))!)
+var audioPlayer: AVAudioPlayer?
 
 class Keyboard: SKShapeNode {
     
@@ -210,7 +214,19 @@ class KeyboardKey: SKSpriteNode
             }
             print(name + " pressed (ENDSCENE)")
         }
-        
+        //here
+        print("\(keyboardSound)")
+        if(keyboardSound == true){
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf:keySound as URL)
+//        audioPlayer!.numberOfLoops = -1
+                audioPlayer!.prepareToPlay()
+                audioPlayer!.play()
+            }
+            catch{
+                print("error key pressed sound")
+            }
+        }
     }
     
     // Effects

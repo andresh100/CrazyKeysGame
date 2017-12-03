@@ -132,11 +132,6 @@ class GameScene: SKScene {
             }
         }
     }
-    
-//    override func update(_ currentTime: CFTimeInterval) {
-////        timerLabel.update()
-//
-//    }
     func updateTimerLabel() {
         timerLabel.text = "\(Int(game!.timerInterval))s"
     }
