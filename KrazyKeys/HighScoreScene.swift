@@ -50,25 +50,15 @@ class HighScoreScene: SKScene {
     
     var backLabel : SKLabelNode!
     var resetLabel : SKLabelNode!
-//    var reset = false
     
     var scrollBg: ScrollBackground?
     
+    let userDefaults = Foundation.UserDefaults.standard
+    
     override func didMove(to view: SKView) {
-        
-        /*
-        //High scores
-        let userDefaults = Foundation.UserDefaults.standard
-        let highScore1 = userDefaults.integer(forKey: "highScore1")
-        let highScore2 = userDefaults.integer(forKey: "highScore2")
-        let highScore3 = userDefaults.integer(forKey: "highScore3")
-        let highScore4 = userDefaults.integer(forKey: "highScore4")
-        let highScore5 = userDefaults.integer(forKey: "highScore5")
- */
-        
+
         //Saving score
         let score: Int?
-        let userDefaults = Foundation.UserDefaults.standard
         
         var highScore1: Int? = userDefaults.integer(forKey: "highScore1")
         var highScore2: Int? = userDefaults.integer(forKey: "highScore2")
@@ -76,55 +66,61 @@ class HighScoreScene: SKScene {
         var highScore4: Int? = userDefaults.integer(forKey: "highScore4")
         var highScore5: Int? = userDefaults.integer(forKey: "highScore5")
         
-        if game?.score == nil {
-            score = 0
-        } else {
-            score = game?.score
+        if game?.quit == false && game?.needsUpdate == true {
+            
+            if game?.score == nil {
+                score = 0
+            } else {
+                score = game?.score
+            }
+            
+            if highScore1 == nil{
+                highScore1 = 0
+            }
+            if highScore2 == nil{
+                highScore2 = 0
+            }
+            if highScore3 == nil{
+                highScore3 = 0
+            }
+            if highScore4 == nil{
+                highScore4 = 0
+            }
+            if highScore5 == nil{
+                highScore5 = 0
+            }
+            
+            if score! > highScore1! {
+                highScore5 = highScore4
+                highScore4 = highScore3
+                highScore3 = highScore2
+                highScore2 = highScore1
+                highScore1 = score
+            } else if score! > highScore2! {
+                highScore5 = highScore4
+                highScore4 = highScore3
+                highScore3 = highScore2
+                highScore2 = score
+            } else if score! > highScore3! {
+                highScore5 = highScore4
+                highScore4 = highScore3
+                highScore3 = score
+            } else if score! > highScore4! {
+                highScore5 = highScore4
+                highScore4 = score
+            } else if score! > highScore5! {
+                highScore5 = score
+            }
+            
+            userDefaults.set(highScore1, forKey: "highScore1")
+            userDefaults.set(highScore2, forKey: "highScore2")
+            userDefaults.set(highScore3, forKey: "highScore3")
+            userDefaults.set(highScore4, forKey: "highScore4")
+            userDefaults.set(highScore5, forKey: "highScore5")
+            
+            game?.needsUpdate = false
+            
         }
-        
-        if highScore1 == nil{
-            highScore1 = 0
-        }
-        if highScore2 == nil{
-            highScore2 = 0
-        }
-        if highScore3 == nil{
-            highScore3 = 0
-        }
-        if highScore4 == nil{
-            highScore4 = 0
-        }
-        if highScore5 == nil{
-            highScore5 = 0
-        }
-        
-        if score! > highScore1! {
-            highScore5 = highScore4
-            highScore4 = highScore3
-            highScore3 = highScore2
-            highScore2 = highScore1
-            highScore1 = score
-        } else if score! > highScore2! {
-            highScore5 = highScore4
-            highScore4 = highScore3
-            highScore3 = highScore2
-            highScore2 = score
-        } else if score! > highScore3! {
-            highScore5 = highScore4
-            highScore4 = highScore3
-            highScore3 = score
-        } else if score! > highScore4! {
-            highScore5 = highScore4
-            highScore4 = score
-        } else if score! > highScore5! {
-            highScore5 = score
-        }
-        
-        userDefaults.set(highScore1, forKey: "highScore1")
-        userDefaults.set(highScore2, forKey: "highScore2")
-        userDefaults.set(highScore3, forKey: "highScore3")
-        userDefaults.set(highScore4, forKey: "highScore4")
-        userDefaults.set(highScore5, forKey: "highScore5")
         
         print("HighScoreScene high scores:")
         print("High score 1: \(highScore1!)")
@@ -135,9 +131,6 @@ class HighScoreScene: SKScene {
         
         //        backgroundColor = SKColor.black
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
-        
-        //var highScores = [highScore1, highScore2, highScore3, highScore4, highScore5]
-        //highScores = highScores.sorted()
         var first = [highScore1!, name1] as [Any]
         var second = [highScore2!, name2] as [Any]
         var third = [highScore3!, name3] as [Any]
@@ -324,13 +317,6 @@ class HighScoreScene: SKScene {
         self.addChild(name5Label)
         
     }
-//    func updateHightScoreLabels() {
-//        highScore1Label.text = String(describing: data[4][0])
-//        highScore2Label.text = String(describing: data[3][0])
-//        highScore3Label.text = String(describing: data[2][0])
-//        highScore4Label.text = String(describing: data[1][0])
-//        highScore5Label.text = String(describing: data[0][0])
-//    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
@@ -347,18 +333,59 @@ class HighScoreScene: SKScene {
                 }
             }
             if node == resetLabel {
-                print("Reset")
-                //doesnt work
                 
-//                reset = true
-//                updateHightScoreLabels()
-//                highScore1 = 0
-//                highScore2 = 0
-//                highScore3 = 0
-//                highScore4 = 0
-//                highScore5 = 0
+                //Reset all high scores to 0
+                updateHighScoreLabels()
+                
             }
         }
+    }
+    
+    func updateHighScoreLabels() {
+        
+        print("Reset")
+        
+        //let userDefaults = Foundation.UserDefaults.standard
+        //var data = [[Any]]()
+        
+        userDefaults.set(nil, forKey: "highScore1")
+        userDefaults.set(nil, forKey: "highScore2")
+        userDefaults.set(nil, forKey: "highScore3")
+        userDefaults.set(nil, forKey: "highScore4")
+        userDefaults.set(nil, forKey: "highScore5")
+        
+        var highScore1: Int? = userDefaults.integer(forKey: "highScore1")
+        var highScore2: Int? = userDefaults.integer(forKey: "highScore2")
+        var highScore3: Int? = userDefaults.integer(forKey: "highScore3")
+        var highScore4: Int? = userDefaults.integer(forKey: "highScore4")
+        var highScore5: Int? = userDefaults.integer(forKey: "highScore5")
+        
+        var first = [highScore1!, name1] as [Any]
+        var second = [highScore2!, name2] as [Any]
+        var third = [highScore3!, name3] as [Any]
+        var fourth = [highScore4!, name4] as [Any]
+        var fifth = [highScore5!, name5] as [Any]
+        
+        data[0] = first
+        data[1] = second
+        data[2] = third
+        data[3] = fourth
+        data[4] = fifth
+        
+        data = data.sorted { ($0[0] as! Int) < ($1[0] as! Int) }
+        
+        highScore1Label.text = String(describing: data[4][0])
+        highScore2Label.text = String(describing: data[3][0])
+        highScore3Label.text = String(describing: data[2][0])
+        highScore4Label.text = String(describing: data[1][0])
+        highScore5Label.text = String(describing: data[0][0])
+        
+        //Need to update names
+        name1Label.text = String(describing: data[4][1])
+        name2Label.text = String(describing: data[3][1])
+        name3Label.text = String(describing: data[2][1])
+        name4Label.text = String(describing: data[1][1])
+        name5Label.text = String(describing: data[0][1])
     }
     
 }

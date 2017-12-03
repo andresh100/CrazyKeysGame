@@ -12,7 +12,7 @@ import SpriteKit
 class Keyboard: SKShapeNode {
     
     let swapAnimationTime = TimeInterval(0.2)
-//    let keyDownAnimationTime = TimeInterval(0.2)
+    //    let keyDownAnimationTime = TimeInterval(0.2)
     
     // how the names should appear in Assets
     let keyNames = ["q","w","e","r","t","y","u","i","o","p",
@@ -113,8 +113,8 @@ extension Keyboard
             }
         }
         
-//        print("1st key: \(keys[index1].name!)")
-//        print("2nd key: \(keys[index2].name!)")
+        //        print("1st key: \(keys[index1].name!)")
+        //        print("2nd key: \(keys[index2].name!)")
     }
     
     func swapKeysRandom(swaps: Int) {
@@ -122,35 +122,35 @@ extension Keyboard
         // memory of swapped keys
         var keysAlreadySwapped : [Int] = []
         
-//        guard keyIndexesAlreadySwapped.count < keys.count else {
-//            print("all keys swapped")
-//            return
-//        }
+        //        guard keyIndexesAlreadySwapped.count < keys.count else {
+        //            print("all keys swapped")
+        //            return
+        //        }
         
         var keysToSwap: [(Int, Int)] = []
         var swappableKeys: [Int] = []
         
         for i in 0..<keys.count {
             swappableKeys.append(i)
-//            if !keyIndexesAlreadySwapped.contains(i) {
-//                swappableKeyIndexes.append(i)
-//            }
+            //            if !keyIndexesAlreadySwapped.contains(i) {
+            //                swappableKeyIndexes.append(i)
+            //            }
         }
         
         for _ in 0..<swaps {
             
-//            keysToSwap.append((0,0))
+            //            keysToSwap.append((0,0))
             
             let indexForKey1 = Int(arc4random_uniform(UInt32(swappableKeys.count)))
             let key1 = swappableKeys[indexForKey1]
             keysAlreadySwapped.append(key1)
-//            keysToSwap[keysToSwap.count-1].0 = key1
+            //            keysToSwap[keysToSwap.count-1].0 = key1
             swappableKeys.remove(at: swappableKeys.index(of: key1)!)
             
             let indexForKey2 = Int(arc4random_uniform(UInt32(swappableKeys.count)))
             let key2 = swappableKeys[indexForKey2]
             keysAlreadySwapped.append(key2)
-//            keysToSwap[keysToSwap.count-1].1 = key2
+            //            keysToSwap[keysToSwap.count-1].1 = key2
             swappableKeys.remove(at: swappableKeys.index(of: key2)!)
             
             keysToSwap.append((key1,key2))
@@ -159,7 +159,7 @@ extension Keyboard
         for i in keysToSwap {
             swapKeys(at: i.0, i.1)
         }
-//        swapKeys(at: index1, index2)
+        //        swapKeys(at: index1, index2)
     }
 }
 
@@ -192,9 +192,20 @@ class KeyboardKey: SKSpriteNode
         {
             if let scene = scene as? EndScene2
             {
-//                scene.nameLabel.text?.append(name)
+                //scene.nameLabel.text?.append(name)
                 // add 'name' to label that is being filled in for high score name
                 // 'scene'
+                
+                    
+                    if game!.nameProgress == "ENTER INITIALS:" {
+                        game!.nameProgress = name
+                        scene.updateProgressLabel()
+                    } else if game!.nameProgress.count < 3 {
+                        game!.nameProgress.append(name)
+                        scene.updateProgressLabel()
+                    }
+                    
+                
                 
             }
             print(name + " pressed (ENDSCENE)")
