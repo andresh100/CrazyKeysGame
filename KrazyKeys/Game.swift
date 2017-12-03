@@ -8,6 +8,11 @@
 
 import SpriteKit
 import GameplayKit
+import AVFoundation
+
+let rightKeySound = NSURL(fileURLWithPath: (Bundle.main.path(forResource: "keyPressBright", ofType: "wav"))!)
+let wrongKeySound = NSURL(fileURLWithPath: (Bundle.main.path(forResource: "wrongKeyPress", ofType: "wav"))!)
+var audioPlayer: AVAudioPlayer?
 
 var game: Game?
 
@@ -23,6 +28,7 @@ class Game {
     var difficulty: Int?
     var score: Int = 0
     var scene: SKScene?
+    var x = 0
     //    var countDown: CountdownLabel?
     
     var timer = Timer()
@@ -186,10 +192,26 @@ class Game {
                 
                 if difficulty == 2 {
                     if let scene = scene as? GameScene {
-                        scene.keyboard.scrambleKeys(swaps: 13)
+                        print("x: \(x)")
+                        print("math: \(x%2)")
+                        if(x%4 == 0 || x%3 == 0){
+                            scene.keyboard.scrambleKeys(swaps: 13)
+                        }
+                        x+=1
                     }
                 }
-                
+                print("\(keyboardSound)")
+                if(keyboardSound == true){
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
+                }
             } else {
                 print("wrong letter \(letter)")
                 timeElapsed += 6
@@ -210,6 +232,17 @@ class Game {
                     scene.wordProgressLabel.run(waitAct)  {
                         scene.wordProgressLabel.fontColor = UIColor.green
                         scene.wordLabel.fontColor = UIColor.white
+                    }
+                }
+                if(keyboardSound == true){
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:wrongKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
                     }
                 }
             }
