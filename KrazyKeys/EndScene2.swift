@@ -64,14 +64,14 @@ class EndScene2: SKScene {
         doneLabel.fontColor = UIColor.green
         doneLabel.fontSize = 20
         //doneLabel.horizontalAlignmentMode = .right
-        doneLabel.position = CGPoint(x: self.size.width-50, y: frame.midY-100)
+        doneLabel.position = CGPoint(x: self.size.width-50, y: frame.midY-90)
         doneLabel.text = "DONE"
         
         undoLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         undoLabel.fontColor = UIColor.red
         undoLabel.fontSize = 20
         undoLabel.horizontalAlignmentMode = .left
-        undoLabel.position = CGPoint(x: 10, y: frame.midY-100)
+        undoLabel.position = CGPoint(x: 10, y: frame.midY-90)
         undoLabel.text = "UNDO"
         
         keyboard = Keyboard(rect: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height/3))

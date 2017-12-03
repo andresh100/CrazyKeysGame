@@ -17,17 +17,15 @@ class DifficultyScene: SKScene {
     var easyLabel : SKLabelNode!
     var mediumLabel : SKLabelNode!
     var scrollBg: ScrollBackground?
+    let modelName = UIDevice.current.modelName
     
     override func didMove(to view: SKView) {
-        
-//        backgroundColor = SKColor.black
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
         
         backLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         backLabel.fontColor = UIColor.white
         backLabel.fontSize = 20
         backLabel.horizontalAlignmentMode = .left
-        backLabel.position = CGPoint(x: 0.0, y: self.size.height-40)
         backLabel.text = "BACK"
         self.addChild(backLabel)
         
@@ -61,6 +59,17 @@ class DifficultyScene: SKScene {
         
         //AnimationHelper.animateLabel(easyLabel)
         //AnimationHelper.animateLabel(mediumLabel)
+        
+        if(modelName == "iPhone 7 Plus"){
+            print("This is a \(modelName)")
+            backLabel.position = CGPoint(x: 15.0, y: self.size.height-40)
+        }else if(modelName == "iPhone X"){
+            print("This is a \(modelName)")
+            backLabel.position = CGPoint(x: 15.0, y: self.size.height-65)
+        }else{
+            print("This is a \(modelName)")
+            backLabel.position = CGPoint(x: 15.0, y: self.size.height-65)
+        }
         
         self.addChild(selectLabel)
         self.addChild(difficultyLabel)

@@ -42,14 +42,14 @@ class GameScene: SKScene {
         
         wordLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         wordLabel.fontColor = UIColor.white
-        wordLabel.fontSize = 20
-        wordLabel.position = CGPoint(x: frame.midX, y: self.size.height-180)
+        wordLabel.fontSize = 35
+        wordLabel.position = CGPoint(x: frame.midX, y: self.size.height-220)
         wordLabel.text = game!.wordTest
         
         wordProgressLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         wordProgressLabel.fontColor = UIColor.green
-        wordProgressLabel.fontSize = 20
-        wordProgressLabel.position = CGPoint(x: frame.midX, y: self.size.height-220)
+        wordProgressLabel.fontSize = 30
+        wordProgressLabel.position = CGPoint(x: frame.midX, y: self.size.height-280)
         wordProgressLabel.text = game!.wordProgress.uppercased()
         
         
@@ -71,28 +71,28 @@ class GameScene: SKScene {
         scoreLabel.fontColor = UIColor.yellow
         scoreLabel.fontSize = 20
         scoreLabel.horizontalAlignmentMode = .right
-        scoreLabel.position = CGPoint(x: self.size.width-10, y: self.size.height-40)
+        scoreLabel.position = CGPoint(x: self.size.width-15, y: self.size.height-65)
         scoreLabel.text = "SCORE: \(game!.score)"
         
         pauseLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         pauseLabel.fontColor = UIColor.yellow
         pauseLabel.fontSize = 20
         pauseLabel.horizontalAlignmentMode = .left
-        pauseLabel.position = CGPoint(x: 10.0, y: self.size.height-40)
+        pauseLabel.position = CGPoint(x: 15.0, y: self.size.height-65)
         pauseLabel.text = "II"
         
         
         timerLabel = CountdownLabel(fontNamed: "Fipps-Regular")
         timerLabel.fontColor = UIColor.green
-        timerLabel.fontSize = 20
-        timerLabel.position = CGPoint(x: frame.midX, y: self.size.height-120)
-        timerLabel.text = "TIME LEFT: 60"
+        timerLabel.fontSize = 30
+        timerLabel.position = CGPoint(x: frame.midX, y: self.size.height-130)
+        timerLabel.text = "60s"
 
         keyboard = Keyboard(rect: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height/3))
         keyboard.initKeys()
         
         self.addChild(scoreLabel)
-        self.addChild(welcomeLabel)
+//        self.addChild(welcomeLabel)
         self.addChild(pauseLabel)
         self.addChild(wordLabel)
         self.addChild(wordProgressLabel)
@@ -133,12 +133,12 @@ class GameScene: SKScene {
         }
     }
     
-    override func update(_ currentTime: CFTimeInterval) {
-//        timerLabel.update()
-
-    }
+//    override func update(_ currentTime: CFTimeInterval) {
+////        timerLabel.update()
+//
+//    }
     func updateTimerLabel() {
-        timerLabel.text = "TIME LEFT: \(Int(game!.timerInterval))"
+        timerLabel.text = "\(Int(game!.timerInterval))s"
     }
     
     func updateScore() {
