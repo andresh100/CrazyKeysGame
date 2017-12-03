@@ -66,6 +66,7 @@ class PauseScene: SKScene {
 //                    }
                 }
             case quitLabel:
+                game!.quit = true
                 if let view = view {
                     let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
 //                    let transition:SKTransition = SKTransition.fade(withDuration: 1)

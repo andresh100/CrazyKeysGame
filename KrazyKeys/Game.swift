@@ -18,6 +18,8 @@ class Game {
     var wordTest: String?
     var wordsData: [String]?
     var isPaused: Bool = true
+    var quit: Bool = false
+    var needsUpdate: Bool = false
     var difficulty: Int?
     var score: Int = 0
     var scene: SKScene?
@@ -27,6 +29,8 @@ class Game {
     var timerInterval: TimeInterval = 0
     var timeAllowed: TimeInterval = 60
     var timeElapsed: TimeInterval = 0
+    
+    var nameProgress = "ENTER INITIALS:"
     
     init(scene: SKScene, difficulty: Int, secondsAllowed: TimeInterval, word: String) {
         self.scene = scene
