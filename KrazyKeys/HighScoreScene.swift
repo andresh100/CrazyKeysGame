@@ -233,7 +233,7 @@ class HighScoreScene: SKScene {
         
         //backLabel.position = CGPoint(x: frame.midX-100, y: frame.midY+250)
         backLabel.horizontalAlignmentMode = .left
-        backLabel.position = CGPoint(x: 0.0, y: self.size.height-40)
+        backLabel.position = CGPoint(x: 15.0, y: self.size.height-65)
         
         resetLabel.position = CGPoint(x: frame.midX, y: frame.midY-170)
         

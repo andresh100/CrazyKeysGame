@@ -15,6 +15,7 @@ class SettingScene: SKScene{
     var musicOffLabel : SKLabelNode!
     var soundOnLabel : SKLabelNode!
     var soundOffLabel : SKLabelNode!
+    var resetLabel : SKLabelNode!
     var musicPlaying = true
     
     var scrollBg: ScrollBackground?
@@ -46,18 +47,24 @@ class SettingScene: SKScene{
         soundOffLabel.position = CGPoint(x: frame.midX, y: frame.midY)
         soundOffLabel.text = "SOUND OFF"
         
+        resetLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        resetLabel.fontColor = UIColor.red
+        resetLabel.fontSize = 20
+        resetLabel.position = CGPoint(x: frame.midX, y: frame.midY - 80)
+        resetLabel.text = "RESET DATA"
+        
         doneLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        doneLabel.fontColor = UIColor.white
+        doneLabel.fontColor = UIColor.green
         doneLabel.fontSize = 30
-        doneLabel.position = CGPoint(x: frame.midX, y: frame.midY - 80)
+        doneLabel.position = CGPoint(x: frame.midX, y: frame.midY - 160)
         doneLabel.text = "DONE"
         
         self.addChild(musicOnLabel)
         self.addChild(musicOffLabel)
         self.addChild(soundOnLabel)
         self.addChild(soundOffLabel)
+        self.addChild(resetLabel)
         self.addChild(doneLabel)
-        
         toggleMusic()
         toggleSound()
     }
@@ -74,6 +81,12 @@ class SettingScene: SKScene{
 //                    let transition:SKTransition = SKTransition.doorsCloseHorizontal(withDuration: 1)
                     let scene:SKScene = MenuScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
+                    print("\(UIDevice.current.modelName)")
+                }
+            case resetLabel:
+                if node == resetLabel {
+                    //Reset all high scores to 0
+//                    updateHighScoreLabels()
                 }
             case musicOnLabel:
                 musicCheck = false

@@ -28,6 +28,7 @@
 		A5AB4F6C1FAE650E00E55650 /* ScrollBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AB4F6B1FAE650E00E55650 /* ScrollBackground.swift */; };
 		A5AB4F6E1FAE6DC300E55650 /* EndScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AB4F6D1FAE6DC300E55650 /* EndScene.swift */; };
 		A5B1B8E51FD083A800100521 /* m.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A5B1B8E41FD083A800100521 /* m.mp3 */; };
+		A5B400E71FD49C21002C33F9 /* iphoneTypeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B400E61FD49C21002C33F9 /* iphoneTypeHelper.swift */; };
 		A5E3593B1F9BCF630092C9E2 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E3593A1F9BCF630092C9E2 /* Keyboard.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		A5AB4F6B1FAE650E00E55650 /* ScrollBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBackground.swift; sourceTree = "<group>"; };
 		A5AB4F6D1FAE6DC300E55650 /* EndScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScene.swift; sourceTree = "<group>"; };
 		A5B1B8E41FD083A800100521 /* m.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = m.mp3; sourceTree = "<group>"; };
+		A5B400E61FD49C21002C33F9 /* iphoneTypeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iphoneTypeHelper.swift; sourceTree = "<group>"; };
 		A5E3593A1F9BCF630092C9E2 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 				A5AB4F6D1FAE6DC300E55650 /* EndScene.swift */,
 				A5AA551C1FD08A540053C05D /* EndScene2.swift */,
 				A5AA551A1FD08A190053C05D /* MusicHelper.swift */,
+				A5B400E61FD49C21002C33F9 /* iphoneTypeHelper.swift */,
 				5BCCE9571F83DEE2007EFD86 /* AnimationHelper.swift */,
 				A58EAE4A1F9C256800CACCD7 /* CountdownLabel.swift */,
 				63CFD5251F80135200A95068 /* GameViewController.swift */,
@@ -147,7 +150,7 @@
 				TargetAttributes = {
 					63CFD5191F80135200A95068 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = WLM9DB9GD5;
+						DevelopmentTeam = XK6SN6HZQZ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -202,6 +205,7 @@
 				A5AB4F6C1FAE650E00E55650 /* ScrollBackground.swift in Sources */,
 				5BB0060F1F81789A0053FC9B /* HighScoreScene.swift in Sources */,
 				63CFD5361F80149A00A95068 /* MenuScene.swift in Sources */,
+				A5B400E71FD49C21002C33F9 /* iphoneTypeHelper.swift in Sources */,
 				63CFD5261F80135200A95068 /* GameViewController.swift in Sources */,
 				A5AB4F6E1FAE6DC300E55650 /* EndScene.swift in Sources */,
 				63CFD51E1F80135200A95068 /* AppDelegate.swift in Sources */,
@@ -329,10 +333,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = WLM9DB9GD5;
+				DEVELOPMENT_TEAM = XK6SN6HZQZ;
 				INFOPLIST_FILE = KrazyKeys/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nedink.crazyKeysAlissa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nedink.crazyKeys;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -343,10 +347,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = WLM9DB9GD5;
+				DEVELOPMENT_TEAM = XK6SN6HZQZ;
 				INFOPLIST_FILE = KrazyKeys/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nedink.crazyKeysAlissa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nedink.crazyKeys;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
