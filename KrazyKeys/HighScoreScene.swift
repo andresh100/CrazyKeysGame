@@ -133,7 +133,7 @@ class HighScoreScene: SKScene {
                 name2 = name1
                 highScore1 = score
                 name1 = newName
-            } else if score! > highScore2! {
+            } else if score! == highScore1! || score! > highScore2! {
                 highScore5 = highScore4
                 name5 = name4
                 highScore4 = highScore3
@@ -142,19 +142,19 @@ class HighScoreScene: SKScene {
                 name3 = name2
                 highScore2 = score
                 name2 = newName
-            } else if score! > highScore3! {
+            } else if score! == highScore2! || score! > highScore3! {
                 highScore5 = highScore4
                 name5 = name4
                 highScore4 = highScore3
                 name4 = name3
                 highScore3 = score
                 name3 = newName
-            } else if score! > highScore4! {
+            } else if score! == highScore3! || score! > highScore4! {
                 highScore5 = highScore4
                 name5 = name4
                 highScore4 = score
                 name4 = newName
-            } else if score! > highScore5! {
+            } else if score! == highScore4! || score! > highScore5! {
                 highScore5 = score
                 name5 = newName
             }

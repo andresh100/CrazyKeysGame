@@ -36,6 +36,7 @@ class EndScene2: SKScene {
         welcomeLabel.fontSize = 20
         welcomeLabel.position = CGPoint(x: frame.midX, y: frame.midY+120)
         welcomeLabel.text = "NEW HIGH SCORE!"
+        AnimationHelper.animateLabel(welcomeLabel, 1.2)
         
         scoreLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         scoreLabel.fontColor = UIColor.yellow
