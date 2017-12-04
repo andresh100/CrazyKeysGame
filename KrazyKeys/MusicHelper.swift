@@ -24,7 +24,7 @@ class MusicHelper {
     }
     func updateBackgroundMusic(){
         if(inGame == true){
-            audioPlayer!.rate = 1.5
+            audioPlayer!.rate = 1.2
         }else{
             audioPlayer!.rate = 1
         }

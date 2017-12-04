@@ -117,13 +117,13 @@ class DifficultyScene: SKScene {
                         //        audioPlayer!.numberOfLoops = -1
                         audioPlayer!.prepareToPlay()
                         audioPlayer!.play()
+                        inGame = true
+                        MusicHelper.sharedHelper.updateBackgroundMusic()
                     }
                     catch{
                         print("error key pressed sound")
                     }
                     }
-                    inGame = true
-                    MusicHelper.sharedHelper.updateBackgroundMusic()
                 }
             case mediumLabel:
                 if let view = view {
@@ -142,13 +142,13 @@ class DifficultyScene: SKScene {
                         //        audioPlayer!.numberOfLoops = -1
                         audioPlayer!.prepareToPlay()
                         audioPlayer!.play()
+                        inGame = true
+                        MusicHelper.sharedHelper.updateBackgroundMusic()
                     }
                     catch{
                         print("error key pressed sound")
                     }
                     }
-                    inGame = true
-                    MusicHelper.sharedHelper.updateBackgroundMusic()
                 }
             default:
                 return
