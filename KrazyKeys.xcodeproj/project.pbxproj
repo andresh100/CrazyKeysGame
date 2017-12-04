@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5B28DC621F8545C80008304B /* PauseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B28DC611F8545C80008304B /* PauseScene.swift */; };
+		5B4FE62C1FD4CD70007162D6 /* wrongKeyPress.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5B4FE62B1FD4CD6F007162D6 /* wrongKeyPress.wav */; };
+		5B4FE62E1FD4CD7F007162D6 /* keyPressBright.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5B4FE62D1FD4CD7F007162D6 /* keyPressBright.wav */; };
+		5B4FE6301FD4CD89007162D6 /* m2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5B4FE62F1FD4CD89007162D6 /* m2.mp3 */; };
 		5B5B6DEF1F82B3D700277538 /* DifficultyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5B6DEE1F82B3D700277538 /* DifficultyScene.swift */; };
 		5BB0060F1F81789A0053FC9B /* HighScoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB0060E1F81789A0053FC9B /* HighScoreScene.swift */; };
 		5BCCE9581F83DEE2007EFD86 /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCCE9571F83DEE2007EFD86 /* AnimationHelper.swift */; };
@@ -20,9 +23,6 @@
 		63CFD52B1F80135200A95068 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63CFD52A1F80135200A95068 /* Assets.xcassets */; };
 		63CFD52E1F80135200A95068 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63CFD52C1F80135200A95068 /* LaunchScreen.storyboard */; };
 		63CFD5361F80149A00A95068 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFD5351F80149A00A95068 /* MenuScene.swift */; };
-		A50CE6941FD4A45D0018E0A8 /* m2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A50CE6931FD4A45D0018E0A8 /* m2.mp3 */; };
-		A53E69941FD4B56500054B4C /* keyPressBright.wav in Resources */ = {isa = PBXBuildFile; fileRef = A53E69931FD4B56500054B4C /* keyPressBright.wav */; };
-		A53E69961FD4B57300054B4C /* wrongKeyPress.wav in Resources */ = {isa = PBXBuildFile; fileRef = A53E69951FD4B57300054B4C /* wrongKeyPress.wav */; };
 		A58EAE4B1F9C256900CACCD7 /* CountdownLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58EAE4A1F9C256800CACCD7 /* CountdownLabel.swift */; };
 		A5A304051F92B7D600A8D393 /* SettingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A304041F92B7D600A8D393 /* SettingScene.swift */; };
 		A5A304071F92B8B000A8D393 /* words.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5A304061F92B8B000A8D393 /* words.plist */; };
@@ -36,6 +36,9 @@
 
 /* Begin PBXFileReference section */
 		5B28DC611F8545C80008304B /* PauseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseScene.swift; sourceTree = "<group>"; };
+		5B4FE62B1FD4CD6F007162D6 /* wrongKeyPress.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrongKeyPress.wav; sourceTree = "<group>"; };
+		5B4FE62D1FD4CD7F007162D6 /* keyPressBright.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = keyPressBright.wav; sourceTree = "<group>"; };
+		5B4FE62F1FD4CD89007162D6 /* m2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = m2.mp3; sourceTree = "<group>"; };
 		5B5B6DEE1F82B3D700277538 /* DifficultyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyScene.swift; sourceTree = "<group>"; };
 		5BB0060E1F81789A0053FC9B /* HighScoreScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreScene.swift; sourceTree = "<group>"; };
 		5BCCE9571F83DEE2007EFD86 /* AnimationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationHelper.swift; sourceTree = "<group>"; };
@@ -50,9 +53,6 @@
 		63CFD52D1F80135200A95068 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63CFD52F1F80135200A95068 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63CFD5351F80149A00A95068 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
-		A50CE6931FD4A45D0018E0A8 /* m2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = m2.mp3; sourceTree = "<group>"; };
-		A53E69931FD4B56500054B4C /* keyPressBright.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = keyPressBright.wav; sourceTree = "<group>"; };
-		A53E69951FD4B57300054B4C /* wrongKeyPress.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrongKeyPress.wav; sourceTree = "<group>"; };
 		A58EAE4A1F9C256800CACCD7 /* CountdownLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownLabel.swift; sourceTree = "<group>"; };
 		A5A304041F92B7D600A8D393 /* SettingScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingScene.swift; sourceTree = "<group>"; };
 		A5A304061F92B8B000A8D393 /* words.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = words.plist; sourceTree = "<group>"; };
@@ -113,9 +113,9 @@
 				A5E3593A1F9BCF630092C9E2 /* Keyboard.swift */,
 				63CFD5271F80135200A95068 /* Main.storyboard */,
 				63CFD52A1F80135200A95068 /* Assets.xcassets */,
-				A53E69951FD4B57300054B4C /* wrongKeyPress.wav */,
-				A53E69931FD4B56500054B4C /* keyPressBright.wav */,
-				A50CE6931FD4A45D0018E0A8 /* m2.mp3 */,
+				5B4FE62B1FD4CD6F007162D6 /* wrongKeyPress.wav */,
+				5B4FE62D1FD4CD7F007162D6 /* keyPressBright.wav */,
+				5B4FE62F1FD4CD89007162D6 /* m2.mp3 */,
 				5BF5D0EF1F81A2E000BCD04A /* Fipps-Regular.otf */,
 				63CFD52C1F80135200A95068 /* LaunchScreen.storyboard */,
 				63CFD52F1F80135200A95068 /* Info.plist */,
@@ -156,7 +156,7 @@
 				TargetAttributes = {
 					63CFD5191F80135200A95068 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = XK6SN6HZQZ;
+						DevelopmentTeam = WLM9DB9GD5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -184,14 +184,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B4FE62E1FD4CD7F007162D6 /* keyPressBright.wav in Resources */,
 				63CFD5291F80135200A95068 /* Main.storyboard in Resources */,
 				63CFD52B1F80135200A95068 /* Assets.xcassets in Resources */,
+				5B4FE6301FD4CD89007162D6 /* m2.mp3 in Resources */,
+				5B4FE62C1FD4CD70007162D6 /* wrongKeyPress.wav in Resources */,
 				5BF5D0F01F81A30700BCD04A /* Fipps-Regular.otf in Resources */,
-				A50CE6941FD4A45D0018E0A8 /* m2.mp3 in Resources */,
-				A53E69941FD4B56500054B4C /* keyPressBright.wav in Resources */,
 				63CFD52E1F80135200A95068 /* LaunchScreen.storyboard in Resources */,
 				A5A304071F92B8B000A8D393 /* words.plist in Resources */,
-				A53E69961FD4B57300054B4C /* wrongKeyPress.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,10 +341,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XK6SN6HZQZ;
+				DEVELOPMENT_TEAM = WLM9DB9GD5;
 				INFOPLIST_FILE = KrazyKeys/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nedink.crazyKeys;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nedink.crazyKeysAlissa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -355,10 +355,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XK6SN6HZQZ;
+				DEVELOPMENT_TEAM = WLM9DB9GD5;
 				INFOPLIST_FILE = KrazyKeys/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nedink.crazyKeys;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nedink.crazyKeysAlissa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
