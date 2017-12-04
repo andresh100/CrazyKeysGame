@@ -57,17 +57,22 @@ class GameScene: SKScene {
         
         
         welcomeLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        welcomeLabel.fontColor = UIColor.white
         welcomeLabel.fontSize = 14
         welcomeLabel.position = CGPoint(x: frame.midX, y: frame.midY)
         switch (game!.difficulty!)
         {
-        case 1:
+        case 0:
             welcomeLabel.text = "EASY"
-        case 2:
+            welcomeLabel.fontColor = UIColor.green
+        case 1:
             welcomeLabel.text = "MEDIUM"
+            welcomeLabel.fontColor = UIColor.yellow
+        case 2:
+            welcomeLabel.text = "HARD"
+            welcomeLabel.fontColor = UIColor.red
         default:
             welcomeLabel.text = "DEFAULT"
+            welcomeLabel.fontColor = UIColor.white
         }
         
         scoreLabel = SKLabelNode(fontNamed: "Fipps-Regular")
@@ -87,7 +92,7 @@ class GameScene: SKScene {
         timerLabel.fontColor = UIColor.green
         timerLabel.fontSize = 30
         timerLabel.position = CGPoint(x: frame.midX, y: self.size.height-130)
-        timerLabel.text = "60s"
+        timerLabel.text = "30"
 
         keyboard = Keyboard(rect: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height/3))
         keyboard.initKeys()
@@ -103,7 +108,7 @@ class GameScene: SKScene {
         }
         
         self.addChild(scoreLabel)
-//        self.addChild(welcomeLabel)
+        self.addChild(welcomeLabel)
         self.addChild(pauseLabel)
         self.addChild(wordLabel)
         self.addChild(wordProgressLabel)
@@ -155,7 +160,7 @@ class GameScene: SKScene {
         }
     }
     func updateTimerLabel() {
-        timerLabel.text = "\(Int(game!.timerInterval))s"
+        timerLabel.text = "\(Int(game!.timerInterval))"
     }
     
     func updateScore() {

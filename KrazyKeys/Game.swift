@@ -35,7 +35,7 @@ class Game {
     
     var timer = Timer()
     var timerInterval: TimeInterval = 0
-    var timeAllowed: TimeInterval = 60
+    var timeAllowed: TimeInterval = 30
     var timeElapsed: TimeInterval = 0
     
     var nameProgress = "ENTER INITIALS:"
@@ -51,7 +51,7 @@ class Game {
     }
     
     func chooseNewWord() {
-        if self.difficulty == 1 {
+        if self.difficulty == 1 || self.difficulty == 0 {
             wordsData = gettingRandomWords()
             if let wordsData = wordsData {
                 if wordsCompleted.count == wordsData.count {
@@ -184,7 +184,7 @@ class Game {
     func gettingRandomWords() -> [String]
     {
         var words = [String]()
-        if self.difficulty == 1 {
+        if self.difficulty == 1 || self.difficulty == 0{
             let path = Bundle.main.path(forResource: "words", ofType: "plist")
             let dict = NSDictionary(contentsOfFile: path!)
             words = dict!.object(forKey: "Words") as! [String]
@@ -229,7 +229,7 @@ class Game {
             
             if Array(word)[wordProgress.count] == Array(letter.uppercased())[0] {
                 wordProgress.append(letter)
-                score += 100
+                score += 25
                 
                 if difficulty == 2 {
                     if let scene = scene as? GameScene {
@@ -255,11 +255,11 @@ class Game {
                 }
             } else {
                 print("wrong letter \(letter)")
-                timeElapsed += 6
+                timeElapsed += 5
                 updateTimerLabel()
-                if(score - 50 >= 0){
-                    score -= 50
-                } else if (score - 50 < 0){
+                if(score - 15 >= 0){
+                    score -= 15
+                } else if (score - 15 < 0){
                     score = 0
                 }
                 let feedbackGenerator = UINotificationFeedbackGenerator()
@@ -291,8 +291,8 @@ class Game {
             if wordProgress.count == word.count {
                 wordProgress = ""
                 chooseNewWord()
-                score += 200
-                timeAllowed += 6
+                score += 50
+                timeAllowed += 5
                 updateTimerLabel()
                 guard let difficulty = difficulty else {
                     print("no difficulty?")

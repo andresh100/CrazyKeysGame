@@ -98,7 +98,7 @@ class SettingScene: SKScene{
             case resetLabel:
                 if node == resetLabel {
                     //Reset all high scores to 0
-//                    updateHighScoreLabels()
+                    resetData()
                 }
                 if(keyboardSound == true){
                 do {
@@ -203,5 +203,22 @@ class SettingScene: SKScene{
             soundOnLabel.isHidden = false
             keyboardSound = true
         }
+    }
+    
+    func resetData() {
+        //Resets high scores
+        print("Reset")
+        
+        userDefaults.set(nil, forKey: "highScore1")
+        userDefaults.set(nil, forKey: "highScore2")
+        userDefaults.set(nil, forKey: "highScore3")
+        userDefaults.set(nil, forKey: "highScore4")
+        userDefaults.set(nil, forKey: "highScore5")
+        
+        userDefaults.set(nil, forKey: "name1")
+        userDefaults.set(nil, forKey: "name2")
+        userDefaults.set(nil, forKey: "name3")
+        userDefaults.set(nil, forKey: "name4")
+        userDefaults.set(nil, forKey: "name5")
     }
 }
