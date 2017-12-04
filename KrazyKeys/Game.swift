@@ -88,24 +88,24 @@ class Game {
 
                 if let scene = scene {
                     //Choose which EndScene to present
-                    if let view = scene.view {
-                        let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
-                        let scene:SKScene = EndScene2(size: scene.frame.size)
-                        view.presentScene(scene, transition: transition)
-                    }
-//                    if score >= highScore5 {
-//                        if let view = scene.view {
-//                            let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
-//                            let scene:SKScene = EndScene2(size: scene.frame.size)
-//                            view.presentScene(scene, transition: transition)
-//                        }
-//                    } else {
-//                        if let view = scene.view {
-//                            let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
-//                            let scene:SKScene = EndScene(size: scene.frame.size)
-//                            view.presentScene(scene, transition: transition)
-//                        }
+//                    if let view = scene.view {
+//                        let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
+//                        let scene:SKScene = EndScene2(size: scene.frame.size)
+//                        view.presentScene(scene, transition: transition)
 //                    }
+                    if score >= highScore5 {
+                        if let view = scene.view {
+                            let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
+                            let scene:SKScene = EndScene2(size: scene.frame.size)
+                            view.presentScene(scene, transition: transition)
+                        }
+                    } else {
+                        if let view = scene.view {
+                            let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
+                            let scene:SKScene = EndScene(size: scene.frame.size)
+                            view.presentScene(scene, transition: transition)
+                        }
+                    }
                 }
             }
         }

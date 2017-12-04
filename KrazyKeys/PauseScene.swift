@@ -7,6 +7,7 @@
 //
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 var previousScene = ""
 var scrollBg: ScrollBackground?
@@ -64,6 +65,17 @@ class PauseScene: SKScene {
 //                        let scene:SKScene = MediumGameScene(size: self.size)
 //                        self.view?.presentScene(scene, transition: transition)
 //                    }
+                    if(keyboardSound == true){
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
+                    }
                 }
             case quitLabel:
                 game!.quit = true
@@ -72,6 +84,19 @@ class PauseScene: SKScene {
 //                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     let scene:SKScene = MenuScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
+                    if(keyboardSound == true){
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
+                    }
+                    inGame = false
+                    MusicHelper.sharedHelper.updateBackgroundMusic()
                 }
             default:
                 return

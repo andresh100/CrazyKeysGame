@@ -3,6 +3,7 @@
 
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 var musicCheck = false
 var soundCheck = false
@@ -21,6 +22,8 @@ class GameScene: SKScene {
     
     //    var keyboard = Keyboard(rect: frame)
     var keyboard : Keyboard!
+    
+    let modelName = UIDevice.current.modelName
     
     override func sceneDidLoad() {
         
@@ -71,14 +74,12 @@ class GameScene: SKScene {
         scoreLabel.fontColor = UIColor.yellow
         scoreLabel.fontSize = 20
         scoreLabel.horizontalAlignmentMode = .right
-        scoreLabel.position = CGPoint(x: self.size.width-15, y: self.size.height-65)
         scoreLabel.text = "SCORE: \(game!.score)"
         
         pauseLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         pauseLabel.fontColor = UIColor.yellow
         pauseLabel.fontSize = 20
         pauseLabel.horizontalAlignmentMode = .left
-        pauseLabel.position = CGPoint(x: 15.0, y: self.size.height-65)
         pauseLabel.text = "II"
         
         
@@ -90,6 +91,16 @@ class GameScene: SKScene {
 
         keyboard = Keyboard(rect: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height/3))
         keyboard.initKeys()
+        
+        if(modelName == "iPhone X"){
+            print("This is a \(modelName)")
+            pauseLabel.position = CGPoint(x: 15.0, y: self.size.height-65)
+            scoreLabel.position = CGPoint(x: self.size.width-15, y: self.size.height-65)
+        }else{
+            print("This is a \(modelName)")
+            pauseLabel.position = CGPoint(x: 15.0, y: self.size.height-40)
+            scoreLabel.position = CGPoint(x: self.size.width-15, y: self.size.height-40)
+        }
         
         self.addChild(scoreLabel)
 //        self.addChild(welcomeLabel)
@@ -126,6 +137,17 @@ class GameScene: SKScene {
                     }
                     
                     self.view?.presentScene(scene, transition: transition)
+                    if(keyboardSound == true){
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
+                    }
                 }
             default:
                 return

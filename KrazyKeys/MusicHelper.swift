@@ -16,9 +16,17 @@ class MusicHelper {
             audioPlayer = try AVAudioPlayer(contentsOf:aSound as URL)
             audioPlayer!.numberOfLoops = -1
             audioPlayer!.prepareToPlay()
+            audioPlayer!.enableRate=true
             audioPlayer!.play()
         } catch {
             print("Cannot play the file")
+        }
+    }
+    func updateBackgroundMusic(){
+        if(inGame == true){
+            audioPlayer!.rate = 1.5
+        }else{
+            audioPlayer!.rate = 1
         }
     }
     func stopBackgroundMusic(){

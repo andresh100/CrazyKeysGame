@@ -8,6 +8,7 @@
 
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 class DifficultyScene: SKScene {
     
@@ -60,15 +61,12 @@ class DifficultyScene: SKScene {
         //AnimationHelper.animateLabel(easyLabel)
         //AnimationHelper.animateLabel(mediumLabel)
         
-        if(modelName == "iPhone 7 Plus"){
-            print("This is a \(modelName)")
-            backLabel.position = CGPoint(x: 15.0, y: self.size.height-40)
-        }else if(modelName == "iPhone X"){
+        if(modelName == "iPhone X"){
             print("This is a \(modelName)")
             backLabel.position = CGPoint(x: 15.0, y: self.size.height-65)
         }else{
             print("This is a \(modelName)")
-            backLabel.position = CGPoint(x: 15.0, y: self.size.height-65)
+            backLabel.position = CGPoint(x: 15.0, y: self.size.height-40)
         }
         
         self.addChild(selectLabel)
@@ -90,6 +88,17 @@ class DifficultyScene: SKScene {
 //                    let transition:SKTransition = SKTransition.reveal(with: SKTransitionDirection.right, duration: 1)
                     let scene:SKScene = MenuScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
+                    if(keyboardSound == true){
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
+                    }
                 }
             case easyLabel:
                 if let view = view {
@@ -102,6 +111,19 @@ class DifficultyScene: SKScene {
                         game.startTimer()
                     }
                     self.view?.presentScene(scene, transition: transition)
+                    if(keyboardSound == true){
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
+                    }
+                    inGame = true
+                    MusicHelper.sharedHelper.updateBackgroundMusic()
                 }
             case mediumLabel:
                 if let view = view {
@@ -114,6 +136,19 @@ class DifficultyScene: SKScene {
                         game.startTimer()
                     }
                     self.view?.presentScene(scene, transition: transition)
+                    if(keyboardSound == true){
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
+                    }
+                    inGame = true
+                    MusicHelper.sharedHelper.updateBackgroundMusic()
                 }
             default:
                 return

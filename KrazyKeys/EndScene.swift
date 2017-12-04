@@ -7,6 +7,7 @@
 //
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 class EndScene: SKScene {
     
@@ -47,6 +48,9 @@ class EndScene: SKScene {
         self.addChild(hsLabel)
         self.addChild(quitLabel)
         
+        inGame = false
+        MusicHelper.sharedHelper.updateBackgroundMusic()
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -61,11 +65,33 @@ class EndScene: SKScene {
                     let scene:SKScene = HighScoreScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
                 }
+                if(keyboardSound == true){
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                    //        audioPlayer!.numberOfLoops = -1
+                    audioPlayer!.prepareToPlay()
+                    audioPlayer!.play()
+                }
+                catch{
+                    print("error key pressed sound")
+                }
+                }
             case quitLabel:
                 if let view = view {
                     let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.right, duration: 1)
                     let scene:SKScene = MenuScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
+                }
+                if(keyboardSound == true){
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                    //        audioPlayer!.numberOfLoops = -1
+                    audioPlayer!.prepareToPlay()
+                    audioPlayer!.play()
+                }
+                catch{
+                    print("error key pressed sound")
+                }
                 }
             default:
                 return

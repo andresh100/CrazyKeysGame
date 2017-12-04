@@ -8,6 +8,7 @@
 
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 class SettingScene: SKScene{
     var doneLabel : SKLabelNode!
@@ -50,14 +51,14 @@ class SettingScene: SKScene{
         resetLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         resetLabel.fontColor = UIColor.red
         resetLabel.fontSize = 20
-        resetLabel.position = CGPoint(x: frame.midX, y: frame.midY - 80)
+        resetLabel.position = CGPoint(x: frame.midX, y: frame.midY - 100)
         resetLabel.text = "RESET DATA"
         
         doneLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         doneLabel.fontColor = UIColor.green
         doneLabel.fontSize = 30
-        doneLabel.position = CGPoint(x: frame.midX, y: frame.midY - 160)
-        doneLabel.text = "DONE"
+        doneLabel.position = CGPoint(x: frame.midX, y: frame.midY - 200)
+        doneLabel.text = "SAVE"
         
         self.addChild(musicOnLabel)
         self.addChild(musicOffLabel)
@@ -83,26 +84,92 @@ class SettingScene: SKScene{
                     self.view?.presentScene(scene, transition: transition)
                     print("\(UIDevice.current.modelName)")
                 }
+                if(keyboardSound == true){
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                    //        audioPlayer!.numberOfLoops = -1
+                    audioPlayer!.prepareToPlay()
+                    audioPlayer!.play()
+                }
+                catch{
+                    print("error key pressed sound")
+                }
+                }
             case resetLabel:
                 if node == resetLabel {
                     //Reset all high scores to 0
 //                    updateHighScoreLabels()
                 }
+                if(keyboardSound == true){
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                    //        audioPlayer!.numberOfLoops = -1
+                    audioPlayer!.prepareToPlay()
+                    audioPlayer!.play()
+                }
+                catch{
+                    print("error key pressed sound")
+                }
+                }
             case musicOnLabel:
                 musicCheck = false
                 toggleMusic()
+                if(keyboardSound == true){
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                    //        audioPlayer!.numberOfLoops = -1
+                    audioPlayer!.prepareToPlay()
+                    audioPlayer!.play()
+                }
+                catch{
+                    print("error key pressed sound")
+                }
+                }
 
             case musicOffLabel:
                 musicCheck = true
                 toggleMusic()
+                if(keyboardSound == true){
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                    //        audioPlayer!.numberOfLoops = -1
+                    audioPlayer!.prepareToPlay()
+                    audioPlayer!.play()
+                }
+                catch{
+                    print("error key pressed sound")
+                }
+                }
                 
             case soundOnLabel:
                 soundCheck = false
                 toggleSound()
+                if(keyboardSound == true){
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                    //        audioPlayer!.numberOfLoops = -1
+                    audioPlayer!.prepareToPlay()
+                    audioPlayer!.play()
+                }
+                catch{
+                    print("error key pressed sound")
+                }
+                }
                 
             case soundOffLabel:
                 soundCheck = true
                 toggleSound()
+                if(keyboardSound == true){
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                    //        audioPlayer!.numberOfLoops = -1
+                    audioPlayer!.prepareToPlay()
+                    audioPlayer!.play()
+                }
+                catch{
+                    print("error key pressed sound")
+                }
+                }
                 
             default:
                 return
