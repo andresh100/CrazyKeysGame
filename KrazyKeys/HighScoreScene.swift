@@ -8,6 +8,7 @@
 import SpriteKit
 import GameplayKit
 import UIKit
+import AVFoundation
 
 class HighScoreScene: SKScene {
     
@@ -54,6 +55,8 @@ class HighScoreScene: SKScene {
     var scrollBg: ScrollBackground?
     
     let userDefaults = Foundation.UserDefaults.standard
+    
+    let modelName = UIDevice.current.modelName
     
     override func didMove(to view: SKView) {
 
@@ -283,7 +286,7 @@ class HighScoreScene: SKScene {
         
         //backLabel.position = CGPoint(x: frame.midX-100, y: frame.midY+250)
         backLabel.horizontalAlignmentMode = .left
-        backLabel.position = CGPoint(x: 15.0, y: self.size.height-65)
+//        backLabel.position = CGPoint(x: 15.0, y: self.size.height-65)
         
         resetLabel.position = CGPoint(x: frame.midX, y: frame.midY-170)
         
@@ -339,6 +342,14 @@ class HighScoreScene: SKScene {
         
         //AnimationHelper.animateLabel(highScoresLabel, 1.1)
         
+        if(modelName == "iPhone X"){
+            print("This is a \(modelName)")
+            backLabel.position = CGPoint(x: 15.0, y: self.size.height-65)
+        }else{
+            print("This is a \(modelName)")
+            backLabel.position = CGPoint(x: 15.0, y: self.size.height-40)
+        }
+        
         self.addChild(backLabel)
         
         self.addChild(resetLabel)
@@ -380,6 +391,17 @@ class HighScoreScene: SKScene {
                     //let scene:SKScene = GameScene(size: self.size)
                     let scene:SKScene = MenuScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
+                }
+                if(keyboardSound == true){
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                    //        audioPlayer!.numberOfLoops = -1
+                    audioPlayer!.prepareToPlay()
+                    audioPlayer!.play()
+                }
+                catch{
+                    print("error key pressed sound")
+                }
                 }
             }
             if node == resetLabel {

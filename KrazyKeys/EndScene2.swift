@@ -7,6 +7,7 @@
 //
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 
 class EndScene2: SKScene {
@@ -77,6 +78,9 @@ class EndScene2: SKScene {
         keyboard = Keyboard(rect: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height/3))
         keyboard.initKeys()
         
+        inGame = false
+        MusicHelper.sharedHelper.updateBackgroundMusic()
+        
         self.addChild(keyboard)
         self.addChild(welcomeLabel)
         self.addChild(scoreLabel)
@@ -104,10 +108,32 @@ class EndScene2: SKScene {
                         self.view?.presentScene(scene, transition: transition)
                     }
                 }
+                if(keyboardSound == true){
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                    //        audioPlayer!.numberOfLoops = -1
+                    audioPlayer!.prepareToPlay()
+                    audioPlayer!.play()
+                }
+                catch{
+                    print("error key pressed sound")
+                }
+                }
             case undoLabel:
                 if game!.nameProgress != "ENTER INITIALS:" {
                     game!.nameProgress = game!.nameProgress.substring(to: game!.nameProgress.index(before: game!.nameProgress.endIndex))
                     updateProgressLabel()
+                }
+                if(keyboardSound == true){
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                    //        audioPlayer!.numberOfLoops = -1
+                    audioPlayer!.prepareToPlay()
+                    audioPlayer!.play()
+                }
+                catch{
+                    print("error key pressed sound")
+                }
                 }
                 /*
                  case hsLabel:

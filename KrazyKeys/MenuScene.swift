@@ -9,6 +9,8 @@ import SpriteKit
 import GameplayKit
 import AVFoundation
 
+var inGame = false
+
 class MenuScene: SKScene {
     var scrollBg: ScrollBackground?
     
@@ -133,6 +135,17 @@ class MenuScene: SKScene {
 //                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     let scene:SKScene = DifficultyScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
+                    if(keyboardSound == true){
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
+                    }
                 }
             case label[1]:
                 if let view = view {
@@ -140,6 +153,17 @@ class MenuScene: SKScene {
 //                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     let scene:SKScene = HighScoreScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
+                    if(keyboardSound == true){
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
+                    }
                 }
             case label[2]:
                 if let view = view{
@@ -147,6 +171,17 @@ class MenuScene: SKScene {
 //                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     let scene:SKScene = SettingScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
+                    if(keyboardSound == true){
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
+                    }
                 }
             default:
                 return
