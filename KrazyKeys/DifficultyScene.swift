@@ -17,6 +17,7 @@ class DifficultyScene: SKScene {
     var difficultyLabel : SKLabelNode!
     var easyLabel : SKLabelNode!
     var mediumLabel : SKLabelNode!
+    var hardLabel : SKLabelNode!
     var scrollBg: ScrollBackground?
     let modelName = UIDevice.current.modelName
     
@@ -34,28 +35,33 @@ class DifficultyScene: SKScene {
         difficultyLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         easyLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         mediumLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        hardLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         
         selectLabel.fontColor = UIColor.white
         difficultyLabel.fontColor = UIColor.white
         easyLabel.fontColor = UIColor.green
         mediumLabel.fontColor = UIColor.yellow
+        hardLabel.fontColor = UIColor.red
         
         selectLabel.fontSize = 20
         difficultyLabel.fontSize = 20
         easyLabel.fontSize = 20
         mediumLabel.fontSize = 20
+        hardLabel.fontSize = 20
         
         selectLabel.position = CGPoint(x: frame.midX, y: frame.midY+90)
         difficultyLabel.position = CGPoint(x: frame.midX, y: frame.midY+60)
         easyLabel.position = CGPoint(x: frame.midX, y: frame.midY)
         mediumLabel.position = CGPoint(x: frame.midX, y: frame.midY-60)
+        hardLabel.position = CGPoint(x: frame.midX, y: frame.midY-120)
         
         selectLabel.text = "SELECT"
         difficultyLabel.text = "DIFFICULTY"
         easyLabel.text = "EASY"
         mediumLabel.text = "MEDIUM"
+        hardLabel.text = "HARD"
         
-        let difficulties : [SKNode] = [easyLabel, mediumLabel]
+        let difficulties : [SKNode] = [easyLabel, mediumLabel, hardLabel]
         AnimationHelper.animateMultipleLabels(difficulties)
         
         //AnimationHelper.animateLabel(easyLabel)
@@ -73,6 +79,7 @@ class DifficultyScene: SKScene {
         self.addChild(difficultyLabel)
         self.addChild(easyLabel)
         self.addChild(mediumLabel)
+        self.addChild(hardLabel)
         
     }
     
@@ -106,7 +113,7 @@ class DifficultyScene: SKScene {
 //                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     let scene:SKScene = GameScene(size: self.size)
                     // start game in easy mode
-                    game = Game(scene: scene, difficulty: 1, secondsAllowed: 60, word: "testword")
+                    game = Game(scene: scene, difficulty: 0, secondsAllowed: 30, word: "testword")
                     if let game = game {
                         game.startTimer()
                     }
@@ -128,26 +135,51 @@ class DifficultyScene: SKScene {
             case mediumLabel:
                 if let view = view {
                     let transition:SKTransition = SKTransition.doorsOpenVertical(withDuration: 1)
-//                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                    //                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
                     let scene:SKScene = GameScene(size: self.size)
                     // start game in easy mode
-                    game = Game(scene: scene, difficulty: 2, secondsAllowed: 60, word: "testword")
+                    game = Game(scene: scene, difficulty: 1, secondsAllowed: 30, word: "testword")
                     if let game = game {
                         game.startTimer()
                     }
                     self.view?.presentScene(scene, transition: transition)
                     if(keyboardSound == true){
-                    do {
-                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
-                        //        audioPlayer!.numberOfLoops = -1
-                        audioPlayer!.prepareToPlay()
-                        audioPlayer!.play()
-                        inGame = true
-                        MusicHelper.sharedHelper.updateBackgroundMusic()
+                        do {
+                            audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                            //        audioPlayer!.numberOfLoops = -1
+                            audioPlayer!.prepareToPlay()
+                            audioPlayer!.play()
+                            inGame = true
+                            MusicHelper.sharedHelper.updateBackgroundMusic()
+                        }
+                        catch{
+                            print("error key pressed sound")
+                        }
                     }
-                    catch{
-                        print("error key pressed sound")
+                }
+            case hardLabel:
+                if let view = view {
+                    let transition:SKTransition = SKTransition.doorsOpenVertical(withDuration: 1)
+                    //                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                    let scene:SKScene = GameScene(size: self.size)
+                    // start game in easy mode
+                    game = Game(scene: scene, difficulty: 2, secondsAllowed: 30, word: "testword")
+                    if let game = game {
+                        game.startTimer()
                     }
+                    self.view?.presentScene(scene, transition: transition)
+                    if(keyboardSound == true){
+                        do {
+                            audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                            //        audioPlayer!.numberOfLoops = -1
+                            audioPlayer!.prepareToPlay()
+                            audioPlayer!.play()
+                            inGame = true
+                            MusicHelper.sharedHelper.updateBackgroundMusic()
+                        }
+                        catch{
+                            print("error key pressed sound")
+                        }
                     }
                 }
             default:

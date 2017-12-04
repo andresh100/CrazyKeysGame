@@ -10,6 +10,8 @@ import GameplayKit
 import UIKit
 import AVFoundation
 
+let userDefaults = Foundation.UserDefaults.standard
+
 class HighScoreScene: SKScene {
     
     var data = [[Any]]()
@@ -50,7 +52,6 @@ class HighScoreScene: SKScene {
     var name5Label : SKLabelNode!
     
     var backLabel : SKLabelNode!
-    var resetLabel : SKLabelNode!
     
     var scrollBg: ScrollBackground?
     
@@ -203,8 +204,6 @@ class HighScoreScene: SKScene {
         
         backLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         
-        resetLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        
         highScoresLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         
         scoreLabel = SKLabelNode(fontNamed: "Fipps-Regular")
@@ -229,8 +228,6 @@ class HighScoreScene: SKScene {
         name5Label = SKLabelNode(fontNamed: "Fipps-Regular")
         
         backLabel.fontColor = UIColor.white
-        
-        resetLabel.fontColor = UIColor.white
         
         highScoresLabel.fontColor = UIColor.white
         rankLabel.fontColor = UIColor.magenta
@@ -259,8 +256,6 @@ class HighScoreScene: SKScene {
         
         backLabel.fontSize = 20
         
-        resetLabel.fontSize = 20
-        
         highScoresLabel.fontSize = 20
         
         scoreLabel.fontSize = 14
@@ -284,11 +279,7 @@ class HighScoreScene: SKScene {
         name4Label.fontSize = 14
         name5Label.fontSize = 14
         
-        //backLabel.position = CGPoint(x: frame.midX-100, y: frame.midY+250)
         backLabel.horizontalAlignmentMode = .left
-//        backLabel.position = CGPoint(x: 15.0, y: self.size.height-65)
-        
-        resetLabel.position = CGPoint(x: frame.midX, y: frame.midY-170)
         
         highScoresLabel.position = CGPoint(x: frame.midX, y: frame.midY+100)
         
@@ -314,8 +305,6 @@ class HighScoreScene: SKScene {
         name5Label.position = CGPoint(x: frame.midX+100, y: frame.midY-100)
         
         backLabel.text = "BACK"
-        
-        resetLabel.text = "RESET"
         
         highScoresLabel.text = "HIGH SCORES"
         
@@ -352,8 +341,6 @@ class HighScoreScene: SKScene {
         
         self.addChild(backLabel)
         
-        self.addChild(resetLabel)
-        
         self.addChild(highScoresLabel)
         
         self.addChild(scoreLabel)
@@ -387,8 +374,6 @@ class HighScoreScene: SKScene {
             if node == backLabel {
                 if let view = view {
                     let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.down, duration: 1)
-                    //                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
-                    //let scene:SKScene = GameScene(size: self.size)
                     let scene:SKScene = MenuScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
                 }
@@ -404,73 +389,51 @@ class HighScoreScene: SKScene {
                 }
                 }
             }
-            if node == resetLabel {
-                
-                //Reset all high scores to 0
-                updateHighScoreLabels()
-                
-            }
         }
     }
     
-    func updateHighScoreLabels() {
-        
-        print("Reset")
-        
-        //let userDefaults = Foundation.UserDefaults.standard
-        //var data = [[Any]]()
-        
-        userDefaults.set(nil, forKey: "highScore1")
-        userDefaults.set(nil, forKey: "highScore2")
-        userDefaults.set(nil, forKey: "highScore3")
-        userDefaults.set(nil, forKey: "highScore4")
-        userDefaults.set(nil, forKey: "highScore5")
-        
-        userDefaults.set(nil, forKey: "name1")
-        userDefaults.set(nil, forKey: "name2")
-        userDefaults.set(nil, forKey: "name3")
-        userDefaults.set(nil, forKey: "name4")
-        userDefaults.set(nil, forKey: "name5")
-        
-        var highScore1: Int? = userDefaults.integer(forKey: "highScore1")
-        var highScore2: Int? = userDefaults.integer(forKey: "highScore2")
-        var highScore3: Int? = userDefaults.integer(forKey: "highScore3")
-        var highScore4: Int? = userDefaults.integer(forKey: "highScore4")
-        var highScore5: Int? = userDefaults.integer(forKey: "highScore5")
-        
-        var name1: String? = userDefaults.string(forKey: "name1")
-        var name2: String? = userDefaults.string(forKey: "name2")
-        var name3: String? = userDefaults.string(forKey: "name3")
-        var name4: String? = userDefaults.string(forKey: "name4")
-        var name5: String? = userDefaults.string(forKey: "name5")
-        
-        var first = [highScore1!, name1] as [Any]
-        var second = [highScore2!, name2] as [Any]
-        var third = [highScore3!, name3] as [Any]
-        var fourth = [highScore4!, name4] as [Any]
-        var fifth = [highScore5!, name5] as [Any]
-        
-        data[0] = first
-        data[1] = second
-        data[2] = third
-        data[3] = fourth
-        data[4] = fifth
-        
-        data = data.sorted { ($0[0] as! Int) < ($1[0] as! Int) }
-        
-        highScore1Label.text = String(describing: data[4][0])
-        highScore2Label.text = String(describing: data[3][0])
-        highScore3Label.text = String(describing: data[2][0])
-        highScore4Label.text = String(describing: data[1][0])
-        highScore5Label.text = String(describing: data[0][0])
-        
-        //Need to update names
-        name1Label.text = String(describing: data[4][1])
-        name2Label.text = String(describing: data[3][1])
-        name3Label.text = String(describing: data[2][1])
-        name4Label.text = String(describing: data[1][1])
-        name5Label.text = String(describing: data[0][1])
-    }
+    
+//    func updateHighScoreLabels() {
+//
+//        var highScore1: Int? = userDefaults.integer(forKey: "highScore1")
+//        var highScore2: Int? = userDefaults.integer(forKey: "highScore2")
+//        var highScore3: Int? = userDefaults.integer(forKey: "highScore3")
+//        var highScore4: Int? = userDefaults.integer(forKey: "highScore4")
+//        var highScore5: Int? = userDefaults.integer(forKey: "highScore5")
+//
+//        var name1: String? = userDefaults.string(forKey: "name1")
+//        var name2: String? = userDefaults.string(forKey: "name2")
+//        var name3: String? = userDefaults.string(forKey: "name3")
+//        var name4: String? = userDefaults.string(forKey: "name4")
+//        var name5: String? = userDefaults.string(forKey: "name5")
+//
+//        var first = [highScore1!, name1] as [Any]
+//        var second = [highScore2!, name2] as [Any]
+//        var third = [highScore3!, name3] as [Any]
+//        var fourth = [highScore4!, name4] as [Any]
+//        var fifth = [highScore5!, name5] as [Any]
+//
+//        data[0] = first
+//        data[1] = second
+//        data[2] = third
+//        data[3] = fourth
+//        data[4] = fifth
+//
+//        data = data.sorted { ($0[0] as! Int) < ($1[0] as! Int) }
+//
+//        highScore1Label.text = String(describing: data[4][0])
+//        highScore2Label.text = String(describing: data[3][0])
+//        highScore3Label.text = String(describing: data[2][0])
+//        highScore4Label.text = String(describing: data[1][0])
+//        highScore5Label.text = String(describing: data[0][0])
+//
+//        //Need to update names
+//        name1Label.text = String(describing: data[4][1])
+//        name2Label.text = String(describing: data[3][1])
+//        name3Label.text = String(describing: data[2][1])
+//        name4Label.text = String(describing: data[1][1])
+//        name5Label.text = String(describing: data[0][1])
+//    }
     
 }
 
