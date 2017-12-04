@@ -17,6 +17,7 @@ class SettingScene: SKScene{
     var soundOnLabel : SKLabelNode!
     var soundOffLabel : SKLabelNode!
     var resetLabel : SKLabelNode!
+    var successLabel : SKLabelNode!
     var musicPlaying = true
     
     var scrollBg: ScrollBackground?
@@ -54,6 +55,13 @@ class SettingScene: SKScene{
         resetLabel.position = CGPoint(x: frame.midX, y: frame.midY - 100)
         resetLabel.text = "RESET DATA"
         
+        successLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        successLabel.fontColor = UIColor.cyan
+        successLabel.fontSize = 20
+        successLabel.position = CGPoint(x: frame.midX, y: frame.midY - 100)
+        successLabel.text = "SUCCESS!"
+        successLabel.isHidden = true
+        
         doneLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         doneLabel.fontColor = UIColor.green
         doneLabel.fontSize = 30
@@ -65,6 +73,7 @@ class SettingScene: SKScene{
         self.addChild(soundOnLabel)
         self.addChild(soundOffLabel)
         self.addChild(resetLabel)
+        self.addChild(successLabel)
         self.addChild(doneLabel)
         toggleMusic()
         toggleSound()
@@ -99,6 +108,9 @@ class SettingScene: SKScene{
                 if node == resetLabel {
                     //Reset all high scores to 0
                     resetData()
+                    resetLabel.isHidden = true
+                    successLabel.isHidden = false
+                    
                 }
                 if(keyboardSound == true){
                 do {
