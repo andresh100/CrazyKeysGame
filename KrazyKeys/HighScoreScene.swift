@@ -19,11 +19,11 @@ class HighScoreScene: SKScene {
     //var highScore4 = 400
     //var highScore5 = 200
     
-    var name1 = "DRE"
-    var name2 = "DRE"
-    var name3 = "DRE"
-    var name4 = "DRE"
-    var name5 = "DRE"
+//    var name1 = "DRE"
+//    var name2 = "DRE"
+//    var name3 = "DRE"
+//    var name4 = "DRE"
+//    var name5 = "DRE"
     
     var highScoresLabel : SKLabelNode!
     
@@ -57,8 +57,9 @@ class HighScoreScene: SKScene {
     
     override func didMove(to view: SKView) {
 
-        //Saving score
+        //Saving score/name
         let score: Int?
+        let newName: String?
         
         var highScore1: Int? = userDefaults.integer(forKey: "highScore1")
         var highScore2: Int? = userDefaults.integer(forKey: "highScore2")
@@ -66,50 +67,93 @@ class HighScoreScene: SKScene {
         var highScore4: Int? = userDefaults.integer(forKey: "highScore4")
         var highScore5: Int? = userDefaults.integer(forKey: "highScore5")
         
+        var name1: String! = userDefaults.string(forKey: "name1")
+        var name2: String! = userDefaults.string(forKey: "name2")
+        var name3: String! = userDefaults.string(forKey: "name3")
+        var name4: String! = userDefaults.string(forKey: "name4")
+        var name5: String! = userDefaults.string(forKey: "name5")
+        
+        if game?.score == nil {
+            score = 0
+        } else {
+            score = game?.score
+        }
+        
+        if game?.nameProgress == nil {
+            newName = "ABC"
+        } else {
+            newName = game?.nameProgress.uppercased()
+        }
+        
+        if highScore1 == nil{
+            highScore1 = 0
+        }
+        if highScore2 == nil{
+            highScore2 = 0
+        }
+        if highScore3 == nil{
+            highScore3 = 0
+        }
+        if highScore4 == nil{
+            highScore4 = 0
+        }
+        if highScore5 == nil{
+            highScore5 = 0
+        }
+        
+        if name1 == nil{
+            name1 = "ABC"
+        }
+        if name2 == nil{
+            name2 = "ABC"
+        }
+        if name3 == nil{
+            name3 = "ABC"
+        }
+        if name4 == nil{
+            name4 = "ABC"
+        }
+        if name5 == nil{
+            name5 = "ABC"
+        }
+        
         if game?.quit == false && game?.needsUpdate == true {
-            
-            if game?.score == nil {
-                score = 0
-            } else {
-                score = game?.score
-            }
-            
-            if highScore1 == nil{
-                highScore1 = 0
-            }
-            if highScore2 == nil{
-                highScore2 = 0
-            }
-            if highScore3 == nil{
-                highScore3 = 0
-            }
-            if highScore4 == nil{
-                highScore4 = 0
-            }
-            if highScore5 == nil{
-                highScore5 = 0
-            }
             
             if score! > highScore1! {
                 highScore5 = highScore4
+                name5 = name4
                 highScore4 = highScore3
+                name4 = name3
                 highScore3 = highScore2
+                name3 = name2
                 highScore2 = highScore1
+                name2 = name1
                 highScore1 = score
+                name1 = newName
             } else if score! > highScore2! {
                 highScore5 = highScore4
+                name5 = name4
                 highScore4 = highScore3
+                name4 = name3
                 highScore3 = highScore2
+                name3 = name2
                 highScore2 = score
+                name2 = newName
             } else if score! > highScore3! {
                 highScore5 = highScore4
+                name5 = name4
                 highScore4 = highScore3
+                name4 = name3
                 highScore3 = score
+                name3 = newName
             } else if score! > highScore4! {
                 highScore5 = highScore4
+                name5 = name4
                 highScore4 = score
+                name4 = newName
             } else if score! > highScore5! {
                 highScore5 = score
+                name5 = newName
             }
             
             userDefaults.set(highScore1, forKey: "highScore1")
@@ -117,6 +161,12 @@ class HighScoreScene: SKScene {
             userDefaults.set(highScore3, forKey: "highScore3")
             userDefaults.set(highScore4, forKey: "highScore4")
             userDefaults.set(highScore5, forKey: "highScore5")
+            
+            userDefaults.set(name1, forKey: "name1")
+            userDefaults.set(name2, forKey: "name2")
+            userDefaults.set(name3, forKey: "name3")
+            userDefaults.set(name4, forKey: "name4")
+            userDefaults.set(name5, forKey: "name5")
             
             game?.needsUpdate = false
             
@@ -354,11 +404,23 @@ class HighScoreScene: SKScene {
         userDefaults.set(nil, forKey: "highScore4")
         userDefaults.set(nil, forKey: "highScore5")
         
+        userDefaults.set(nil, forKey: "name1")
+        userDefaults.set(nil, forKey: "name2")
+        userDefaults.set(nil, forKey: "name3")
+        userDefaults.set(nil, forKey: "name4")
+        userDefaults.set(nil, forKey: "name5")
+        
         var highScore1: Int? = userDefaults.integer(forKey: "highScore1")
         var highScore2: Int? = userDefaults.integer(forKey: "highScore2")
         var highScore3: Int? = userDefaults.integer(forKey: "highScore3")
         var highScore4: Int? = userDefaults.integer(forKey: "highScore4")
         var highScore5: Int? = userDefaults.integer(forKey: "highScore5")
+        
+        var name1: String? = userDefaults.string(forKey: "name1")
+        var name2: String? = userDefaults.string(forKey: "name2")
+        var name3: String? = userDefaults.string(forKey: "name3")
+        var name4: String? = userDefaults.string(forKey: "name4")
+        var name5: String? = userDefaults.string(forKey: "name5")
         
         var first = [highScore1!, name1] as [Any]
         var second = [highScore2!, name2] as [Any]

@@ -61,7 +61,7 @@ class EndScene2: SKScene {
         //quitLabel.text = "QUIT"
         
         doneLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        doneLabel.fontColor = UIColor.green
+        doneLabel.fontColor = UIColor(red: 11/255, green: 142/255, blue: 0/255, alpha: 1.0)
         doneLabel.fontSize = 20
         //doneLabel.horizontalAlignmentMode = .right
         doneLabel.position = CGPoint(x: self.size.width-50, y: frame.midY-90)
@@ -97,10 +97,12 @@ class EndScene2: SKScene {
             switch node {
                 
             case doneLabel:
-                if let view = view {
-                    let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.right, duration: 1)
-                    let scene:SKScene = HighScoreScene(size: self.size)
-                    self.view?.presentScene(scene, transition: transition)
+                if game!.nameProgress.count == 3 && game!.nameProgress != "ENTER INITIALS:" {
+                    if let view = view {
+                        let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.right, duration: 1)
+                        let scene:SKScene = HighScoreScene(size: self.size)
+                        self.view?.presentScene(scene, transition: transition)
+                    }
                 }
             case undoLabel:
                 if game!.nameProgress != "ENTER INITIALS:" {
@@ -132,6 +134,11 @@ class EndScene2: SKScene {
             game!.nameProgress = "ENTER INITIALS:"
         }
         nameProgressLabel.text = game!.nameProgress.uppercased()
+        if game!.nameProgress.count < 3 || game!.nameProgress == "ENTER INITIALS:" {
+            doneLabel.fontColor = UIColor(red: 11/255, green: 142/255, blue: 0/255, alpha: 1.0)
+        } else {
+            doneLabel.fontColor = UIColor.green
+        }
     }
     
 }
