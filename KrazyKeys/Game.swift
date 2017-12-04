@@ -272,6 +272,12 @@ class Game {
         
         print("wordProgress: \(wordProgress)")
         
+//        if(timeAllowed-timeElapsed <= 10 && keyboardSound == true){
+//            inGame = true
+//            MusicHelper.sharedHelper.updateBackgroundMusic()
+//            print("Music Faster")
+//        }
+        
         updateScore()
         updateProgressLabel()
         updateLabel()
