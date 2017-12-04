@@ -99,7 +99,7 @@ class MenuScene: SKScene {
         label[0].fontSize = 30
         label[0].text = "PLAY"
         label[1].text = "HIGH SCORES"
-        label[2].text = "SETTING"
+        label[2].text = "SETTINGS"
         
         let allLabels : [SKLabelNode] = [labelTitle[0], labelTitle[1], labelTitle[2], labelTitle[3], labelTitle[4], labelTitle[5], labelTitle[6], labelTitle[7], labelTitle[8], label[0], label[1], label[2]]
         for label in allLabels {
