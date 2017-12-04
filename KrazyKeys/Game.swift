@@ -22,6 +22,8 @@ class Game {
     var wordProgress = ""
     var wordTest: String?
     var wordsData: [String]?
+    var wordsData2: [String]?
+    var wordsCompleted = [Int]()
     var isPaused: Bool = true
     var quit: Bool = false
     var needsUpdate: Bool = false
@@ -49,12 +51,45 @@ class Game {
     }
     
     func chooseNewWord() {
-        wordsData = gettingRandomWords()
-        if let wordsData = wordsData {
-            wordTest = wordsData[Int(arc4random_uniform(UInt32(wordsData.count)))]
-            self.word = wordTest
-        } else {
-            print("failed to unwrap wordsData \(#line)")
+        if self.difficulty == 1 {
+            wordsData = gettingRandomWords()
+            if let wordsData = wordsData {
+                if wordsCompleted.count == wordsData.count {
+                    wordsCompleted.removeAll()
+                    print("Clearing words completed")
+                }
+                var num = Int(arc4random_uniform(UInt32(wordsData.count)))
+                while (wordsCompleted.contains(num)) {
+                    num = Int(arc4random_uniform(UInt32(wordsData.count)))
+                }
+                wordsCompleted.append(num)
+                print("Word number: \(num)")
+                print(("Completed word numbers: \(String(describing: wordsCompleted))"))
+                wordTest = wordsData[num]
+                self.word = wordTest
+            } else {
+                print("failed to unwrap wordsData \(#line)")
+            }
+        }
+        else if self.difficulty == 2 {
+            wordsData2 = gettingRandomWords()
+            if let wordsData2 = wordsData2 {
+                if wordsCompleted.count == wordsData2.count {
+                    wordsCompleted.removeAll()
+                    print("Clearing words completed")
+                }
+                var num = Int(arc4random_uniform(UInt32(wordsData2.count)))
+                while (wordsCompleted.contains(num)) {
+                    num = Int(arc4random_uniform(UInt32(wordsData2.count)))
+                }
+                wordsCompleted.append(num)
+                print("Word number: \(num)")
+                print(("Completed word numbers: \(String(describing: wordsCompleted))"))
+                wordTest = wordsData2[num]
+                self.word = wordTest
+            } else {
+                print("failed to unwrap wordsData2 \(#line)")
+            }
         }
     }
     
@@ -85,14 +120,14 @@ class Game {
                 let score = game!.score
                 let userDefaults = Foundation.UserDefaults.standard
                 let highScore5 = userDefaults.integer(forKey: "highScore5")
-
+                
                 if let scene = scene {
                     //Choose which EndScene to present
-//                    if let view = scene.view {
-//                        let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
-//                        let scene:SKScene = EndScene2(size: scene.frame.size)
-//                        view.presentScene(scene, transition: transition)
-//                    }
+                    //                    if let view = scene.view {
+                    //                        let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
+                    //                        let scene:SKScene = EndScene2(size: scene.frame.size)
+                    //                        view.presentScene(scene, transition: transition)
+                    //                    }
                     if score >= highScore5 {
                         if let view = scene.view {
                             let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
@@ -149,9 +184,15 @@ class Game {
     func gettingRandomWords() -> [String]
     {
         var words = [String]()
-        let path = Bundle.main.path(forResource: "words", ofType: "plist")
-        let dict = NSDictionary(contentsOfFile: path!)
-        words = dict!.object(forKey: "Words") as! [String]
+        if self.difficulty == 1 {
+            let path = Bundle.main.path(forResource: "words", ofType: "plist")
+            let dict = NSDictionary(contentsOfFile: path!)
+            words = dict!.object(forKey: "Words") as! [String]
+        } else if self.difficulty == 2 {
+            let path = Bundle.main.path(forResource: "words2", ofType: "plist")
+            let dict = NSDictionary(contentsOfFile: path!)
+            words = dict!.object(forKey: "Words2") as! [String]
+        }
         return words
     }
     
@@ -272,11 +313,11 @@ class Game {
         
         print("wordProgress: \(wordProgress)")
         
-//        if(timeAllowed-timeElapsed <= 10 && keyboardSound == true){
-//            inGame = true
-//            MusicHelper.sharedHelper.updateBackgroundMusic()
-//            print("Music Faster")
-//        }
+        //        if(timeAllowed-timeElapsed <= 10 && keyboardSound == true){
+        //            inGame = true
+        //            MusicHelper.sharedHelper.updateBackgroundMusic()
+        //            print("Music Faster")
+        //        }
         
         updateScore()
         updateProgressLabel()
