@@ -113,6 +113,17 @@ class HighScoreScene: SKScene {
                 handleNilData()
                 fillData()
                 displayData()
+                if(keyboardSound == true){
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
+                }
             case mediumLabel:
                 difficulty = 1
                 updateColors()
@@ -120,6 +131,17 @@ class HighScoreScene: SKScene {
                 handleNilData()
                 fillData()
                 displayData()
+                if(keyboardSound == true){
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
+                }
             case hardLabel:
                 difficulty = 2
                 updateColors()
@@ -127,6 +149,17 @@ class HighScoreScene: SKScene {
                 handleNilData()
                 fillData()
                 displayData()
+                if(keyboardSound == true){
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
+                }
             case backLabel:
                 if let view = view {
                     let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.down, duration: 1)
