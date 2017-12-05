@@ -118,8 +118,14 @@ class Game {
                 
                 //Saving score
                 let score = game!.score
-                let userDefaults = Foundation.UserDefaults.standard
-                let highScore5 = userDefaults.integer(forKey: "highScore5")
+                let highscore5 : Int?
+                if game!.difficulty == 0 {
+                    highScore5 = userDefaults.integer(forKey: "highScore5")
+                } else if game!.difficulty == 1 {
+                    highScore5 = userDefaults.integer(forKey: "m_highScore5")
+                } else if game!.difficulty == 2 {
+                    highScore5 = userDefaults.integer(forKey: "h_highScore5")
+                }
                 
                 if let scene = scene {
                     //Choose which EndScene to present
@@ -128,7 +134,7 @@ class Game {
                     //                        let scene:SKScene = EndScene2(size: scene.frame.size)
                     //                        view.presentScene(scene, transition: transition)
                     //                    }
-                    if score >= highScore5 {
+                    if score >= highScore5! {
                         if let view = scene.view {
                             let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
                             let scene:SKScene = EndScene2(size: scene.frame.size)

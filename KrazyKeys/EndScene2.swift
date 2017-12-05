@@ -79,10 +79,10 @@ class EndScene2: SKScene {
         keyboard = Keyboard(rect: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height/3))
         keyboard.initKeys()
         
-//        if(keyboardSound == true){
-            inGame = false
-            MusicHelper.sharedHelper.updateBackgroundMusic()
-//        }
+        //        if(keyboardSound == true){
+        inGame = false
+        MusicHelper.sharedHelper.updateBackgroundMusic()
+        //        }
         
         self.addChild(keyboard)
         self.addChild(welcomeLabel)
@@ -105,6 +105,13 @@ class EndScene2: SKScene {
                 
             case doneLabel:
                 if game!.nameProgress.count == 3 && game!.nameProgress != "ENTER INITIALS:" {
+                    if game!.difficulty == 0 {
+                        difficulty = 0
+                    } else if game!.difficulty == 1 {
+                        difficulty = 1
+                    } else if game!.difficulty == 2 {
+                        difficulty = 2
+                    }
                     if let view = view {
                         let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.right, duration: 1)
                         let scene:SKScene = HighScoreScene(size: self.size)
@@ -112,15 +119,15 @@ class EndScene2: SKScene {
                     }
                 }
                 if(keyboardSound == true){
-                do {
-                    audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
-                    //        audioPlayer!.numberOfLoops = -1
-                    audioPlayer!.prepareToPlay()
-                    audioPlayer!.play()
-                }
-                catch{
-                    print("error key pressed sound")
-                }
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
                 }
             case undoLabel:
                 if game!.nameProgress != "ENTER INITIALS:" {
@@ -128,15 +135,15 @@ class EndScene2: SKScene {
                     updateProgressLabel()
                 }
                 if(keyboardSound == true){
-                do {
-                    audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
-                    //        audioPlayer!.numberOfLoops = -1
-                    audioPlayer!.prepareToPlay()
-                    audioPlayer!.play()
-                }
-                catch{
-                    print("error key pressed sound")
-                }
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
                 }
                 /*
                  case hsLabel:
