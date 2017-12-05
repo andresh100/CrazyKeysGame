@@ -113,6 +113,17 @@ class HighScoreScene: SKScene {
                 handleNilData()
                 fillData()
                 displayData()
+                if(keyboardSound == true){
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
+                }
             case mediumLabel:
                 difficulty = 1
                 updateColors()
@@ -120,6 +131,17 @@ class HighScoreScene: SKScene {
                 handleNilData()
                 fillData()
                 displayData()
+                if(keyboardSound == true){
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
+                }
             case hardLabel:
                 difficulty = 2
                 updateColors()
@@ -127,6 +149,17 @@ class HighScoreScene: SKScene {
                 handleNilData()
                 fillData()
                 displayData()
+                if(keyboardSound == true){
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
+                }
             case backLabel:
                 if let view = view {
                     let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.down, duration: 1)
@@ -242,7 +275,7 @@ class HighScoreScene: SKScene {
         easyLabel.horizontalAlignmentMode = .left
         
         easyLabel.position = CGPoint(x: 15, y: frame.midY+200)
-        mediumLabel.position = CGPoint(x: frame.midX+5, y: frame.midY+200)
+        mediumLabel.position = CGPoint(x: frame.midX, y: frame.midY+200)
         hardLabel.position = CGPoint(x: self.size.width-52, y: frame.midY+200)
         
         backLabel.horizontalAlignmentMode = .left
