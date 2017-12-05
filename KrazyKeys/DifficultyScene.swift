@@ -124,8 +124,8 @@ class DifficultyScene: SKScene {
                         //        audioPlayer!.numberOfLoops = -1
                         audioPlayer!.prepareToPlay()
                         audioPlayer!.play()
-                        inGame = true
-                        MusicHelper.sharedHelper.updateBackgroundMusic()
+//                        inGame = true
+//                        MusicHelper.sharedHelper.updateBackgroundMusic()
                     }
                     catch{
                         print("error key pressed sound")
@@ -149,8 +149,8 @@ class DifficultyScene: SKScene {
                             //        audioPlayer!.numberOfLoops = -1
                             audioPlayer!.prepareToPlay()
                             audioPlayer!.play()
-                            inGame = true
-                            MusicHelper.sharedHelper.updateBackgroundMusic()
+//                            inGame = true
+//                            MusicHelper.sharedHelper.updateBackgroundMusic()
                         }
                         catch{
                             print("error key pressed sound")
@@ -174,8 +174,8 @@ class DifficultyScene: SKScene {
                             //        audioPlayer!.numberOfLoops = -1
                             audioPlayer!.prepareToPlay()
                             audioPlayer!.play()
-                            inGame = true
-                            MusicHelper.sharedHelper.updateBackgroundMusic()
+//                            inGame = true
+//                            MusicHelper.sharedHelper.updateBackgroundMusic()
                         }
                         catch{
                             print("error key pressed sound")

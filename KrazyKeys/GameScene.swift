@@ -5,8 +5,8 @@ import SpriteKit
 import GameplayKit
 import AVFoundation
 
-var musicCheck = false
-var soundCheck = false
+var musicCheck = true
+var soundCheck = true
 
 class GameScene: SKScene {
     
@@ -57,15 +57,14 @@ class GameScene: SKScene {
         
         
         welcomeLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        welcomeLabel.fontSize = 14
-        welcomeLabel.position = CGPoint(x: frame.midX, y: frame.midY)
+        welcomeLabel.fontSize = 20
         switch (game!.difficulty!)
         {
         case 0:
             welcomeLabel.text = "EASY"
             welcomeLabel.fontColor = UIColor.green
         case 1:
-            welcomeLabel.text = "MEDIUM"
+            welcomeLabel.text = "MED"
             welcomeLabel.fontColor = UIColor.yellow
         case 2:
             welcomeLabel.text = "HARD"
@@ -101,10 +100,22 @@ class GameScene: SKScene {
             print("This is a \(modelName)")
             pauseLabel.position = CGPoint(x: 15.0, y: self.size.height-65)
             scoreLabel.position = CGPoint(x: self.size.width-15, y: self.size.height-65)
+            welcomeLabel.position = CGPoint(x: 100, y: self.size.height-65)
+        }else if(modelName == "iPhone 5s" || modelName == "iPhone SE"){
+            print("This is a \(modelName)")
+            pauseLabel.position = CGPoint(x: 15.0, y: self.size.height-40)
+            scoreLabel.position = CGPoint(x: self.size.width-15, y: self.size.height-40)
+            welcomeLabel.position = CGPoint(x: 100, y: self.size.height-40)
+            pauseLabel.fontSize = 15
+            scoreLabel.fontSize = 15
+            welcomeLabel.fontSize = 15
+            wordLabel.fontSize = 30
+            wordProgressLabel.fontSize = 25
         }else{
             print("This is a \(modelName)")
             pauseLabel.position = CGPoint(x: 15.0, y: self.size.height-40)
             scoreLabel.position = CGPoint(x: self.size.width-15, y: self.size.height-40)
+            welcomeLabel.position = CGPoint(x: 100, y: self.size.height-40)
         }
         
         self.addChild(scoreLabel)

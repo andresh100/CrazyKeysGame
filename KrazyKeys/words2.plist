@@ -1,15 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-        <key>Words2</key>
-        <array>
-            <string>ONE</string>
-            <string>TWO</string>
-            <string>THREE</string>
-            <string>FOUR</string>
-            <string>FIVE</string>
-        </array>
-    </dict>
+<dict>
+	<key>Words2</key>
+	<array>
+		<string>NEWSPAPER</string>
+		<string>POPSICKLE</string>
+		<string>QUICKSAND</string>
+		<string>PRESIDENT</string>
+		<string>CABEZONE</string>
+		<string>FIZZLING</string>
+		<string>SWORDFISH</string>
+		<string>DISORIENT</string>
+		<string>TELEVISION</string>
+		<string>RAILROADS</string>
+		<string>SOLITARE</string>
+		<string>OYSTERERS</string>
+		<string>JAZZINESS</string>
+		<string>JUKEBOX</string>
+		<string>STROLLERS</string>
+		<string>PIZZAZZES</string>
+		<string>LOOSENESS</string>
+		<string>BUZZINGLY</string>
+		<string>SURRENDER</string>
+		<string>SCUZZBALL</string>
+		<string>GIVEUP</string>
+		<string>HUMANIZE</string>
+		<string>TIREDNESS</string>
+		<string>ITENERATE</string>
+		<string>ITSOVER</string>
+		<string>TOLERATE</string>
+		<string>REGISTRAR</string>
+		<string>SUNSTONES</string>
+		<string>DISORIENT</string>
+		<string>NOTWORTH</string>
+		<string>UNPUZZLED</string>
+		<string>TEENAGERS</string>
+		<string>QUALMISH</string>
+		<string>OUTLASTED</string>
+		<string>ZIGZAGGED</string>
+		<string>SKIPJACK</string>
+		<string>KICKBALL</string>
+	</array>
+</dict>
 </plist>
-

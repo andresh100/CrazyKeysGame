@@ -218,6 +218,11 @@ class Game {
     func updateTimerLabel() {
         if let scene = scene as? GameScene {
             scene.updateTimerLabel()
+            if((timeAllowed-timeElapsed) <= 10 && (timeAllowed-timeElapsed) > 0 && keyboardSound == true){
+                print("Music Faster")
+                inGame = true
+                MusicHelper.sharedHelper.updateBackgroundMusic()
+            }
         }
     }
     
@@ -245,7 +250,6 @@ class Game {
                 if(keyboardSound == true){
                     do {
                         audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
-                        //        audioPlayer!.numberOfLoops = -1
                         audioPlayer!.prepareToPlay()
                         audioPlayer!.play()
                     }
@@ -292,7 +296,13 @@ class Game {
                 wordProgress = ""
                 chooseNewWord()
                 score += 50
-                timeAllowed += 5
+                if difficulty == 0 {
+                    timeAllowed += 2
+                }else if difficulty == 1 {
+                    timeAllowed += 3
+                }else if difficulty == 2 {
+                    timeAllowed += 5
+                }
                 updateTimerLabel()
                 guard let difficulty = difficulty else {
                     print("no difficulty?")
@@ -312,12 +322,6 @@ class Game {
         }
         
         print("wordProgress: \(wordProgress)")
-        
-        //        if(timeAllowed-timeElapsed <= 10 && keyboardSound == true){
-        //            inGame = true
-        //            MusicHelper.sharedHelper.updateBackgroundMusic()
-        //            print("Music Faster")
-        //        }
         
         updateScore()
         updateProgressLabel()
