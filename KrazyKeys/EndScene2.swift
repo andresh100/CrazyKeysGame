@@ -79,10 +79,10 @@ class EndScene2: SKScene {
         keyboard = Keyboard(rect: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height/3))
         keyboard.initKeys()
         
-        if(keyboardSound == true){
+//        if(keyboardSound == true){
             inGame = false
             MusicHelper.sharedHelper.updateBackgroundMusic()
-        }
+//        }
         
         self.addChild(keyboard)
         self.addChild(welcomeLabel)

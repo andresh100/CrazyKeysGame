@@ -47,10 +47,10 @@ class EndScene: SKScene {
         self.addChild(scoreLabel)
         self.addChild(hsLabel)
         self.addChild(quitLabel)
-        if(keyboardSound == true){
+//        if(keyboardSound == true){
             inGame = false
             MusicHelper.sharedHelper.updateBackgroundMusic()
-        }
+//        }
         
     }
     

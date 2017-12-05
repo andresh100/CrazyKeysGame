@@ -1,6 +1,6 @@
 import AVFoundation
 
-var keyboardSound = false;
+var keyboardSound = true;
 
 class MusicHelper {
     static let sharedHelper = MusicHelper()
@@ -24,7 +24,7 @@ class MusicHelper {
     }
     func updateBackgroundMusic(){
         if(inGame == true){
-            audioPlayer!.rate = 1.2
+            audioPlayer!.rate = 1.5
         }else{
             audioPlayer!.rate = 1
         }

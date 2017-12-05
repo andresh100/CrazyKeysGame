@@ -10,6 +10,7 @@ import GameplayKit
 import AVFoundation
 
 var inGame = false
+var firstTime = true
 
 class MenuScene: SKScene {
     var scrollBg: ScrollBackground?
@@ -46,6 +47,12 @@ class MenuScene: SKScene {
     
     
     override func didMove(to view: SKView) {
+        if firstTime == true{
+            MusicHelper.sharedHelper.playBackgroundMusic()
+            firstTime = false
+        }
+        inGame = false
+        MusicHelper.sharedHelper.updateBackgroundMusic()
         
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
 //        let music = SKAudioNode(fileNamed: "m.mp3")

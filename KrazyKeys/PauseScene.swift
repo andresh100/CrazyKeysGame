@@ -97,7 +97,8 @@ class PauseScene: SKScene {
                         print("error key pressed sound")
                     }
                     }
-                    
+                    game?.timeAllowed = 0
+                    game?.timeElapsed = 0
                 }
             default:
                 return
