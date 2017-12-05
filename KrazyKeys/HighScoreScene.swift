@@ -275,7 +275,7 @@ class HighScoreScene: SKScene {
         easyLabel.horizontalAlignmentMode = .left
         
         easyLabel.position = CGPoint(x: 15, y: frame.midY+200)
-        mediumLabel.position = CGPoint(x: frame.midX+5, y: frame.midY+200)
+        mediumLabel.position = CGPoint(x: frame.midX, y: frame.midY+200)
         hardLabel.position = CGPoint(x: self.size.width-52, y: frame.midY+200)
         
         backLabel.horizontalAlignmentMode = .left
