@@ -232,5 +232,31 @@ class SettingScene: SKScene{
         userDefaults.set(nil, forKey: "name3")
         userDefaults.set(nil, forKey: "name4")
         userDefaults.set(nil, forKey: "name5")
+        
+        userDefaults.set(nil, forKey: "m_highScore1")
+        userDefaults.set(nil, forKey: "m_highScore2")
+        userDefaults.set(nil, forKey: "m_highScore3")
+        userDefaults.set(nil, forKey: "m_highScore4")
+        userDefaults.set(nil, forKey: "m_highScore5")
+        
+        userDefaults.set(nil, forKey: "m_name1")
+        userDefaults.set(nil, forKey: "m_name2")
+        userDefaults.set(nil, forKey: "m_name3")
+        userDefaults.set(nil, forKey: "m_name4")
+        userDefaults.set(nil, forKey: "m_name5")
+        
+        userDefaults.set(nil, forKey: "h_highScore1")
+        userDefaults.set(nil, forKey: "h_highScore2")
+        userDefaults.set(nil, forKey: "h_highScore3")
+        userDefaults.set(nil, forKey: "h_highScore4")
+        userDefaults.set(nil, forKey: "h_highScore5")
+        
+        userDefaults.set(nil, forKey: "h_name1")
+        userDefaults.set(nil, forKey: "h_name2")
+        userDefaults.set(nil, forKey: "h_name3")
+        userDefaults.set(nil, forKey: "h_name4")
+        userDefaults.set(nil, forKey: "h_name5")
+        
+        
     }
 }
