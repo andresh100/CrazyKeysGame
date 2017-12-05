@@ -16,18 +16,6 @@ class HighScoreScene: SKScene {
     
     var data = [[Any]]()
     
-    //var highScore1 = 300
-    //var highScore2 = 500
-    //var highScore3 = 100
-    //var highScore4 = 400
-    //var highScore5 = 200
-    
-//    var name1 = "DRE"
-//    var name2 = "DRE"
-//    var name3 = "DRE"
-//    var name4 = "DRE"
-//    var name5 = "DRE"
-    
     var highScoresLabel : SKLabelNode!
     
     var scoreLabel : SKLabelNode!
@@ -56,26 +44,41 @@ class HighScoreScene: SKScene {
     var scrollBg: ScrollBackground?
     
     let userDefaults = Foundation.UserDefaults.standard
+    var score: Int?
+    var newName: String?
+    
+    var highScore1: Int?
+    var highScore2: Int?
+    var highScore3: Int?
+    var highScore4: Int?
+    var highScore5: Int?
+    
+    var name1: String!
+    var name2: String!
+    var name3: String!
+    var name4: String!
+    var name5: String!
     
     let modelName = UIDevice.current.modelName
     
     override func didMove(to view: SKView) {
+        
+        addLabels()
 
         //Saving score/name
-        let score: Int?
-        let newName: String?
+
         
-        var highScore1: Int? = userDefaults.integer(forKey: "highScore1")
-        var highScore2: Int? = userDefaults.integer(forKey: "highScore2")
-        var highScore3: Int? = userDefaults.integer(forKey: "highScore3")
-        var highScore4: Int? = userDefaults.integer(forKey: "highScore4")
-        var highScore5: Int? = userDefaults.integer(forKey: "highScore5")
+        highScore1 = userDefaults.integer(forKey: "highScore1")
+        highScore2 = userDefaults.integer(forKey: "highScore2")
+        highScore3 = userDefaults.integer(forKey: "highScore3")
+        highScore4 = userDefaults.integer(forKey: "highScore4")
+        highScore5 = userDefaults.integer(forKey: "highScore5")
         
-        var name1: String! = userDefaults.string(forKey: "name1")
-        var name2: String! = userDefaults.string(forKey: "name2")
-        var name3: String! = userDefaults.string(forKey: "name3")
-        var name4: String! = userDefaults.string(forKey: "name4")
-        var name5: String! = userDefaults.string(forKey: "name5")
+        name1 = userDefaults.string(forKey: "name1")
+        name2  = userDefaults.string(forKey: "name2")
+        name3 = userDefaults.string(forKey: "name3")
+        name4 = userDefaults.string(forKey: "name4")
+        name5 = userDefaults.string(forKey: "name5")
         
         if game?.score == nil {
             score = 0
@@ -183,7 +186,6 @@ class HighScoreScene: SKScene {
         print("High score 4: \(highScore4!)")
         print("High score 5: \(highScore5!)")
         
-        //        backgroundColor = SKColor.black
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
         var first = [highScore1!, name1] as [Any]
         var second = [highScore2!, name2] as [Any]
@@ -199,26 +201,61 @@ class HighScoreScene: SKScene {
         
         data = data.sorted { ($0[0] as! Int) < ($1[0] as! Int) }
         
-        //var color = UIColor(red: 1.0 / 255, green: 0.0 / 255, blue: 0.0 / 255, alpha: 0.0)
-        //highScoresLabel.fontColor = color
+        name1Label.text = String(describing: data[4][1])
+        name2Label.text = String(describing: data[3][1])
+        name3Label.text = String(describing: data[2][1])
+        name4Label.text = String(describing: data[1][1])
+        name5Label.text = String(describing: data[0][1])
         
-        backLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        highScore1Label.text = String(describing: data[4][0])
+        highScore2Label.text = String(describing: data[3][0])
+        highScore3Label.text = String(describing: data[2][0])
+        highScore4Label.text = String(describing: data[1][0])
+        highScore5Label.text = String(describing: data[0][0])
         
-        highScoresLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        if(modelName == "iPhone X"){
+            print("This is a \(modelName)")
+            backLabel.position = CGPoint(x: 15.0, y: self.size.height-65)
+        }else{
+            print("This is a \(modelName)")
+            backLabel.position = CGPoint(x: 15.0, y: self.size.height-40)
+        }
         
-        scoreLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let pos = touch.location(in: self)
+            let node = self.atPoint(pos)
+            
+            if node == backLabel {
+                if let view = view {
+                    let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.down, duration: 1)
+                    let scene:SKScene = MenuScene(size: self.size)
+                    self.view?.presentScene(scene, transition: transition)
+                }
+                if(keyboardSound == true){
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                    //        audioPlayer!.numberOfLoops = -1
+                    audioPlayer!.prepareToPlay()
+                    audioPlayer!.play()
+                }
+                catch{
+                    print("error key pressed sound")
+                }
+                }
+            }
+        }
+    }
+    
+    func addLabels() {
+        
         highScore1Label = SKLabelNode(fontNamed: "Fipps-Regular")
         highScore2Label = SKLabelNode(fontNamed: "Fipps-Regular")
         highScore3Label = SKLabelNode(fontNamed: "Fipps-Regular")
         highScore4Label = SKLabelNode(fontNamed: "Fipps-Regular")
         highScore5Label = SKLabelNode(fontNamed: "Fipps-Regular")
-        
-        rankLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        rank1Label = SKLabelNode(fontNamed: "Fipps-Regular")
-        rank2Label = SKLabelNode(fontNamed: "Fipps-Regular")
-        rank3Label = SKLabelNode(fontNamed: "Fipps-Regular")
-        rank4Label = SKLabelNode(fontNamed: "Fipps-Regular")
-        rank5Label = SKLabelNode(fontNamed: "Fipps-Regular")
         
         nameLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         name1Label = SKLabelNode(fontNamed: "Fipps-Regular")
@@ -226,6 +263,17 @@ class HighScoreScene: SKScene {
         name3Label = SKLabelNode(fontNamed: "Fipps-Regular")
         name4Label = SKLabelNode(fontNamed: "Fipps-Regular")
         name5Label = SKLabelNode(fontNamed: "Fipps-Regular")
+        
+        backLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        highScoresLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        scoreLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        
+        rankLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        rank1Label = SKLabelNode(fontNamed: "Fipps-Regular")
+        rank2Label = SKLabelNode(fontNamed: "Fipps-Regular")
+        rank3Label = SKLabelNode(fontNamed: "Fipps-Regular")
+        rank4Label = SKLabelNode(fontNamed: "Fipps-Regular")
+        rank5Label = SKLabelNode(fontNamed: "Fipps-Regular")
         
         backLabel.fontColor = UIColor.white
         
@@ -305,15 +353,8 @@ class HighScoreScene: SKScene {
         name5Label.position = CGPoint(x: frame.midX+100, y: frame.midY-100)
         
         backLabel.text = "BACK"
-        
         highScoresLabel.text = "HIGH SCORES"
-        
         scoreLabel.text = "SCORE"
-        highScore1Label.text = String(describing: data[4][0])
-        highScore2Label.text = String(describing: data[3][0])
-        highScore3Label.text = String(describing: data[2][0])
-        highScore4Label.text = String(describing: data[1][0])
-        highScore5Label.text = String(describing: data[0][0])
         
         rankLabel.text = "RANK"
         rank1Label.text = "1ST"
@@ -323,21 +364,6 @@ class HighScoreScene: SKScene {
         rank5Label.text = "5TH"
         
         nameLabel.text = "NAME"
-        name1Label.text = String(describing: data[4][1])
-        name2Label.text = String(describing: data[3][1])
-        name3Label.text = String(describing: data[2][1])
-        name4Label.text = String(describing: data[1][1])
-        name5Label.text = String(describing: data[0][1])
-        
-        //AnimationHelper.animateLabel(highScoresLabel, 1.1)
-        
-        if(modelName == "iPhone X"){
-            print("This is a \(modelName)")
-            backLabel.position = CGPoint(x: 15.0, y: self.size.height-65)
-        }else{
-            print("This is a \(modelName)")
-            backLabel.position = CGPoint(x: 15.0, y: self.size.height-40)
-        }
         
         self.addChild(backLabel)
         
@@ -364,32 +390,6 @@ class HighScoreScene: SKScene {
         self.addChild(name4Label)
         self.addChild(name5Label)
         
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            let pos = touch.location(in: self)
-            let node = self.atPoint(pos)
-            
-            if node == backLabel {
-                if let view = view {
-                    let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.down, duration: 1)
-                    let scene:SKScene = MenuScene(size: self.size)
-                    self.view?.presentScene(scene, transition: transition)
-                }
-                if(keyboardSound == true){
-                do {
-                    audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
-                    //        audioPlayer!.numberOfLoops = -1
-                    audioPlayer!.prepareToPlay()
-                    audioPlayer!.play()
-                }
-                catch{
-                    print("error key pressed sound")
-                }
-                }
-            }
-        }
     }
     
     
