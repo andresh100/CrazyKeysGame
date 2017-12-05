@@ -271,7 +271,7 @@ class HighScoreScene: SKScene {
         name5Label.position = CGPoint(x: frame.midX+100, y: frame.midY-100)
         
         easyLabel.text = "EASY"
-        mediumLabel.text = "MEDIUM"
+        mediumLabel.text = "MED"
         hardLabel.text = "HARD"
         
         backLabel.text = "BACK"

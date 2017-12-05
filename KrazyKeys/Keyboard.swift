@@ -8,7 +8,7 @@
 
 import Foundation
 import SpriteKit
-
+import AVFoundation
 
 class Keyboard: SKShapeNode {
     
@@ -210,8 +210,18 @@ class KeyboardKey: SKSpriteNode
                 
             }
             print(name + " pressed (ENDSCENE)")
+            if(keyboardSound == true){
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                    //        audioPlayer!.numberOfLoops = -1
+                    audioPlayer!.prepareToPlay()
+                    audioPlayer!.play()
+                }
+                catch{
+                    print("error key pressed sound")
+                }
+            }
         }
-        
     }
     
     // Effects
