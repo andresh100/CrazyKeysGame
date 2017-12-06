@@ -18,6 +18,7 @@ class PauseScene: SKScene {
     var resumeLabel : SKLabelNode!
     var quitLabel : SKLabelNode!
     var playAgainLabel : SKLabelNode!
+    let modelName = UIDevice.current.modelName
     
     override func didMove(to view: SKView) {
         
@@ -47,6 +48,18 @@ class PauseScene: SKScene {
         playAgainLabel.fontSize = 20
         playAgainLabel.position = CGPoint(x: frame.midX, y: frame.midY-60)
         playAgainLabel.text = "RESTART"
+        
+        if(modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "iPhone 8 Plus"){
+            let z = 30
+            welcomeLabel.fontSize = 35
+            resumeLabel.fontSize = CGFloat(z)
+            playAgainLabel.fontSize = CGFloat(z)
+            quitLabel.fontSize = CGFloat(z)
+            welcomeLabel.position = CGPoint(x: frame.midX, y: frame.midY+120)
+            resumeLabel.position = CGPoint(x: frame.midX, y: frame.midY-20)
+            playAgainLabel.position = CGPoint(x: frame.midX, y: frame.midY-100)
+            quitLabel.position = CGPoint(x: frame.midX, y: frame.midY-180)
+        }
         
         self.addChild(playAgainLabel)
         self.addChild(welcomeLabel)

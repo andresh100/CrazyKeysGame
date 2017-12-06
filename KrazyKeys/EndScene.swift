@@ -16,6 +16,7 @@ class EndScene: SKScene {
     var hsLabel : SKLabelNode!
     var quitLabel : SKLabelNode!
     var playAgainLabel : SKLabelNode!
+    let modelName = UIDevice.current.modelName
     
     override func didMove(to view: SKView) {
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
@@ -60,7 +61,12 @@ class EndScene: SKScene {
         inGame = false
         MusicHelper.sharedHelper.updateBackgroundMusic()
         //        }
-        
+        if(modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "iPhone 8 Plus"){
+            welcomeLabel.fontSize = 30
+            scoreLabel.fontSize = 20
+            welcomeLabel.position = CGPoint(x: frame.midX, y: frame.midY+140)
+            scoreLabel.position = CGPoint(x: frame.midX, y: frame.midY+80)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

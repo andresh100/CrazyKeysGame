@@ -233,7 +233,7 @@ class Game {
                     scene.timerLabel.fontColor = UIColor.red
                     AnimationHelper.animateLabel(scene.timerLabel, 1.2)
                 }
-            }else{
+            }else if((timeAllowed-timeElapsed) >= 10 || keyboardSound == false){
                 print("Music Slower")
                 inGame = false
                 MusicHelper.sharedHelper.updateBackgroundMusic()
