@@ -31,6 +31,7 @@ class Game {
     var score: Int = 0
     var scene: SKScene?
     var x = 0
+    var randomNum: Int?
     //    var countDown: CountdownLabel?
     
     var timer = Timer()
@@ -230,6 +231,7 @@ class Game {
                 MusicHelper.sharedHelper.updateBackgroundMusic()
                 if let scene = scene as? GameScene {
                     scene.timerLabel.fontColor = UIColor.red
+                    AnimationHelper.animateLabel(scene.timerLabel, 1.2)
                 }
             }else{
                 print("Music Slower")
@@ -237,6 +239,7 @@ class Game {
                 MusicHelper.sharedHelper.updateBackgroundMusic()
                 if let scene = scene as? GameScene {
                     scene.timerLabel.fontColor = UIColor.green
+                    AnimationHelper.animateLabel(scene.timerLabel, 1)
                 }
             }
         }
@@ -256,7 +259,10 @@ class Game {
                     if let scene = scene as? GameScene {
                         print("x: \(x)")
                         print("math: \(x%2)")
-                        if(x%4 == 0 || x%3 == 0){
+                        //if(x%4 == 0 || x%3 == 0){
+                        randomNum = Int(arc4random_uniform(2))
+                        if randomNum == 0 {
+                            print("randomNum: \(randomNum!)")
                             scene.keyboard.scrambleKeys(swaps: 13)
                         }
                         x+=1
