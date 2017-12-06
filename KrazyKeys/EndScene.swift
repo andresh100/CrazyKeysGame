@@ -15,9 +15,18 @@ class EndScene: SKScene {
     var scoreLabel : SKLabelNode!
     var hsLabel : SKLabelNode!
     var quitLabel : SKLabelNode!
+    var playAgainLabel : SKLabelNode!
     
     override func didMove(to view: SKView) {
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
+        
+        playAgainLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        playAgainLabel.fontColor = UIColor.white
+        playAgainLabel.fontSize = 25
+        playAgainLabel.position = CGPoint(x: frame.midX, y: frame.midY-60)
+        playAgainLabel.text = "PLAY AGAIN"
+        AnimationHelper.animateLabel(playAgainLabel, 1.2)
+        self.addChild(playAgainLabel)
         
         welcomeLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         welcomeLabel.fontColor = UIColor.red
@@ -34,23 +43,23 @@ class EndScene: SKScene {
         hsLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         hsLabel.fontColor = UIColor.white
         hsLabel.fontSize = 20
-        hsLabel.position = CGPoint(x: frame.midX, y: frame.midY-60)
+        hsLabel.position = CGPoint(x: frame.midX, y: frame.midY-120)
         hsLabel.text = "HIGH SCORES"
         
         quitLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         quitLabel.fontColor = UIColor.white
         quitLabel.fontSize = 20
-        quitLabel.position = CGPoint(x: frame.midX, y: frame.midY-120)
+        quitLabel.position = CGPoint(x: frame.midX, y: frame.midY-180)
         quitLabel.text = "QUIT"
         
         self.addChild(welcomeLabel)
         self.addChild(scoreLabel)
         self.addChild(hsLabel)
         self.addChild(quitLabel)
-//        if(keyboardSound == true){
-            inGame = false
-            MusicHelper.sharedHelper.updateBackgroundMusic()
-//        }
+        //        if(keyboardSound == true){
+        inGame = false
+        MusicHelper.sharedHelper.updateBackgroundMusic()
+        //        }
         
     }
     
@@ -61,21 +70,28 @@ class EndScene: SKScene {
             
             switch node {
             case hsLabel:
+                if game!.difficulty == 0 {
+                    difficulty = 0
+                } else if game!.difficulty == 1 {
+                    difficulty = 1
+                } else if game!.difficulty == 2 {
+                    difficulty = 2
+                }
                 if let view = view {
                     let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.right, duration: 1)
                     let scene:SKScene = HighScoreScene(size: self.size)
                     self.view?.presentScene(scene, transition: transition)
                 }
                 if(keyboardSound == true){
-                do {
-                    audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
-                    //        audioPlayer!.numberOfLoops = -1
-                    audioPlayer!.prepareToPlay()
-                    audioPlayer!.play()
-                }
-                catch{
-                    print("error key pressed sound")
-                }
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
                 }
             case quitLabel:
                 if let view = view {
@@ -84,15 +100,33 @@ class EndScene: SKScene {
                     self.view?.presentScene(scene, transition: transition)
                 }
                 if(keyboardSound == true){
-                do {
-                    audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
-                    //        audioPlayer!.numberOfLoops = -1
-                    audioPlayer!.prepareToPlay()
-                    audioPlayer!.play()
+                    do {
+                        audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                        //        audioPlayer!.numberOfLoops = -1
+                        audioPlayer!.prepareToPlay()
+                        audioPlayer!.play()
+                    }
+                    catch{
+                        print("error key pressed sound")
+                    }
                 }
-                catch{
-                    print("error key pressed sound")
-                }
+            case playAgainLabel:
+                if let view = view {
+                    let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.left, duration: 1)
+                    //                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                    let scene:SKScene = DifficultyScene(size: self.size)
+                    self.view?.presentScene(scene, transition: transition)
+                    if(keyboardSound == true){
+                        do {
+                            audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                            //        audioPlayer!.numberOfLoops = -1
+                            audioPlayer!.prepareToPlay()
+                            audioPlayer!.play()
+                        }
+                        catch{
+                            print("error key pressed sound")
+                        }
+                    }
                 }
             default:
                 return

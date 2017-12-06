@@ -175,7 +175,7 @@ class GameScene: SKScene {
     }
     
     func updateScore() {
-        scoreLabel.text = "Score: \(game!.score)"
+        scoreLabel.text = "SCORE: \(game!.score)"
     }
     
     func updateProgressLabel() {
