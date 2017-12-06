@@ -230,6 +230,7 @@ class Game {
                 MusicHelper.sharedHelper.updateBackgroundMusic()
                 if let scene = scene as? GameScene {
                     scene.timerLabel.fontColor = UIColor.red
+                    AnimationHelper.animateLabel(scene.timerLabel, 1.2)
                 }
             }else{
                 print("Music Slower")
@@ -237,6 +238,7 @@ class Game {
                 MusicHelper.sharedHelper.updateBackgroundMusic()
                 if let scene = scene as? GameScene {
                     scene.timerLabel.fontColor = UIColor.green
+                    AnimationHelper.animateLabel(scene.timerLabel, 1)
                 }
             }
         }

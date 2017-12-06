@@ -167,6 +167,9 @@ class HighScoreScene: SKScene {
                     }
                 }
             case backLabel:
+                if ended == true {
+                    ended = false
+                }
                 if let view = view {
                     let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.down, duration: 1)
                     let scene:SKScene = MenuScene(size: self.size)
