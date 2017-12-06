@@ -134,7 +134,7 @@ class Game {
                     //                        let scene:SKScene = EndScene2(size: scene.frame.size)
                     //                        view.presentScene(scene, transition: transition)
                     //                    }
-                    if score >= highScore5! {
+                    if score >= highScore5! && score != 0{
                         if let view = scene.view {
                             let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
                             let scene:SKScene = EndScene2(size: scene.frame.size)
@@ -228,6 +228,16 @@ class Game {
                 print("Music Faster")
                 inGame = true
                 MusicHelper.sharedHelper.updateBackgroundMusic()
+                if let scene = scene as? GameScene {
+                    scene.timerLabel.fontColor = UIColor.red
+                }
+            }else{
+                print("Music Slower")
+                inGame = false
+                MusicHelper.sharedHelper.updateBackgroundMusic()
+                if let scene = scene as? GameScene {
+                    scene.timerLabel.fontColor = UIColor.green
+                }
             }
         }
     }

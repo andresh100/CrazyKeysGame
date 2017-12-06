@@ -25,6 +25,7 @@ var name3: String!
 var name4: String!
 var name5: String!
 var difficulty: Int?
+var ended: Bool?
 
 class HighScoreScene: SKScene {
     
@@ -58,11 +59,16 @@ class HighScoreScene: SKScene {
     var easyLabel : SKLabelNode!
     var mediumLabel : SKLabelNode!
     var hardLabel : SKLabelNode!
+    var playAgainLabel : SKLabelNode!
     
     override func didMove(to view: SKView) {
         
         if difficulty == nil { //Easy scores displayed by default
             difficulty = 0
+        }
+        
+        if ended == nil {
+            ended = false
         }
         
         addLabels()
@@ -178,6 +184,25 @@ class HighScoreScene: SKScene {
                     }
                 }
                 
+            case playAgainLabel:
+                ended = false
+                if let view = view {
+                    let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.left, duration: 1)
+                    //                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                    let scene:SKScene = DifficultyScene(size: self.size)
+                    self.view?.presentScene(scene, transition: transition)
+                    if(keyboardSound == true){
+                        do {
+                            audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                            //        audioPlayer!.numberOfLoops = -1
+                            audioPlayer!.prepareToPlay()
+                            audioPlayer!.play()
+                        }
+                        catch{
+                            print("error key pressed sound")
+                        }
+                    }
+                }
             default:
                 return
             }
@@ -185,6 +210,21 @@ class HighScoreScene: SKScene {
     }
     
     func addLabels() {
+        
+        playAgainLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        playAgainLabel.fontColor = UIColor.white
+        playAgainLabel.fontSize = 20
+        playAgainLabel.verticalAlignmentMode = .bottom
+        playAgainLabel.position = CGPoint(x: frame.midX, y: 90)
+        playAgainLabel.text = "PLAY AGAIN"
+        AnimationHelper.animateLabel(playAgainLabel, 1.2)
+        self.addChild(playAgainLabel)
+        
+        if ended == true {
+            playAgainLabel.isHidden = false
+        } else if ended == false {
+            playAgainLabel.isHidden = true
+        }
         
         easyLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         mediumLabel = SKLabelNode(fontNamed: "Fipps-Regular")
@@ -307,7 +347,7 @@ class HighScoreScene: SKScene {
         mediumLabel.text = "MED"
         hardLabel.text = "HARD"
         
-        backLabel.text = "BACK"
+        backLabel.text = "MENU"
         highScoresLabel.text = "HIGH SCORES"
         scoreLabel.text = "SCORE"
         
@@ -409,7 +449,7 @@ class HighScoreScene: SKScene {
         }
         
         if game?.nameProgress == nil {
-            newName = "ABC"
+            newName = "---"
         } else {
             newName = game?.nameProgress.uppercased()
         }
@@ -431,19 +471,19 @@ class HighScoreScene: SKScene {
         }
         
         if name1 == nil{
-            name1 = "ABC"
+            name1 = "---"
         }
         if name2 == nil{
-            name2 = "ABC"
+            name2 = "---"
         }
         if name3 == nil{
-            name3 = "ABC"
+            name3 = "---"
         }
         if name4 == nil{
-            name4 = "ABC"
+            name4 = "---"
         }
         if name5 == nil{
-            name5 = "ABC"
+            name5 = "---"
         }
         
     }

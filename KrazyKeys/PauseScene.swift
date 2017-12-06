@@ -17,6 +17,7 @@ class PauseScene: SKScene {
     var welcomeLabel : SKLabelNode!
     var resumeLabel : SKLabelNode!
     var quitLabel : SKLabelNode!
+    var playAgainLabel : SKLabelNode!
     
     override func didMove(to view: SKView) {
         
@@ -30,7 +31,7 @@ class PauseScene: SKScene {
         welcomeLabel.text = "GAME PAUSED"
         
         resumeLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        resumeLabel.fontColor = UIColor.yellow
+        resumeLabel.fontColor = UIColor.green
         resumeLabel.fontSize = 20
         resumeLabel.position = CGPoint(x: frame.midX, y: frame.midY)
         resumeLabel.text = "RESUME"
@@ -38,9 +39,16 @@ class PauseScene: SKScene {
         quitLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         quitLabel.fontColor = UIColor.red
         quitLabel.fontSize = 20
-        quitLabel.position = CGPoint(x: frame.midX, y: frame.midY-60)
+        quitLabel.position = CGPoint(x: frame.midX, y: frame.midY-120)
         quitLabel.text = "QUIT"
         
+        playAgainLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        playAgainLabel.fontColor = UIColor.yellow
+        playAgainLabel.fontSize = 20
+        playAgainLabel.position = CGPoint(x: frame.midX, y: frame.midY-60)
+        playAgainLabel.text = "RESTART"
+        
+        self.addChild(playAgainLabel)
         self.addChild(welcomeLabel)
         self.addChild(resumeLabel)
         self.addChild(quitLabel)
@@ -99,6 +107,31 @@ class PauseScene: SKScene {
                     }
                     game?.timeAllowed = 0
                     game?.timeElapsed = 0
+                }
+            case playAgainLabel:
+                if let view = view {
+                    let transition:SKTransition = SKTransition.doorsOpenVertical(withDuration: 1)
+                    //                    let transition:SKTransition = SKTransition.fade(withDuration: 1)
+                    let scene:SKScene = GameScene(size: self.size)
+                    // start game in easy mode
+                    game = Game(scene: scene, difficulty: game!.difficulty!, secondsAllowed: 30, word: "testword")
+                    if let game = game {
+                        game.startTimer()
+                    }
+                    self.view?.presentScene(scene, transition: transition)
+                    if(keyboardSound == true){
+                        do {
+                            audioPlayer = try AVAudioPlayer(contentsOf:rightKeySound as URL)
+                            //        audioPlayer!.numberOfLoops = -1
+                            audioPlayer!.prepareToPlay()
+                            audioPlayer!.play()
+                            //                            inGame = true
+                            //                            MusicHelper.sharedHelper.updateBackgroundMusic()
+                        }
+                        catch{
+                            print("error key pressed sound")
+                        }
+                    }
                 }
             default:
                 return

@@ -112,6 +112,7 @@ class EndScene2: SKScene {
                     } else if game!.difficulty == 2 {
                         difficulty = 2
                     }
+                    ended = true
                     if let view = view {
                         let transition:SKTransition = SKTransition.push(with: SKTransitionDirection.right, duration: 1)
                         let scene:SKScene = HighScoreScene(size: self.size)

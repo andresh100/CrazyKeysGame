@@ -28,7 +28,7 @@ class DifficultyScene: SKScene {
         backLabel.fontColor = UIColor.white
         backLabel.fontSize = 20
         backLabel.horizontalAlignmentMode = .left
-        backLabel.text = "BACK"
+        backLabel.text = "MENU"
         self.addChild(backLabel)
         
         selectLabel = SKLabelNode(fontNamed: "Fipps-Regular")
