@@ -12,6 +12,8 @@ import AVFoundation
 
 class Keyboard: SKShapeNode {
     
+    let modelName = UIDevice.current.modelName
+    
     let swapAnimationTime = TimeInterval(0.2)
     //    let keyDownAnimationTime = TimeInterval(0.2)
     
@@ -70,6 +72,15 @@ class Keyboard: SKShapeNode {
             keys[i].name = keyNames[i]
             keys[i].anchorPoint = CGPoint(x: 0, y: 0)
             keys[i].position = screenPositions[i]
+            if(modelName == "iPhoneP"){
+                keys[i].size = CGSize(width:46.0, height:65.0)
+            } else if (modelName == "iPhoneS" ){
+                keys[i].size = CGSize(width:35.0, height:53.0)
+            } else if(modelName == "iPhoneM" || modelName == "Simulator"){
+                keys[i].size = CGSize(width:42.0, height:59.0)
+            }else if (modelName == "iPads"){
+                keys[i].size = CGSize(width:70.0, height:90.0)
+            }
             keys[i].isUserInteractionEnabled = true
             addChild(keys[i])
         }
