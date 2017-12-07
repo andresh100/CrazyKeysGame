@@ -49,7 +49,7 @@ class PauseScene: SKScene {
         playAgainLabel.position = CGPoint(x: frame.midX, y: frame.midY-60)
         playAgainLabel.text = "RESTART"
         
-        if(modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "iPhone 8 Plus"){
+        if(modelName == "iPhoneP" || modelName == "iPads"){
             let z = 30
             welcomeLabel.fontSize = 35
             resumeLabel.fontSize = CGFloat(z)

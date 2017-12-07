@@ -363,6 +363,64 @@ class HighScoreScene: SKScene {
         
         nameLabel.text = "NAME"
         
+        if(modelName == "iPhoneP" || modelName == "iPads"){
+            highScoresLabel.position = CGPoint(x: frame.midX, y: frame.midY+130)
+            
+            easyLabel.fontSize = 25
+            mediumLabel.fontSize = 25
+            hardLabel.fontSize = 25
+            
+            easyLabel.position = CGPoint(x: 15, y: frame.midY+250)
+            mediumLabel.position = CGPoint(x: frame.midX, y: frame.midY+250)
+            hardLabel.position = CGPoint(x: self.size.width-60, y: frame.midY+250)
+            
+            highScoresLabel.fontSize = 30
+            playAgainLabel.fontSize = 30
+            
+            let z = 20
+            scoreLabel.fontSize = CGFloat(z)
+            highScore1Label.fontSize = CGFloat(z)
+            highScore2Label.fontSize = CGFloat(z)
+            highScore3Label.fontSize = CGFloat(z)
+            highScore4Label.fontSize = CGFloat(z)
+            highScore5Label.fontSize = CGFloat(z)
+            
+            rankLabel.fontSize = CGFloat(z)
+            rank1Label.fontSize = CGFloat(z)
+            rank2Label.fontSize = CGFloat(z)
+            rank3Label.fontSize = CGFloat(z)
+            rank4Label.fontSize = CGFloat(z)
+            rank5Label.fontSize = CGFloat(z)
+            
+            nameLabel.fontSize = CGFloat(z)
+            name1Label.fontSize = CGFloat(z)
+            name2Label.fontSize = CGFloat(z)
+            name3Label.fontSize = CGFloat(z)
+            name4Label.fontSize = CGFloat(z)
+            name5Label.fontSize = CGFloat(z)
+            
+            scoreLabel.position = CGPoint(x: frame.midX, y: frame.midY+50)
+            highScore1Label.position = CGPoint(x: frame.midX, y: frame.midY+10)
+            highScore2Label.position = CGPoint(x: frame.midX, y: frame.midY-30)
+            highScore3Label.position = CGPoint(x: frame.midX, y: frame.midY-70)
+            highScore4Label.position = CGPoint(x: frame.midX, y: frame.midY-110)
+            highScore5Label.position = CGPoint(x: frame.midX, y: frame.midY-150)
+            
+            rankLabel.position = CGPoint(x: frame.midX-130, y: frame.midY+50)
+            rank1Label.position = CGPoint(x: frame.midX-130, y: frame.midY+10)
+            rank2Label.position = CGPoint(x: frame.midX-130, y: frame.midY-30)
+            rank3Label.position = CGPoint(x: frame.midX-130, y: frame.midY-70)
+            rank4Label.position = CGPoint(x: frame.midX-130, y: frame.midY-110)
+            rank5Label.position = CGPoint(x: frame.midX-130, y: frame.midY-150)
+            
+            nameLabel.position = CGPoint(x: frame.midX+130, y: frame.midY+50)
+            name1Label.position = CGPoint(x: frame.midX+130, y: frame.midY+10)
+            name2Label.position = CGPoint(x: frame.midX+130, y: frame.midY-30)
+            name3Label.position = CGPoint(x: frame.midX+130, y: frame.midY-70)
+            name4Label.position = CGPoint(x: frame.midX+130, y: frame.midY-110)
+            name5Label.position = CGPoint(x: frame.midX+130, y: frame.midY-150)
+        }
+        
         self.addChild(easyLabel)
         self.addChild(mediumLabel)
         self.addChild(hardLabel)

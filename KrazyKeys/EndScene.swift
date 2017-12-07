@@ -61,7 +61,9 @@ class EndScene: SKScene {
         inGame = false
         MusicHelper.sharedHelper.updateBackgroundMusic()
         //        }
-        if(modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "iPhone 8 Plus"){
+//        if(modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "iPhone 8 Plus"
+//            || modelName == "iPad Pro 9.4" || modelName == "iPad Pro 10.5" || modelName == "iPad Pro 10.5"){
+        if(modelName == "iPhoneP" || modelName == "iPads"){
             welcomeLabel.fontSize = 30
             scoreLabel.fontSize = 20
             welcomeLabel.position = CGPoint(x: frame.midX, y: frame.midY+140)

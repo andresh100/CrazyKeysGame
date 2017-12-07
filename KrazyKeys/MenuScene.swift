@@ -96,7 +96,7 @@ class MenuScene: SKScene {
             label[0].position = CGPoint(x: frame.midX, y: frame.midY)
             label[1].position = CGPoint(x: frame.midX, y: frame.midY-60)
             label[2].position = CGPoint(x: frame.midX, y: frame.midY-120)
-        }else if(modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "iPhone 8 Plus"){
+        }else if(modelName == "iPhoneP" || modelName == "iPads"){
             let z = 25
             label[0].fontSize = 40
             label[1].fontSize = CGFloat(z)
