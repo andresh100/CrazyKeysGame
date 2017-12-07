@@ -111,8 +111,8 @@ class PauseScene: SKScene {
                         //        audioPlayer!.numberOfLoops = -1
                         audioPlayer!.prepareToPlay()
                         audioPlayer!.play()
-                        inGame = false
-                        MusicHelper.sharedHelper.updateBackgroundMusic()
+                        //inGame = false
+//                        MusicHelper.sharedHelper.updateBackgroundMusic()
                     }
                     catch{
                         print("error key pressed sound")
@@ -138,8 +138,8 @@ class PauseScene: SKScene {
                             //        audioPlayer!.numberOfLoops = -1
                             audioPlayer!.prepareToPlay()
                             audioPlayer!.play()
-                            //                            inGame = true
-                            //                            MusicHelper.sharedHelper.updateBackgroundMusic()
+                            //inGame = false
+//                            MusicHelper.sharedHelper.updateBackgroundMusic()
                         }
                         catch{
                             print("error key pressed sound")

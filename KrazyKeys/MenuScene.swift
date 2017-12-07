@@ -9,7 +9,7 @@ import SpriteKit
 import GameplayKit
 import AVFoundation
 
-var inGame = false
+//var inGame = false
 var firstTime = true
 
 class MenuScene: SKScene {
@@ -32,8 +32,8 @@ class MenuScene: SKScene {
             MusicHelper.sharedHelper.playBackgroundMusic()
             firstTime = false
         }
-        inGame = false
-        MusicHelper.sharedHelper.updateBackgroundMusic()
+        //inGame = false
+//        MusicHelper.sharedHelper.updateBackgroundMusic()
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
         
         let moveForward = SKAction.moveTo(x: 1024, duration: 2)

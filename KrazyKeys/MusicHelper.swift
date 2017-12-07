@@ -22,13 +22,13 @@ class MusicHelper {
             print("Cannot play the file")
         }
     }
-    func updateBackgroundMusic(){
-        if(inGame == true){
-            audioPlayer!.rate = 1.5
-        }else{
-            audioPlayer!.rate = 1
-        }
-    }
+//    func updateBackgroundMusic(){
+//        if(inGame == true){
+//            audioPlayer!.rate = 1.5
+//        }else{
+//            audioPlayer!.rate = 1
+//        }
+//    }
     func stopBackgroundMusic(){
         do {
             audioPlayer = try AVAudioPlayer(contentsOf:aSound as URL)
