@@ -81,8 +81,8 @@ class EndScene2: SKScene {
         keyboard.initKeys()
         
         //        if(keyboardSound == true){
-        inGame = false
-        MusicHelper.sharedHelper.updateBackgroundMusic()
+        //inGame = false
+//        MusicHelper.sharedHelper.updateBackgroundMusic()
         //        }
         
         if(modelName == "iPhoneP" || modelName == "iPads"){

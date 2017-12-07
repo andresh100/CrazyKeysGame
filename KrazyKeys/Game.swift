@@ -15,6 +15,7 @@ let wrongKeySound = NSURL(fileURLWithPath: (Bundle.main.path(forResource: "wrong
 var audioPlayer: AVAudioPlayer?
 
 var game: Game?
+var inGame = false
 
 class Game {
     
@@ -114,6 +115,7 @@ class Game {
             
             if timeElapsed >= timeAllowed
             {
+                inGame = false
                 // time up!
                 //                print("Time's up!")
                 
@@ -225,18 +227,20 @@ class Game {
     func updateTimerLabel() {
         if let scene = scene as? GameScene {
             scene.updateTimerLabel()
-            if((timeAllowed-timeElapsed) <= 10 && (timeAllowed-timeElapsed) > 0 && keyboardSound == true){
-                print("Music Faster")
-                inGame = true
-                MusicHelper.sharedHelper.updateBackgroundMusic()
+            if((timeAllowed-timeElapsed) <= 10 && (timeAllowed-timeElapsed) > 1){
+//                if (keyboardSound == true){
+//                    print("Music Faster")
+//                    inGame = true
+//                    MusicHelper.sharedHelper.updateBackgroundMusic()
+//                }
                 if let scene = scene as? GameScene {
                     scene.timerLabel.fontColor = UIColor.red
                     AnimationHelper.animateLabel(scene.timerLabel, 1.2)
                 }
-            }else if((timeAllowed-timeElapsed) >= 10 || keyboardSound == false){
-                print("Music Slower")
-                inGame = false
-                MusicHelper.sharedHelper.updateBackgroundMusic()
+            }else { //if((timeAllowed-timeElapsed) > 10){
+//                print("Music Slower")
+//                inGame = false
+//                MusicHelper.sharedHelper.updateBackgroundMusic()
                 if let scene = scene as? GameScene {
                     scene.timerLabel.fontColor = UIColor.green
                     AnimationHelper.animateLabel(scene.timerLabel, 1)

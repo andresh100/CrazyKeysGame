@@ -58,8 +58,8 @@ class EndScene: SKScene {
         self.addChild(hsLabel)
         self.addChild(quitLabel)
         //        if(keyboardSound == true){
-        inGame = false
-        MusicHelper.sharedHelper.updateBackgroundMusic()
+        //inGame = false
+//        MusicHelper.sharedHelper.updateBackgroundMusic()
         //        }
 //        if(modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "iPhone 8 Plus"
 //            || modelName == "iPad Pro 9.4" || modelName == "iPad Pro 10.5" || modelName == "iPad Pro 10.5"){
