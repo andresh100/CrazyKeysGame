@@ -227,7 +227,7 @@ class Game {
     func updateTimerLabel() {
         if let scene = scene as? GameScene {
             scene.updateTimerLabel()
-            if((timeAllowed-timeElapsed) <= 10 && (timeAllowed-timeElapsed) > 1){
+            if((timeAllowed-timeElapsed) <= 10 && (timeAllowed-timeElapsed) > 0){
 //                if (keyboardSound == true){
 //                    print("Music Faster")
 //                    inGame = true
