@@ -20,6 +20,7 @@ class EndScene2: SKScene {
     //var nameProgress = ""
     var doneLabel : SKLabelNode!
     var undoLabel : SKLabelNode!
+    let modelName = UIDevice.current.modelName
     
     var keyboard : Keyboard!
     
@@ -84,6 +85,12 @@ class EndScene2: SKScene {
         MusicHelper.sharedHelper.updateBackgroundMusic()
         //        }
         
+        if(modelName == "iPhoneP" || modelName == "iPads"){
+            welcomeLabel.fontSize = 25
+            scoreLabel.fontSize = 20
+            welcomeLabel.position = CGPoint(x: frame.midX, y: frame.midY+140)
+            scoreLabel.position = CGPoint(x: frame.midX, y: frame.midY+80)
+        }
         self.addChild(keyboard)
         self.addChild(welcomeLabel)
         self.addChild(scoreLabel)

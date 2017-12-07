@@ -67,7 +67,7 @@ class DifficultyScene: SKScene {
         if(modelName == "iPhone X"){
             print("This is a \(modelName)")
             backLabel.position = CGPoint(x: 15.0, y: self.size.height-65)
-        }else if(modelName == "iPhone 6 Plus" || modelName == "iPhone 6s Plus" || modelName == "iPhone 7 Plus" || modelName == "iPhone 8 Plus"){
+        }else if(modelName == "iPhoneP" || modelName == "iPads"){
             let z = 30
             backLabel.position = CGPoint(x: 15.0, y: self.size.height-40)
             selectLabel.fontSize = CGFloat(z)

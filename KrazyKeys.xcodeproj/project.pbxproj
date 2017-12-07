@@ -24,6 +24,7 @@
 		63CFD52B1F80135200A95068 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63CFD52A1F80135200A95068 /* Assets.xcassets */; };
 		63CFD52E1F80135200A95068 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63CFD52C1F80135200A95068 /* LaunchScreen.storyboard */; };
 		63CFD5361F80149A00A95068 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFD5351F80149A00A95068 /* MenuScene.swift */; };
+		A5480AE61FD8C53D00423654 /* imageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5480AE51FD8C53D00423654 /* imageHelper.swift */; };
 		A58EAE4B1F9C256900CACCD7 /* CountdownLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58EAE4A1F9C256800CACCD7 /* CountdownLabel.swift */; };
 		A5A304051F92B7D600A8D393 /* SettingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A304041F92B7D600A8D393 /* SettingScene.swift */; };
 		A5A304071F92B8B000A8D393 /* words.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5A304061F92B8B000A8D393 /* words.plist */; };
@@ -55,6 +56,7 @@
 		63CFD52D1F80135200A95068 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63CFD52F1F80135200A95068 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63CFD5351F80149A00A95068 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		A5480AE51FD8C53D00423654 /* imageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageHelper.swift; sourceTree = "<group>"; };
 		A58EAE4A1F9C256800CACCD7 /* CountdownLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownLabel.swift; sourceTree = "<group>"; };
 		A5A304041F92B7D600A8D393 /* SettingScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingScene.swift; sourceTree = "<group>"; };
 		A5A304061F92B8B000A8D393 /* words.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = words.plist; sourceTree = "<group>"; };
@@ -107,12 +109,13 @@
 				A5A304041F92B7D600A8D393 /* SettingScene.swift */,
 				A5AB4F6D1FAE6DC300E55650 /* EndScene.swift */,
 				A5AA551C1FD08A540053C05D /* EndScene2.swift */,
+				A5E3593A1F9BCF630092C9E2 /* Keyboard.swift */,
+				A5480AE51FD8C53D00423654 /* imageHelper.swift */,
 				A5AA551A1FD08A190053C05D /* MusicHelper.swift */,
 				A5B400E61FD49C21002C33F9 /* iphoneTypeHelper.swift */,
 				5BCCE9571F83DEE2007EFD86 /* AnimationHelper.swift */,
 				A58EAE4A1F9C256800CACCD7 /* CountdownLabel.swift */,
 				63CFD5251F80135200A95068 /* GameViewController.swift */,
-				A5E3593A1F9BCF630092C9E2 /* Keyboard.swift */,
 				63CFD5271F80135200A95068 /* Main.storyboard */,
 				63CFD52A1F80135200A95068 /* Assets.xcassets */,
 				5B73D4031FD8706B007EADC7 /* wrongKeyPress.wav */,
@@ -215,6 +218,7 @@
 				A58EAE4B1F9C256900CACCD7 /* CountdownLabel.swift in Sources */,
 				5BCCE9581F83DEE2007EFD86 /* AnimationHelper.swift in Sources */,
 				A5AB4F6C1FAE650E00E55650 /* ScrollBackground.swift in Sources */,
+				A5480AE61FD8C53D00423654 /* imageHelper.swift in Sources */,
 				5BB0060F1F81789A0053FC9B /* HighScoreScene.swift in Sources */,
 				63CFD5361F80149A00A95068 /* MenuScene.swift in Sources */,
 				A5B400E71FD49C21002C33F9 /* iphoneTypeHelper.swift in Sources */,

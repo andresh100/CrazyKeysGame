@@ -62,6 +62,7 @@ class Keyboard: SKShapeNode {
         //            SKSpriteNode(imageNamed: $0)
         //        }
         for name in keyNames {
+//            resizeImage(image: UIImage(named: name + "_up")!, targetSize: CGSize(width:200.0, height:200.0))
             keys.append(KeyboardKey(imageNamed: name + "_up"))
         }
         
