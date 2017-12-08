@@ -15,7 +15,7 @@ let wrongKeySound = NSURL(fileURLWithPath: (Bundle.main.path(forResource: "wrong
 var audioPlayer: AVAudioPlayer?
 
 var game: Game?
-var inGame = false
+//var inGame = false
 
 class Game {
     
@@ -43,6 +43,7 @@ class Game {
     var nameProgress = "ENTER INITIALS:"
     
     init(scene: SKScene, difficulty: Int, secondsAllowed: TimeInterval, word: String) {
+        
         self.scene = scene
         self.timeAllowed = secondsAllowed
         self.difficulty = difficulty
@@ -110,44 +111,56 @@ class Game {
     @objc
     func timerFired()
     {
-        if !isPaused {
-            timeElapsed += 1
-            
-            if timeElapsed >= timeAllowed
-            {
-                inGame = false
-                // time up!
-                //                print("Time's up!")
+        if timerInterval != 0 {
+            if !isPaused {
+                timeElapsed += 1
                 
-                //Saving score
-                let score = game!.score
-                let highscore5 : Int?
-                if game!.difficulty == 0 {
-                    highScore5 = userDefaults.integer(forKey: "highScore5")
-                } else if game!.difficulty == 1 {
-                    highScore5 = userDefaults.integer(forKey: "m_highScore5")
-                } else if game!.difficulty == 2 {
-                    highScore5 = userDefaults.integer(forKey: "h_highScore5")
+                if (keyboardSound == true) {
+                    if timeAllowed-timeElapsed <= 10 {
+                        print("Music Faster")
+                        MusicHelper.sharedHelper.updateBackgroundMusic(speedUp: true)
+                    } else {
+                        print("Music Slower")
+                        MusicHelper.sharedHelper.updateBackgroundMusic(speedUp: false)
+                    }
                 }
                 
-                if let scene = scene {
-                    //Choose which EndScene to present
-                    //                    if let view = scene.view {
-                    //                        let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
-                    //                        let scene:SKScene = EndScene2(size: scene.frame.size)
-                    //                        view.presentScene(scene, transition: transition)
-                    //                    }
-                    if score >= highScore5! && score != 0{
-                        if let view = scene.view {
-                            let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
-                            let scene:SKScene = EndScene2(size: scene.frame.size)
-                            view.presentScene(scene, transition: transition)
-                        }
-                    } else {
-                        if let view = scene.view {
-                            let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
-                            let scene:SKScene = EndScene(size: scene.frame.size)
-                            view.presentScene(scene, transition: transition)
+                if timeElapsed >= timeAllowed
+                {
+                    print("Music Slower")
+                    MusicHelper.sharedHelper.updateBackgroundMusic(speedUp: false)
+                    // time up!
+                    //                print("Time's up!")
+                    //Saving score
+                    let score = game!.score
+                    let highscore5 : Int?
+                    if game!.difficulty == 0 {
+                        highScore5 = userDefaults.integer(forKey: "highScore5")
+                    } else if game!.difficulty == 1 {
+                        highScore5 = userDefaults.integer(forKey: "m_highScore5")
+                    } else if game!.difficulty == 2 {
+                        highScore5 = userDefaults.integer(forKey: "h_highScore5")
+                    }
+                    
+                    if let scene = scene {
+                        //Choose which EndScene to present
+                        //                    if let view = scene.view {
+                        //                        let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
+                        //                        let scene:SKScene = EndScene2(size: scene.frame.size)
+                        //                        view.presentScene(scene, transition: transition)
+                        //                    }
+                        if score >= highScore5! && score != 0{
+                            if let view = scene.view {
+                                let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
+                                let scene:SKScene = EndScene2(size: scene.frame.size)
+                                view.presentScene(scene, transition: transition)
+                            }
+                        } else {
+                            if let view = scene.view {
+                                let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
+                                let scene:SKScene = EndScene(size: scene.frame.size)
+                                view.presentScene(scene, transition: transition)
+                            }
                         }
                     }
                 }
@@ -227,23 +240,17 @@ class Game {
     func updateTimerLabel() {
         if let scene = scene as? GameScene {
             scene.updateTimerLabel()
-            if((timeAllowed-timeElapsed) <= 10 && (timeAllowed-timeElapsed) > 0){
-//                if (keyboardSound == true){
-//                    print("Music Faster")
-//                    inGame = true
-//                    MusicHelper.sharedHelper.updateBackgroundMusic()
-//                }
-                if let scene = scene as? GameScene {
-                    scene.timerLabel.fontColor = UIColor.red
-                    AnimationHelper.animateLabel(scene.timerLabel, 1.2)
-                }
-            }else { //if((timeAllowed-timeElapsed) > 10){
-//                print("Music Slower")
-//                inGame = false
-//                MusicHelper.sharedHelper.updateBackgroundMusic()
-                if let scene = scene as? GameScene {
-                    scene.timerLabel.fontColor = UIColor.green
-                    AnimationHelper.animateLabel(scene.timerLabel, 1)
+            if timeAllowed-timeElapsed > 0 {
+                if timeAllowed-timeElapsed <= 10 {
+                    if let scene = scene as? GameScene {
+                        scene.timerLabel.fontColor = UIColor.red
+                        AnimationHelper.animateLabel(scene.timerLabel, 1.2)
+                    }
+                } else {
+                    if let scene = scene as? GameScene {
+                        scene.timerLabel.fontColor = UIColor.green
+                        AnimationHelper.animateLabel(scene.timerLabel, 1)
+                    }
                 }
             }
         }

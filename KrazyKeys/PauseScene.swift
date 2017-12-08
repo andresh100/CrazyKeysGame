@@ -99,6 +99,11 @@ class PauseScene: SKScene {
                     }
                 }
             case quitLabel:
+                if (keyboardSound == true){
+                    print("Music Slower")
+                    //speedUp = false
+                    MusicHelper.sharedHelper.updateBackgroundMusic(speedUp: false)
+                }
                 game!.quit = true
                 if let view = view {
                     let transition:SKTransition = SKTransition.doorsCloseVertical(withDuration: 1)
@@ -122,6 +127,11 @@ class PauseScene: SKScene {
                     game?.timeElapsed = 0
                 }
             case playAgainLabel:
+                if (keyboardSound == true){
+                    print("Music Slower")
+                    //speedUp = false
+                    MusicHelper.sharedHelper.updateBackgroundMusic(speedUp: false)
+                }
                 if let view = view {
                     let transition:SKTransition = SKTransition.doorsOpenVertical(withDuration: 1)
                     //                    let transition:SKTransition = SKTransition.fade(withDuration: 1)

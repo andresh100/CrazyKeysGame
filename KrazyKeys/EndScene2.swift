@@ -26,6 +26,12 @@ class EndScene2: SKScene {
     
     override func didMove(to view: SKView) {
         
+        if (keyboardSound == true){
+            print("Music Slower")
+            //speedUp = false
+            MusicHelper.sharedHelper.updateBackgroundMusic(speedUp: false)
+        }
+        
         game!.needsUpdate = true
         
         name = "endScene"
