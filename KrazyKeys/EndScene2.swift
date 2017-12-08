@@ -117,7 +117,7 @@ class EndScene2: SKScene {
             switch node {
                 
             case doneLabel:
-                if game!.nameProgress.count == 3 && game!.nameProgress != "ENTER INITIALS:" {
+                if game!.nameProgress.count == 3 && game!.nameProgress != "ENTER INITIALS" {
                     if game!.difficulty == 0 {
                         difficulty = 0
                     } else if game!.difficulty == 1 {
