@@ -47,7 +47,7 @@
 		5BCCE9571F83DEE2007EFD86 /* AnimationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationHelper.swift; sourceTree = "<group>"; };
 		5BF5D0EF1F81A2E000BCD04A /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
 		6301B8281FA525E900F2C2E4 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		63CFD51A1F80135200A95068 /* KrazyKeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KrazyKeys.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63CFD51A1F80135200A95068 /* CrazyKeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrazyKeys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63CFD51D1F80135200A95068 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63CFD5231F80135200A95068 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		63CFD5251F80135200A95068 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 		63CFD51B1F80135200A95068 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				63CFD51A1F80135200A95068 /* KrazyKeys.app */,
+				63CFD51A1F80135200A95068 /* CrazyKeys.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,7 +147,7 @@
 			);
 			name = KrazyKeys;
 			productName = KrazyKeys;
-			productReference = 63CFD51A1F80135200A95068 /* KrazyKeys.app */;
+			productReference = 63CFD51A1F80135200A95068 /* CrazyKeys.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -162,7 +162,7 @@
 				TargetAttributes = {
 					63CFD5191F80135200A95068 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = WLM9DB9GD5;
+						DevelopmentTeam = XK6SN6HZQZ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -349,11 +349,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = WLM9DB9GD5;
+				DEVELOPMENT_TEAM = XK6SN6HZQZ;
 				INFOPLIST_FILE = KrazyKeys/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nedink.crazyKeysAlissa;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nedink.crazyKeys;
+				PRODUCT_NAME = CrazyKeys;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -363,11 +363,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = WLM9DB9GD5;
+				DEVELOPMENT_TEAM = XK6SN6HZQZ;
 				INFOPLIST_FILE = KrazyKeys/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nedink.crazyKeysAlissa;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nedink.crazyKeys;
+				PRODUCT_NAME = CrazyKeys;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

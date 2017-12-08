@@ -101,7 +101,7 @@ class GameScene: SKScene {
             pauseLabel.position = CGPoint(x: 15.0, y: self.size.height-65)
             scoreLabel.position = CGPoint(x: self.size.width-15, y: self.size.height-65)
             welcomeLabel.position = CGPoint(x: 100, y: self.size.height-65)
-        }else if(modelName == "iPhone 5s" || modelName == "iPhone SE"){
+        }else if(modelName == "iPhoneS" || modelName == "iPhoneM" || modelName == "Simulator"){
             print("This is a \(modelName)")
             pauseLabel.position = CGPoint(x: 15.0, y: self.size.height-40)
             scoreLabel.position = CGPoint(x: self.size.width-15, y: self.size.height-40)
