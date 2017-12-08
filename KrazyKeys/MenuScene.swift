@@ -28,6 +28,7 @@ class MenuScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        
         if firstTime == true{
             MusicHelper.sharedHelper.playBackgroundMusic()
             firstTime = false

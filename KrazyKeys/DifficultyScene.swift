@@ -22,6 +22,7 @@ class DifficultyScene: SKScene {
     let modelName = UIDevice.current.modelName
     
     override func didMove(to view: SKView) {
+
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
         
         backLabel = SKLabelNode(fontNamed: "Fipps-Regular")

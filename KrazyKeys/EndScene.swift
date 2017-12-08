@@ -19,6 +19,13 @@ class EndScene: SKScene {
     let modelName = UIDevice.current.modelName
     
     override func didMove(to view: SKView) {
+        
+        if (keyboardSound == true){
+            print("Music Slower")
+            //speedUp = false
+            MusicHelper.sharedHelper.updateBackgroundMusic(speedUp: false)
+        }
+        
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
         
         playAgainLabel = SKLabelNode(fontNamed: "Fipps-Regular")

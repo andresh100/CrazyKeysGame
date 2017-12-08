@@ -1,6 +1,7 @@
 import AVFoundation
 
 var keyboardSound = true;
+//var speedUp = false;
 
 class MusicHelper {
     static let sharedHelper = MusicHelper()
@@ -22,13 +23,14 @@ class MusicHelper {
             print("Cannot play the file")
         }
     }
-//    func updateBackgroundMusic(){
-//        if(inGame == true){
-//            audioPlayer!.rate = 1.5
-//        }else{
-//            audioPlayer!.rate = 1
-//        }
-//    }
+    func updateBackgroundMusic(speedUp: Bool){
+        if(speedUp == true){
+            audioPlayer!.rate = 1.5
+        }else{
+            audioPlayer!.rate = 1
+        }
+    }
+    
     func stopBackgroundMusic(){
         do {
             audioPlayer = try AVAudioPlayer(contentsOf:aSound as URL)

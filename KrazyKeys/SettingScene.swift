@@ -23,6 +23,7 @@ class SettingScene: SKScene{
     var scrollBg: ScrollBackground?
     
     override func didMove(to view: SKView) {
+        
 //        backgroundColor = SKColor.black
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
         musicOnLabel = SKLabelNode(fontNamed: "Fipps-Regular")
