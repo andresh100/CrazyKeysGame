@@ -40,7 +40,7 @@ class Game {
     var timeAllowed: TimeInterval = 30
     var timeElapsed: TimeInterval = 0
     
-    var nameProgress = "ENTER INITIALS:"
+    var nameProgress = "ENTER INITIALS"
     
     init(scene: SKScene, difficulty: Int, secondsAllowed: TimeInterval, word: String) {
         

@@ -85,6 +85,8 @@ class EndScene2: SKScene {
         
         keyboard = Keyboard(rect: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height/3))
         keyboard.initKeys()
+        keyboard.fillColor = UIColor.darkGray
+        keyboard.strokeColor = UIColor.init(red: 0.15, green: 0.15, blue: 0.15, alpha: 1)
         
         //        if(keyboardSound == true){
         //inGame = false
@@ -144,7 +146,7 @@ class EndScene2: SKScene {
                     }
                 }
             case undoLabel:
-                if game!.nameProgress != "ENTER INITIALS:" {
+                if game!.nameProgress != "ENTER INITIALS" {
                     game!.nameProgress = game!.nameProgress.substring(to: game!.nameProgress.index(before: game!.nameProgress.endIndex))
                     updateProgressLabel()
                 }
@@ -181,10 +183,10 @@ class EndScene2: SKScene {
     
     func updateProgressLabel() {
         if game!.nameProgress == "" {
-            game!.nameProgress = "ENTER INITIALS:"
+            game!.nameProgress = "ENTER INITIALS"
         }
         nameProgressLabel.text = game!.nameProgress.uppercased()
-        if game!.nameProgress.count < 3 || game!.nameProgress == "ENTER INITIALS:" {
+        if game!.nameProgress.count < 3 || game!.nameProgress == "ENTER INITIALS" {
             doneLabel.fontColor = UIColor(red: 11/255, green: 142/255, blue: 0/255, alpha: 1.0)
         } else {
             doneLabel.fontColor = UIColor.green
