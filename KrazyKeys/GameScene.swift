@@ -17,6 +17,7 @@ class GameScene: SKScene {
     var welcomeLabel : SKLabelNode!
     var scoreLabel : SKLabelNode!
     var pauseLabel : SKLabelNode!
+    var scrollBg: ScrollBackground?
 //    var timerLabel : CountdownLabel!
     var timerLabel : SKLabelNode!
     
@@ -42,6 +43,7 @@ class GameScene: SKScene {
         
         previousScene = "GameScene"
         backgroundColor = UIColor.init(red: 0.15, green: 0.15, blue: 0.15, alpha: 1)
+//        scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
         
         wordLabel = SKLabelNode(fontNamed: "Fipps-Regular")
         wordLabel.fontColor = UIColor.white
@@ -95,6 +97,8 @@ class GameScene: SKScene {
 
         keyboard = Keyboard(rect: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height/3))
         keyboard.initKeys()
+        keyboard.fillColor = UIColor.darkGray
+        keyboard.strokeColor = UIColor.init(red: 0.15, green: 0.15, blue: 0.15, alpha: 1)
         
         if(modelName == "iPhone X"){
             print("This is a \(modelName)")

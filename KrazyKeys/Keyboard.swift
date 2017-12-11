@@ -32,17 +32,17 @@ class Keyboard: SKShapeNode {
         // 10, 9, 7 keys in rows
         for i in 0..<10 {
             screenPositions.append(
-                CGPoint(x: CGFloat(i) * frame.width / 10,
+                CGPoint(x: CGFloat(i) * (frame.width-8) / 10,
                         y: 2.8 * frame.height / 4))
         }
         for i in 0..<9 {
             screenPositions.append(
-                CGPoint(x: CGFloat(i) * frame.width / 10 + frame.width / 20,
+                CGPoint(x: CGFloat(i) * (frame.width-8) / 10 + frame.width / 20,
                         y: 1.8 * frame.height / 4))
         }
         for i in 0..<7 {
             screenPositions.append(
-                CGPoint(x: CGFloat(i) * frame.width / 10 + 3 * frame.width / 20,
+                CGPoint(x: CGFloat(i) * (frame.width-8) / 10 + 3 * frame.width / 20,
                         y: 0.8 * frame.height / 4))
         }
         // mapping was really slow to compile
@@ -74,8 +74,8 @@ class Keyboard: SKShapeNode {
             keys[i].position = screenPositions[i]
             if(modelName == "iPhoneP"){
                 keys[i].size = CGSize(width:46.0, height:65.0)
-            } else if (modelName == "iPhoneS" ){
-                keys[i].size = CGSize(width:35.0, height:53.0)
+            } else if (modelName == "iPhoneS"){
+                keys[i].size = CGSize(width:34.0, height:51.0)
             } else if(modelName == "iPhoneM" || modelName == "Simulator"){
                 keys[i].size = CGSize(width:42.0, height:59.0)
             }else if (modelName == "iPads"){
@@ -210,7 +210,7 @@ class KeyboardKey: SKSpriteNode
                 // 'scene'
                 
                     
-                    if game!.nameProgress == "ENTER INITIALS:" {
+                    if game!.nameProgress == "ENTER INITIALS" {
                         game!.nameProgress = name
                         scene.updateProgressLabel()
                     } else if game!.nameProgress.count < 3 {
