@@ -83,7 +83,7 @@ class EndScene2: SKScene {
         undoLabel.position = CGPoint(x: 10, y: frame.midY-90)
         undoLabel.text = "UNDO"
         
-        keyboard = Keyboard(rect: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height/3))
+        keyboard = Keyboard(rect: CGRect(x: frame.minX, y: frame.minY + 25, width: frame.width, height: frame.height/3))
         keyboard.initKeys()
         keyboard.fillColor = UIColor.darkGray
         keyboard.strokeColor = UIColor.init(red: 0.15, green: 0.15, blue: 0.15, alpha: 1)
@@ -98,6 +98,9 @@ class EndScene2: SKScene {
             scoreLabel.fontSize = 20
             welcomeLabel.position = CGPoint(x: frame.midX, y: frame.midY+140)
             scoreLabel.position = CGPoint(x: frame.midX, y: frame.midY+80)
+        } else if(modelName == "iPhoneS"){
+            doneLabel.position = CGPoint(x: self.size.width-50, y: frame.midY - 65)
+            undoLabel.position = CGPoint(x: 10, y: frame.midY - 65)
         }
         self.addChild(keyboard)
         self.addChild(welcomeLabel)

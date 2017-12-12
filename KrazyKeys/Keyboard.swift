@@ -32,18 +32,18 @@ class Keyboard: SKShapeNode {
         // 10, 9, 7 keys in rows
         for i in 0..<10 {
             screenPositions.append(
-                CGPoint(x: CGFloat(i) * (frame.width-8) / 10,
-                        y: 2.8 * frame.height / 4))
+                CGPoint(x: CGFloat(i) * (frame.width - 8) / 10,
+                        y: (2.8 * frame.height / 4) + 25))
         }
         for i in 0..<9 {
             screenPositions.append(
-                CGPoint(x: CGFloat(i) * (frame.width-8) / 10 + frame.width / 20,
-                        y: 1.8 * frame.height / 4))
+                CGPoint(x: CGFloat(i) * (frame.width - 8) / 10 + frame.width / 20,
+                        y: (1.8 * frame.height / 4) + 25))
         }
         for i in 0..<7 {
             screenPositions.append(
-                CGPoint(x: CGFloat(i) * (frame.width-8) / 10 + 3 * frame.width / 20,
-                        y: 0.8 * frame.height / 4))
+                CGPoint(x: CGFloat(i) * (frame.width - 8) / 10 + 3 * frame.width / 20,
+                        y: (0.8 * frame.height / 4) + 25))
         }
         // mapping was really slow to compile
         /*
@@ -64,7 +64,7 @@ class Keyboard: SKShapeNode {
         //            SKSpriteNode(imageNamed: $0)
         //        }
         for name in keyNames {
-//            resizeImage(image: UIImage(named: name + "_up")!, targetSize: CGSize(width:200.0, height:200.0))
+            //            resizeImage(image: UIImage(named: name + "_up")!, targetSize: CGSize(width:200.0, height:200.0))
             keys.append(KeyboardKey(imageNamed: name + "_up"))
         }
         
@@ -209,15 +209,15 @@ class KeyboardKey: SKSpriteNode
                 // add 'name' to label that is being filled in for high score name
                 // 'scene'
                 
-                    
-                    if game!.nameProgress == "ENTER INITIALS" {
-                        game!.nameProgress = name
-                        scene.updateProgressLabel()
-                    } else if game!.nameProgress.count < 3 {
-                        game!.nameProgress.append(name)
-                        scene.updateProgressLabel()
-                    }
-                    
+                
+                if game!.nameProgress == "ENTER INITIALS" {
+                    game!.nameProgress = name
+                    scene.updateProgressLabel()
+                } else if game!.nameProgress.count < 3 {
+                    game!.nameProgress.append(name)
+                    scene.updateProgressLabel()
+                }
+                
                 
                 
             }

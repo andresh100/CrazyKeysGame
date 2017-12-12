@@ -95,7 +95,7 @@ class GameScene: SKScene {
         timerLabel.position = CGPoint(x: frame.midX, y: self.size.height-130)
         timerLabel.text = "30"
 
-        keyboard = Keyboard(rect: CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height/3))
+        keyboard = Keyboard(rect: CGRect(x: frame.minX, y: frame.minY + 25, width: frame.width, height: frame.height/3))
         keyboard.initKeys()
         keyboard.fillColor = UIColor.darkGray
         keyboard.strokeColor = UIColor.init(red: 0.15, green: 0.15, blue: 0.15, alpha: 1)
