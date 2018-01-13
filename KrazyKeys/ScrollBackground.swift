@@ -13,8 +13,8 @@ class ScrollBackground {
     
     var view: UIView?
     var scene: SKScene?
-    var background1 = SKSpriteNode(imageNamed: "backgroundGradient")
-    var background2 = SKSpriteNode(imageNamed: "backgroundGradient")
+    var background1 = SKSpriteNode(imageNamed: "background")
+    var background2 = SKSpriteNode(imageNamed: "background")
     
     init(view: UIView, scene: SKScene) {
         self.view = view
@@ -29,9 +29,9 @@ class ScrollBackground {
         scene.addChild(background1)
         scene.addChild(background2)
         
-//        let backgroundColorAction = SKAction.colorize(with: UIColor.black, colorBlendFactor: 1.0, duration: 0)
-//        background1.run(backgroundColorAction)
-//        background2.run(backgroundColorAction)
+        let backgroundColorAction = SKAction.colorize(with: UIColor.black, colorBlendFactor: 1.0, duration: 0)
+        background1.run(backgroundColorAction)
+        background2.run(backgroundColorAction)
         background1.zPosition = -100
         background2.zPosition = -100
         

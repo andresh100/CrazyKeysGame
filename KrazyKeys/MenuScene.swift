@@ -12,7 +12,8 @@ import AVFoundation
 //var inGame = false
 var firstTime = true
 //var font = "Fipps-Regular"
-var font = "Futura-CondensedExtraBold"
+//var font = "Futura-CondensedExtraBold"
+var font = "Futura-Medium"
 
 class MenuScene: SKScene {
     var scrollBg: ScrollBackground?
@@ -45,7 +46,7 @@ class MenuScene: SKScene {
         
         for i in 0..<char.count {
             let newLabel = SKLabelNode(fontNamed: font)
-            newLabel.fontColor = UIColor.black;
+            newLabel.fontColor = UIColor.green;
             newLabel.fontSize = 80
             newLabel.text = String(char[i])
             labelTitle.append(newLabel)
@@ -53,9 +54,8 @@ class MenuScene: SKScene {
         for i in 0..<3 {
             let newLabel = SKLabelNode(fontNamed: font)
             newLabel.fontColor = UIColor.white
-            newLabel.fontSize = 30
+            newLabel.fontSize = 20
             label.append(newLabel)
-            
         }
         
         
@@ -73,12 +73,13 @@ class MenuScene: SKScene {
         label[1].position = CGPoint(x: frame.midX, y: frame.midY-60)
         label[2].position = CGPoint(x: frame.midX, y: frame.midY-120)
         
-        label[0].fontSize = 30
+//        label[0].fontSize = 30
         label[0].text = "PLAY"
         label[1].text = "HIGH SCORES"
         label[2].text = "SETTINGS"
         
         let allLabels : [SKLabelNode] = [labelTitle[0], labelTitle[1], labelTitle[2], labelTitle[3], labelTitle[4], labelTitle[5], labelTitle[6], labelTitle[7], labelTitle[8], label[0], label[1], label[2]]
+//        let allLabels : [SKLabelNode] = [labelTitle[0], labelTitle[1], labelTitle[2], labelTitle[3], labelTitle[4], labelTitle[5], labelTitle[6], labelTitle[7], labelTitle[8], label[0]]
         for label in allLabels {
             AnimationHelper.adjustLabelFontSizeToFitScreen(labelNode: label)
         }
@@ -106,9 +107,9 @@ class MenuScene: SKScene {
             label[0].position = CGPoint(x: frame.midX, y: frame.midY)
             label[1].position = CGPoint(x: frame.midX, y: frame.midY-80)
             label[2].position = CGPoint(x: frame.midX, y: frame.midY-160)
-//            for i in 0..<char.count {
-//                labelTitle[i].fontSize = 60
-//            }
+            for i in 0..<char.count {
+                labelTitle[i].fontSize = 60
+            }
         }else{
             label[0].position = CGPoint(x: frame.midX, y: frame.midY)
             label[1].position = CGPoint(x: frame.midX, y: frame.midY-60)
