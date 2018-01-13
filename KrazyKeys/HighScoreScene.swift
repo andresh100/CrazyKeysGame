@@ -214,7 +214,7 @@ class HighScoreScene: SKScene {
     
     func addLabels() {
         
-        playAgainLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        playAgainLabel = SKLabelNode(fontNamed: font)
         playAgainLabel.fontColor = UIColor.white
         playAgainLabel.fontSize = 20
         playAgainLabel.verticalAlignmentMode = .bottom
@@ -229,33 +229,33 @@ class HighScoreScene: SKScene {
             playAgainLabel.isHidden = true
         }
         
-        easyLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        mediumLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        hardLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        easyLabel = SKLabelNode(fontNamed: font)
+        mediumLabel = SKLabelNode(fontNamed: font)
+        hardLabel = SKLabelNode(fontNamed: font)
         
-        highScore1Label = SKLabelNode(fontNamed: "Fipps-Regular")
-        highScore2Label = SKLabelNode(fontNamed: "Fipps-Regular")
-        highScore3Label = SKLabelNode(fontNamed: "Fipps-Regular")
-        highScore4Label = SKLabelNode(fontNamed: "Fipps-Regular")
-        highScore5Label = SKLabelNode(fontNamed: "Fipps-Regular")
+        highScore1Label = SKLabelNode(fontNamed: font)
+        highScore2Label = SKLabelNode(fontNamed: font)
+        highScore3Label = SKLabelNode(fontNamed: font)
+        highScore4Label = SKLabelNode(fontNamed: font)
+        highScore5Label = SKLabelNode(fontNamed: font)
         
-        nameLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        name1Label = SKLabelNode(fontNamed: "Fipps-Regular")
-        name2Label = SKLabelNode(fontNamed: "Fipps-Regular")
-        name3Label = SKLabelNode(fontNamed: "Fipps-Regular")
-        name4Label = SKLabelNode(fontNamed: "Fipps-Regular")
-        name5Label = SKLabelNode(fontNamed: "Fipps-Regular")
+        nameLabel = SKLabelNode(fontNamed: font)
+        name1Label = SKLabelNode(fontNamed: font)
+        name2Label = SKLabelNode(fontNamed: font)
+        name3Label = SKLabelNode(fontNamed: font)
+        name4Label = SKLabelNode(fontNamed: font)
+        name5Label = SKLabelNode(fontNamed: font)
         
-        backLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        highScoresLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        scoreLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        backLabel = SKLabelNode(fontNamed: font)
+        highScoresLabel = SKLabelNode(fontNamed: font)
+        scoreLabel = SKLabelNode(fontNamed: font)
         
-        rankLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        rank1Label = SKLabelNode(fontNamed: "Fipps-Regular")
-        rank2Label = SKLabelNode(fontNamed: "Fipps-Regular")
-        rank3Label = SKLabelNode(fontNamed: "Fipps-Regular")
-        rank4Label = SKLabelNode(fontNamed: "Fipps-Regular")
-        rank5Label = SKLabelNode(fontNamed: "Fipps-Regular")
+        rankLabel = SKLabelNode(fontNamed: font)
+        rank1Label = SKLabelNode(fontNamed: font)
+        rank2Label = SKLabelNode(fontNamed: font)
+        rank3Label = SKLabelNode(fontNamed: font)
+        rank4Label = SKLabelNode(fontNamed: font)
+        rank5Label = SKLabelNode(fontNamed: font)
         
         updateColors()
         

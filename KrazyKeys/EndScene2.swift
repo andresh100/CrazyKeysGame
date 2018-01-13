@@ -38,45 +38,45 @@ class EndScene2: SKScene {
         
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
         
-        welcomeLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        welcomeLabel = SKLabelNode(fontNamed: font)
         welcomeLabel.fontColor = UIColor.red
         welcomeLabel.fontSize = 20
         welcomeLabel.position = CGPoint(x: frame.midX, y: frame.midY+120)
         welcomeLabel.text = "NEW HIGH SCORE!"
         AnimationHelper.animateLabel(welcomeLabel, 1.2)
         
-        scoreLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        scoreLabel = SKLabelNode(fontNamed: font)
         scoreLabel.fontColor = UIColor.yellow
         scoreLabel.fontSize = 20
         scoreLabel.position = CGPoint(x: frame.midX, y: frame.midY+60)
         scoreLabel.text = "SCORE: \(game!.score)"
         
-        nameProgressLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        nameProgressLabel = SKLabelNode(fontNamed: font)
         nameProgressLabel.fontColor = UIColor.cyan
         nameProgressLabel.fontSize = 20
         nameProgressLabel.position = CGPoint(x: frame.midX, y: frame.midY)
         nameProgressLabel.text = game!.nameProgress.uppercased()
         
-        //hsLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        //hsLabel = SKLabelNode(fontNamed: font)
         //hsLabel.fontColor = UIColor.white
         //hsLabel.fontSize = 20
         //hsLabel.position = CGPoint(x: frame.midX, y: frame.midY-60)
         //hsLabel.text = "HIGH SCORES"
         
-        //quitLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        //quitLabel = SKLabelNode(fontNamed: font)
         //quitLabel.fontColor = UIColor.white
         //quitLabel.fontSize = 20
         //quitLabel.position = CGPoint(x: frame.midX, y: frame.midY-120)
         //quitLabel.text = "QUIT"
         
-        doneLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        doneLabel = SKLabelNode(fontNamed: font)
         doneLabel.fontColor = UIColor(red: 11/255, green: 142/255, blue: 0/255, alpha: 1.0)
         doneLabel.fontSize = 20
         //doneLabel.horizontalAlignmentMode = .right
         doneLabel.position = CGPoint(x: self.size.width-50, y: frame.midY-90)
         doneLabel.text = "DONE"
         
-        undoLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        undoLabel = SKLabelNode(fontNamed: font)
         undoLabel.fontColor = UIColor.red
         undoLabel.fontSize = 20
         undoLabel.horizontalAlignmentMode = .left

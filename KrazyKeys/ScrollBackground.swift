@@ -13,8 +13,8 @@ class ScrollBackground {
     
     var view: UIView?
     var scene: SKScene?
-    var background1 = SKSpriteNode(imageNamed: "background")
-    var background2 = SKSpriteNode(imageNamed: "background")
+    var background1 = SKSpriteNode(imageNamed: "backgroundGradient")
+    var background2 = SKSpriteNode(imageNamed: "backgroundGradient")
     
     init(view: UIView, scene: SKScene) {
         self.view = view
@@ -29,16 +29,15 @@ class ScrollBackground {
         scene.addChild(background1)
         scene.addChild(background2)
         
-        let backgroundColorAction = SKAction.colorize(with: UIColor.black, colorBlendFactor: 1.0, duration: 0)
-        background1.run(backgroundColorAction)
-        background2.run(backgroundColorAction)
+//        let backgroundColorAction = SKAction.colorize(with: UIColor.black, colorBlendFactor: 1.0, duration: 0)
+//        background1.run(backgroundColorAction)
+//        background2.run(backgroundColorAction)
         background1.zPosition = -100
         background2.zPosition = -100
         
         var scrollAction1: [SKAction] = []
         let snapLeft1 = SKAction.move(to: CGPoint(x: -background1.frame.width, y: view.frame.minY), duration: 0.0)
         let scrollRight1 = SKAction.move(to: CGPoint(x: view.frame.minX, y: view.frame.minY), duration: 15.0)
-        //        (by: CGVector(dx: background1.frame.width, dy: 0), duration: 4.0)
         scrollAction1.append(snapLeft1)
         scrollAction1.append(scrollRight1)
         
@@ -48,7 +47,6 @@ class ScrollBackground {
         var scrollAction2: [SKAction] = []
         let snapLeft2 = SKAction.move(to: CGPoint(x: view.frame.minX, y: view.frame.minY), duration: 0.0)
         let scrollRight2 = SKAction.move(to: CGPoint(x: background1.frame.width, y: view.frame.minY), duration: 15.0)
-        //        (by: CGVector(dx: background1.frame.width, dy: 0), duration: 4.0)
         scrollAction2.append(snapLeft2)
         scrollAction2.append(scrollRight2)
         

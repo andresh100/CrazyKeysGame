@@ -11,6 +11,8 @@ import AVFoundation
 
 //var inGame = false
 var firstTime = true
+//var font = "Fipps-Regular"
+var font = "Futura-CondensedExtraBold"
 
 class MenuScene: SKScene {
     var scrollBg: ScrollBackground?
@@ -28,7 +30,6 @@ class MenuScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-        
         if firstTime == true{
             MusicHelper.sharedHelper.playBackgroundMusic()
             firstTime = false
@@ -43,16 +44,16 @@ class MenuScene: SKScene {
         let repeatForever = SKAction.repeatForever(sequence)
         
         for i in 0..<char.count {
-            let newLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-            newLabel.fontColor = UIColor.green;
-            newLabel.fontSize = 50
+            let newLabel = SKLabelNode(fontNamed: font)
+            newLabel.fontColor = UIColor.black;
+            newLabel.fontSize = 80
             newLabel.text = String(char[i])
             labelTitle.append(newLabel)
         }
         for i in 0..<3 {
-            let newLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+            let newLabel = SKLabelNode(fontNamed: font)
             newLabel.fontColor = UIColor.white
-            newLabel.fontSize = 20
+            newLabel.fontSize = 30
             label.append(newLabel)
             
         }

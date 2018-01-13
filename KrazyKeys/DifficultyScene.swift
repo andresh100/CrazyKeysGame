@@ -25,18 +25,18 @@ class DifficultyScene: SKScene {
 
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
         
-        backLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        backLabel = SKLabelNode(fontNamed: font)
         backLabel.fontColor = UIColor.white
         backLabel.fontSize = 20
         backLabel.horizontalAlignmentMode = .left
         backLabel.text = "MENU"
         self.addChild(backLabel)
         
-        selectLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        difficultyLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        easyLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        mediumLabel = SKLabelNode(fontNamed: "Fipps-Regular")
-        hardLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        selectLabel = SKLabelNode(fontNamed: font)
+        difficultyLabel = SKLabelNode(fontNamed: font)
+        easyLabel = SKLabelNode(fontNamed: font)
+        mediumLabel = SKLabelNode(fontNamed: font)
+        hardLabel = SKLabelNode(fontNamed: font)
         
         selectLabel.fontColor = UIColor.white
         difficultyLabel.fontColor = UIColor.white

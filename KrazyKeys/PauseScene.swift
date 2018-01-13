@@ -25,25 +25,25 @@ class PauseScene: SKScene {
 //        backgroundColor = SKColor.black
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
         
-        welcomeLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        welcomeLabel = SKLabelNode(fontNamed: font)
         welcomeLabel.fontColor = UIColor.white
         welcomeLabel.fontSize = 20
         welcomeLabel.position = CGPoint(x: frame.midX, y: frame.midY+90)
         welcomeLabel.text = "GAME PAUSED"
         
-        resumeLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        resumeLabel = SKLabelNode(fontNamed: font)
         resumeLabel.fontColor = UIColor.green
         resumeLabel.fontSize = 20
         resumeLabel.position = CGPoint(x: frame.midX, y: frame.midY)
         resumeLabel.text = "RESUME"
         
-        quitLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        quitLabel = SKLabelNode(fontNamed: font)
         quitLabel.fontColor = UIColor.red
         quitLabel.fontSize = 20
         quitLabel.position = CGPoint(x: frame.midX, y: frame.midY-120)
         quitLabel.text = "QUIT"
         
-        playAgainLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        playAgainLabel = SKLabelNode(fontNamed: font)
         playAgainLabel.fontColor = UIColor.yellow
         playAgainLabel.fontSize = 20
         playAgainLabel.position = CGPoint(x: frame.midX, y: frame.midY-60)

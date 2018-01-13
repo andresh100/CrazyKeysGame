@@ -26,44 +26,44 @@ class SettingScene: SKScene{
         
 //        backgroundColor = SKColor.black
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
-        musicOnLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        musicOnLabel = SKLabelNode(fontNamed: font)
         musicOnLabel.fontColor = UIColor.white
         musicOnLabel.fontSize = 30
         musicOnLabel.position = CGPoint(x: frame.midX, y: frame.midY + 80)
         musicOnLabel.text = "MUSIC ON"
         
-        musicOffLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        musicOffLabel = SKLabelNode(fontNamed: font)
         musicOffLabel.fontColor = UIColor.white
         musicOffLabel.fontSize = 30
         musicOffLabel.position = CGPoint(x: frame.midX, y: frame.midY + 80)
         musicOffLabel.text = "MUSIC OFF"
         
-        soundOnLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        soundOnLabel = SKLabelNode(fontNamed: font)
         soundOnLabel.fontColor = UIColor.white
         soundOnLabel.fontSize = 30
         soundOnLabel.position = CGPoint(x: frame.midX, y: frame.midY)
         soundOnLabel.text = "SOUND ON"
         
-        soundOffLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        soundOffLabel = SKLabelNode(fontNamed: font)
         soundOffLabel.fontColor = UIColor.white
         soundOffLabel.fontSize = 30
         soundOffLabel.position = CGPoint(x: frame.midX, y: frame.midY)
         soundOffLabel.text = "SOUND OFF"
         
-        resetLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        resetLabel = SKLabelNode(fontNamed: font)
         resetLabel.fontColor = UIColor.red
         resetLabel.fontSize = 20
         resetLabel.position = CGPoint(x: frame.midX, y: frame.midY - 100)
         resetLabel.text = "RESET DATA"
         
-        successLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        successLabel = SKLabelNode(fontNamed: font)
         successLabel.fontColor = UIColor.cyan
         successLabel.fontSize = 20
         successLabel.position = CGPoint(x: frame.midX, y: frame.midY - 100)
         successLabel.text = "SUCCESS!"
         successLabel.isHidden = true
         
-        doneLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        doneLabel = SKLabelNode(fontNamed: font)
         doneLabel.fontColor = UIColor.green
         doneLabel.fontSize = 30
         doneLabel.position = CGPoint(x: frame.midX, y: frame.midY - 200)

@@ -45,20 +45,20 @@ class GameScene: SKScene {
         backgroundColor = UIColor.init(red: 0.15, green: 0.15, blue: 0.15, alpha: 1)
 //        scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
         
-        wordLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        wordLabel = SKLabelNode(fontNamed: font)
         wordLabel.fontColor = UIColor.white
         wordLabel.fontSize = 35
         wordLabel.position = CGPoint(x: frame.midX, y: self.size.height-220)
         wordLabel.text = game!.wordTest
         
-        wordProgressLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        wordProgressLabel = SKLabelNode(fontNamed: font)
         wordProgressLabel.fontColor = UIColor.green
         wordProgressLabel.fontSize = 30
         wordProgressLabel.position = CGPoint(x: frame.midX, y: self.size.height-280)
         wordProgressLabel.text = game!.wordProgress.uppercased()
         
         
-        welcomeLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        welcomeLabel = SKLabelNode(fontNamed: font)
         welcomeLabel.fontSize = 20
         switch (game!.difficulty!)
         {
@@ -76,20 +76,20 @@ class GameScene: SKScene {
             welcomeLabel.fontColor = UIColor.white
         }
         
-        scoreLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        scoreLabel = SKLabelNode(fontNamed: font)
         scoreLabel.fontColor = UIColor.yellow
         scoreLabel.fontSize = 20
         scoreLabel.horizontalAlignmentMode = .right
         scoreLabel.text = "SCORE: \(game!.score)"
         
-        pauseLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        pauseLabel = SKLabelNode(fontNamed: font)
         pauseLabel.fontColor = UIColor.yellow
         pauseLabel.fontSize = 20
         pauseLabel.horizontalAlignmentMode = .left
         pauseLabel.text = "II"
         
         
-        timerLabel = CountdownLabel(fontNamed: "Fipps-Regular")
+        timerLabel = CountdownLabel(fontNamed: font)
         timerLabel.fontColor = UIColor.green
         timerLabel.fontSize = 30
         timerLabel.position = CGPoint(x: frame.midX, y: self.size.height-130)

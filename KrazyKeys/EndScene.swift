@@ -28,7 +28,7 @@ class EndScene: SKScene {
         
         scrollBg = ScrollBackground(view: self.view!, scene: self.scene!)
         
-        playAgainLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        playAgainLabel = SKLabelNode(fontNamed: font)
         playAgainLabel.fontColor = UIColor.white
         playAgainLabel.fontSize = 25
         playAgainLabel.position = CGPoint(x: frame.midX, y: frame.midY-60)
@@ -36,25 +36,25 @@ class EndScene: SKScene {
         AnimationHelper.animateLabel(playAgainLabel, 1.2)
         self.addChild(playAgainLabel)
         
-        welcomeLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        welcomeLabel = SKLabelNode(fontNamed: font)
         welcomeLabel.fontColor = UIColor.red
         welcomeLabel.fontSize = 20
         welcomeLabel.position = CGPoint(x: frame.midX, y: frame.midY+120)
         welcomeLabel.text = "GAME OVER"
         
-        scoreLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        scoreLabel = SKLabelNode(fontNamed: font)
         scoreLabel.fontColor = UIColor.yellow
         scoreLabel.fontSize = 20
         scoreLabel.position = CGPoint(x: frame.midX, y: frame.midY+60)
         scoreLabel.text = "SCORE: \(game!.score)"
         
-        hsLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        hsLabel = SKLabelNode(fontNamed: font)
         hsLabel.fontColor = UIColor.white
         hsLabel.fontSize = 20
         hsLabel.position = CGPoint(x: frame.midX, y: frame.midY-120)
         hsLabel.text = "HIGH SCORES"
         
-        quitLabel = SKLabelNode(fontNamed: "Fipps-Regular")
+        quitLabel = SKLabelNode(fontNamed: font)
         quitLabel.fontColor = UIColor.white
         quitLabel.fontSize = 20
         quitLabel.position = CGPoint(x: frame.midX, y: frame.midY-180)
