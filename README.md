@@ -1,5 +1,5 @@
 # CrazyKeysGame
-<img src="/Assets/header.jpg">
+<img src="/Assets/header.jfif">
 This IOS game is made so that people can train their hand eye coordination while typing words as fast as they can. The users are given three different difficulty levels to choose from (easy, medium and hard). Depending on the difficulty level they choose, the keyboard will react differently. On easy the keyboard will stay the same as a normal qwerty keyboard we are all used to and love. On Medium, the keyboard will shuffle around after every word correctly typed. On Hard the keys are shuffled after a random amount of keystrokes, so it could happen at any point and you need to be paying a lot of attention in order to get a good score.
 
 There is a timer in place in order to control the game play. If a user misses inputs then they loose time, however every time they finish a word they receive some extra time as well.
